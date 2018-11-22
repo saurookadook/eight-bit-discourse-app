@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 // import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 // import { LinkContainer } from 'react-router-bootstrap'
 import * as routes from '../constants/routes';
-import '../styles/NavBar.css'
+import '../styles/css/NavBar.css'
 
 // TODO: this seems unnecessary?
 // const { tokenValid } = localStorage.token;
@@ -14,7 +14,7 @@ const NavBar = ({ isAuthenticated }) =>
         <NavLink className="NavLink px-1 text-light" to={routes.POSTS}>Latest Posts</NavLink>
         { isAuthenticated ? ( 
           <React.Fragment>
-            <NavLink className="NavLink px-1 text-light" to={routes.USER_POSTS}>Your Posts</NavLink>
+            {/* <NavLink className="NavLink px-1 text-light" to={routes.USER_POSTS}>Your Posts</NavLink> */}
             <NavLink className="NavLink px-1 ml-4 text-light" to={routes.LOG_OUT}>Logout</NavLink>
             </React.Fragment>
          ) : (
