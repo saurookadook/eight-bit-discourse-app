@@ -23,10 +23,10 @@ if (!localStorage.getItem('token')) {
 
 ReactDOM.render(
     <Provider store={store}>
-      <App />
+        <App />
     </Provider>,
     document.getElementById("root") // eslint-disable-line no-undef
-  );
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

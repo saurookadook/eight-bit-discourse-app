@@ -9,8 +9,8 @@ import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
 
 // Content
-// import PostsPage from './containers/PostsPage';
-// import PostPage from './containers/PostPage';
+import PostsPage from './containers/PostsPage';
+import PostPage from './containers/PostPage';
 import AccountPage from './components/AccountPage';
 // import UserPostsPage from './containers/UserPostsPage';
 
@@ -30,8 +30,8 @@ class App extends Component {
     const publicViews = (
       <div className="container">
         <Route exact path={routes.HOME} component={Welcome} />
-        {/* <Route exact path={routes.POSTS} component={PostsPage} /> */}
-        {/* <Route exact path={routes.POST} component={PostPage} /> */}
+        <Route exact path={routes.POSTS} component={PostsPage} />
+        <Route exact path={routes.POST} component={PostPage} />
         <Route exact path={routes.LOG_IN} component={LogInForm} />
         <Route exact path={routes.SIGN_UP} component={SignUpForm} />
       </div>
@@ -40,8 +40,8 @@ class App extends Component {
     const protectedViews = (
       <div className="container">
         <Route exact path={routes.HOME} component={Welcome} />
-        {/* <Route exact path={routes.POSTS} component={PostsPage} /> */}
-        {/* <Route exact path={routes.POST} component={PostPage} /> */}
+        <Route exact path={routes.POSTS} component={PostsPage} />
+        <Route exact path={routes.POST} component={PostPage} />
         {/* <Route exact path={routes.USERS} component={UsersList} /> */}
         <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} /> 
         {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */}
