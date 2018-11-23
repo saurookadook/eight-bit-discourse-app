@@ -85,7 +85,7 @@ export const authenticate = (authCredentials) => {
     // })
 
       .then(res => {
-        debugger
+        // debugger
         res.json()})
       .then(response => {
           debugger
@@ -114,7 +114,7 @@ export const getUser = (userCredentials) => {
     body: JSON.stringify({user: userCredentials}),
     // credentials: 'same-origin'
   })
-  debugger
+  // debugger
   // return fetch(`${API_URL}/find_user`, {
   //   method: "POST",
   //   headers: {
