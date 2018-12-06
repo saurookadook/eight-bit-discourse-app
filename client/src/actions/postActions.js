@@ -1,5 +1,5 @@
-import fetch from 'cross-fetch';
-// import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
+// import fetch from 'cross-fetch';
 import * as types from './actionTypes';
 // TODO: refactor
 import { API_URL } from '../constants/apiUrl';

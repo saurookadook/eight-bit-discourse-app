@@ -36,13 +36,13 @@ class LogInForm extends Component {
     const { history } = this.props
 
     this.props.authenticate(this.state)
-      .then(() => {
-        history.push(routes.HOME)
-        window.alert("#achievement_unlocked")
-      })
       .catch(errors => {
         this.setState({ errors: errors })
         window.alert("Sorry, there was an issue logging you in. Please try again.")
+      })
+      .then(() => {
+        history.push(routes.HOME)
+        window.alert("#achievement_unlocked")
       })
   }
 
@@ -57,7 +57,7 @@ class LogInForm extends Component {
         <div className="row justify-content-center">
           <div className="FormUp col-6 p-4 my-4">
             <h3>Continue the discourse...</h3>
-            <form id="post-form" onSubmit={this.onLogIn.bind(this)}>
+            <form id="post-form" onSubmit={this.onLogIn}>
               <p>
                 Email:
                 <input 
@@ -90,8 +90,6 @@ class LogInForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actions, dispatch)
-}
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(null, mapDispatchToProps)(LogInForm);

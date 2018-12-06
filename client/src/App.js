@@ -21,6 +21,8 @@ import SignUpForm from './containers/auth/SignUp';
 import * as routes from './constants/routes';
 import './styles/css/App.css';
 
+// pass signOut function as props?
+
 class App extends Component {
   // TODO: move mapStateToProps to NavBar?
   render() {
@@ -44,8 +46,7 @@ class App extends Component {
         <Route exact path={routes.POST} component={PostPage} />
         {/* <Route exact path={routes.USERS} component={UsersList} /> */}
         <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} /> 
-        {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */}
-        {/* <Route exact path={routes.LOG_OUT} component={LogOut} /> */}
+        {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */} 
       </div>
     )
 

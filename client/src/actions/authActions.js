@@ -1,5 +1,5 @@
-// import fetch from 'isomorphic-fetch';
-import fetch from 'cross-fetch';
+import fetch from 'isomorphic-fetch';
+// import fetch from 'cross-fetch';
 import { API_URL } from '../constants/apiUrl';
 import * as types from './actionTypes.js';
 
@@ -60,15 +60,15 @@ export const signup = (user) => {
 }
 
 export const authenticate = (authCredentials) => {
-  // debugger
+  debugger
   return dispatch => {
     dispatch(authRequest())
     return fetch(`${API_URL}/user_token`, {
       method: 'POST',
-      mode: 'no-cors',
-      credentials: 'omit',
+      // mode: 'no-cors',
+      // credentials: 'omit',
       headers: {
-        'Accept': 'application/json',
+        // 'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({auth: authCredentials}),
@@ -84,9 +84,9 @@ export const authenticate = (authCredentials) => {
     //   // credentials: 'same-origin'
     // })
 
-      .then(res => {
-        // debugger
-        res.json()})
+      .then(resp => {
+        debugger
+        resp.json()})
       .then(response => {
           debugger
           const token = response.jwt;          

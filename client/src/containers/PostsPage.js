@@ -31,13 +31,13 @@ class PostsPage extends Component {
 }
 
 const mapStateToProps = state => {
-  // debugger
+  debugger
   return {
     posts: state.posts
   }
 }
 
-const mapDispatchToProps = dispatch=> {
+const mapDispatchToProps = dispatch => {
   // debugger
   return bindActionCreators(actions, dispatch);
 };

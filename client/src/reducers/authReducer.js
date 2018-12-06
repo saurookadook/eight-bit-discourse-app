@@ -1,5 +1,13 @@
 import * as types from '../actions/actionTypes';
-import initialState from './initialState';
+// import initialState from './initialState';
+
+const initialState = {
+  isAuthenticated: true,
+  isAuthenticating: false,
+  user: {},
+  token: '',
+  errors: []
+}
 
 // refactor
 export default (state = initialState, action) => {

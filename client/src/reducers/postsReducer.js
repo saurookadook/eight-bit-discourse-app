@@ -1,8 +1,14 @@
 import * as types from '../actions/actionTypes';
-import initialState from './initialState';
+// import initialState from './initialState';
+
+const initialState = {
+  loading: false,
+  loaded: false,
+  all: []
+}
 
 // refactor
-export default function postsReducer(state = initialState, action) {
+const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOADING_POSTS:
       // debugger
@@ -30,3 +36,5 @@ export default function postsReducer(state = initialState, action) {
       return state;
   }
 }
+
+export default postsReducer;

@@ -1,5 +1,9 @@
 import * as types from '../actions/actionTypes';
-import initialState from './initialState';
+// import initialState from './initialState';
+
+// const initialState = {
+
+// }
 
 // commentsReducer?
 export default function commentsReducer (state = [], action) {
