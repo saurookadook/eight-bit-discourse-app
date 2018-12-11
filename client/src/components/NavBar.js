@@ -8,19 +8,11 @@ import { logout } from '../actions/authActions';
 import * as routes from '../constants/routes';
 import '../styles/css/NavBar.css'
 
-// TODO: this seems unnecessary?
-// if (!localStorage.getItem('token')) {
-//   localStorage.setItem('token', '');
-  // const { authToken } = localStorage.token;
-// } else {
-//   const { authToken } = localStorage.token;
-// }
-
-const NavBar = ({ authToken, signOut }) =>
+const NavBar = ({ isAuthenticated, signOut }) =>
     <div className="NavBar fixed-top text-left py-2">
         <NavLink className="NavLink px-1 ml-4 text-light" to={routes.HOME}>Home</NavLink>
         <NavLink className="NavLink px-1 text-light" to={routes.POSTS}>Latest Posts</NavLink>
-        { authToken ? ( 
+        { isAuthenticated ? ( 
           <React.Fragment>
             {/* <NavLink className="NavLink px-1 text-light" to={routes.USER_POSTS}>Your Posts</NavLink> */}
             <NavLink className="NavLink px-1 ml-4 text-light" to={routes.HOME} onClick={logout}>Logout</NavLink>
