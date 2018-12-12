@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// Static
+// Navigation
 import NavBar from './components/NavBar';
+import { logout } from './actions/authActions';
+
+// Static
 import { PageLayout } from './components/PageLayout'
 import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
@@ -20,11 +23,11 @@ import SignUpForm from './containers/auth/SignUp';
 
 import * as routes from './constants/routes';
 import './styles/css/App.css';
+import { bindActionCreators } from '../../../../../Library/Caches/typescript/3.1/node_modules/redux';
 
 // pass signOut function as props?
 
 class App extends Component {
-  // TODO: move mapStateToProps to NavBar?
   render() {
     const { isAuthenticated, user } = this.props
     
@@ -52,9 +55,12 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <NavBar isAuthenticated={isAuthenticated} />
+          <NavBar 
+            isAuthenticated={isAuthenticated} 
+            logout={logout} 
+          />
           <PageLayout />
-          { isAuthenticated ? 
+          { isAuthenticated && user ? 
             protectedViews 
             : publicViews }
           <Footer />
@@ -72,7 +78,6 @@ const mapStateToProps = state => {
    }
 }
 
-// export default App = connect(mapStateToProps, {})(App);
+const mapDispatchToProps = dispatch => bindActionCreators(logout, dispatch);
 
-export default connect(mapStateToProps)(App);
-// export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -36,14 +36,15 @@ class LogInForm extends Component {
     const { history } = this.props
 
     this.props.authenticate(this.state)
-      .catch(errors => {
-        this.setState({ errors: errors })
-        window.alert("Sorry, there was an issue logging you in. Please try again.")
-      })
       .then(() => {
         history.push(routes.HOME)
         window.alert("#achievement_unlocked")
       })
+      .catch(errors => {
+        this.setState({ errors: errors })
+        window.alert("Sorry, there was an issue logging you in. Please try again.")
+      })
+      
   }
 
   render() {

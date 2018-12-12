@@ -83,6 +83,8 @@ export const authenticate = authCredentials => {
           dispatch(authFailure(errors))
           localStorage.clear()
       })
+  }
+}
 
     // return fetch(`${API_URL}/user_token`, {
     //   method: 'POST',
@@ -95,8 +97,6 @@ export const authenticate = authCredentials => {
     //   body: JSON.stringify({auth: authCredentials}),
     //   // credentials: 'same-origin'
     // })
-  }
-}
 
 export const getUser = userCredentials => {
   const request = new Request(`${API_URL}/find_user`, {
@@ -116,6 +116,7 @@ export const getUser = userCredentials => {
       // dispatch(authFailure(errors))
       return authFailure(errors)
     })
+};
 
   // return fetch(`${API_URL}/find_user`, {
   //   method: "POST",
@@ -128,4 +129,3 @@ export const getUser = userCredentials => {
   //   }),
   //   credentials: 'same-origin'
   // })
-};

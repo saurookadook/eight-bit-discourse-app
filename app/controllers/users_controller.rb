@@ -29,10 +29,6 @@ class UsersController < ApiController
     def update
     end
 
-    # def signout
-      
-    # end
-
     def delete
     end
 
