@@ -26,9 +26,8 @@ import './styles/css/App.css';
 class App extends Component {
   // TODO: move mapStateToProps to NavBar?
   render() {
-
     const { isAuthenticated, user } = this.props
-
+    
     const publicViews = (
       <div className="container">
         <Route exact path={routes.HOME} component={Welcome} />
@@ -65,9 +64,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  debugger
-  return { ...state }
+const mapStateToProps = state => {
+  return { 
+    ...state,
+    isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user
+   }
 }
 
 // export default App = connect(mapStateToProps, {})(App);

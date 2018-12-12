@@ -17,7 +17,7 @@ const authSuccess = (user, token) => {
   }
 }
 
-const authFailure = (errors) => {
+const authFailure = errors => {
   return {
     type: types.AUTHENTICATION_FAILURE,
     errors: errors
@@ -33,8 +33,7 @@ export const logout = () => {
   }
 }
 
-export const signup = (user) => {
-  // debugger;
+export const signup = user => {
   return dispatch => {
     return fetch(`${API_URL}/users`, {
       method: "POST",
@@ -43,7 +42,6 @@ export const signup = (user) => {
         "Content-Type":"application/json"
       },
       body: JSON.stringify({user: user}),
-      // credentials: 'same-origin'
     })
       .then(response => response.json())
       .then(jresp => {
@@ -53,57 +51,54 @@ export const signup = (user) => {
           password: user.password})
         );
       })
-      .catch((errors) => {
+      .catch(errors => {
         dispatch(authFailure(errors))
       })
   };
 }
 
-export const authenticate = (authCredentials) => {
-  debugger
+export const authenticate = authCredentials => {
   return dispatch => {
     dispatch(authRequest())
-    return fetch(`${API_URL}/user_token`, {
-      method: 'POST',
-      // mode: 'no-cors',
-      // credentials: 'omit',
-      headers: {
-        // 'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+    const request = new Request(`${API_URL}/user_token`, {
+      method: "POST",
+      headers: new Headers({
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      }),
       body: JSON.stringify({auth: authCredentials}),
-      // credentials: 'same-origin'
     })
-    // const request = new Request(`${API_URL}/user_token`, {
-    //   method: "POST",
-    //   headers: new Headers({
-    //     "Accept": "application/json",
-    //     "Content-Type": "application/json",
-    //   }),
-    //   body: JSON.stringify({user: userCredentials}),
-    //   // credentials: 'same-origin'
-    // })
 
-      .then(resp => {
-        debugger
-        resp.json()})
+    return fetch(request)
+      .then(resp => resp.json())
       .then(response => {
-          debugger
           const token = response.jwt;          
           localStorage.setItem('token', token);
           return getUser(authCredentials)
       })
-      .then((user) => {
+      .then(user => {
           dispatch(authSuccess(user, localStorage.token))
       })
-      .catch((errors) => {
+      .catch(errors => {
           dispatch(authFailure(errors))
           localStorage.clear()
       })
+
+    // return fetch(`${API_URL}/user_token`, {
+    //   method: 'POST',
+    //   // mode: 'no-cors',
+    //   // credentials: 'include',
+    //   headers: {
+    //     // 'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({auth: authCredentials}),
+    //   // credentials: 'same-origin'
+    // })
   }
 }
 
-export const getUser = (userCredentials) => {
+export const getUser = userCredentials => {
   const request = new Request(`${API_URL}/find_user`, {
     method: "POST",
     headers: new Headers({
@@ -112,9 +107,16 @@ export const getUser = (userCredentials) => {
       "Authorization": `Bearer ${localStorage.token}`,
     }),
     body: JSON.stringify({user: userCredentials}),
-    // credentials: 'same-origin'
   })
-  // debugger
+  
+  return fetch(request)
+    .then(response => response.json())
+    .then(userJson => userJson)
+    .catch(errors => {
+      // dispatch(authFailure(errors))
+      return authFailure(errors)
+    })
+
   // return fetch(`${API_URL}/find_user`, {
   //   method: "POST",
   //   headers: {
@@ -126,10 +128,4 @@ export const getUser = (userCredentials) => {
   //   }),
   //   credentials: 'same-origin'
   // })
-  return fetch(request)
-    .then(response => response.json())
-    .then(userJson => {return userJson})
-    .catch(error => {
-      return error;
-    });
-}
+};
