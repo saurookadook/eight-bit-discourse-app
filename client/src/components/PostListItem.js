@@ -27,17 +27,15 @@ class PostListItem extends Component {
     //   } 
     // })
     this.setState((prevState, props) => {
-      debugger
       return {
-        ...prevState,
-        post: {
-          ...prevState.post, 
-          vote_count: prevState.post.vote_count++}
+          ...prevState,
+          vote_count: prevState.post.vote_count++
         }
     })
   }
 
   render() {
+    // debugger
     return (
       <div className="CloudBubble p-2 my-2">
         <Link className="text-dark" to={`/posts/${this.state.post.id}`}>

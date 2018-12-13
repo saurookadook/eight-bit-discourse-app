@@ -5,10 +5,11 @@ import { submitPost } from '../actions/postActions.js';
 import '../styles/css/App.css';
 
 class PostForm extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
+      ...this.state,
       title: '',
       game: '',
       author: {},
@@ -40,7 +41,7 @@ class PostForm extends Component {
 
   render() {
     // debugger
-    const { userLoggedIn } = this.props.user.hasOwnProperty('id') ? this.props.user : false;
+    let userLoggedIn = this.props.user.hasOwnProperty('id') ? this.props.user : false;
 
     return (
       <div className="container">
@@ -75,6 +76,11 @@ class PostForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  // debugger
+  return { ...state };
+}
+
 const mapDispatchToProps = dispatch => bindActionCreators({ submitPost }, dispatch);
 
-export default connect(null, mapDispatchToProps)(PostForm);
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
