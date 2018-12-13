@@ -10,6 +10,7 @@ export const SET_POSTS = "SET_POSTS";
 export const FETCH_POST = "FETCH_POST";
 export const FETCH_POSTS = "FETCH_POSTS";
 export const SUBMITTING_POST = "SUBMITTING_POST";
+export const UPDATING_POST = "UPDATING_POST";
 export const LOADING_POST = "LOADING_POST";
 export const LOADING_POSTS = "LOADING_POSTS";
 export const UPDATE_POST = "UPDATE_POST";

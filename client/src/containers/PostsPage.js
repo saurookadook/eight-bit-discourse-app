@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as actions from '../actions'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+// import { updatePost } from '../actions/postActions';
 import PostForm from './PostForm';
 import PostsList from '../components/PostsList';
 import { LoadingPage } from '../components/LoadingPage';
@@ -20,7 +21,10 @@ class PostsPage extends Component {
         { hasData ? (
           <React.Fragment>
             <PostForm />
-            <PostsList postsList={this.props.posts.all} />
+            <PostsList 
+              postsList={this.props.posts.all} 
+              // updatePost={updatePost} 
+            />
           </React.Fragment>
         ) : (
           <LoadingPage />
@@ -31,7 +35,7 @@ class PostsPage extends Component {
 }
 
 const mapStateToProps = state => {
-  debugger
+  // debugger
   return {
     posts: state.posts
   }

@@ -7,21 +7,34 @@ class PostListItem extends Component {
     super(props)
 
     this.state = {
-      post: props.post,
-      votes: 0
+      post: props.post
     }
   }
 
   onClickHandler = event => {
     event.preventDefault();
     // debugger
-    this.setState({
-      votes: this.state.votes += 1
-    })
-    // this.setState((prevState, props) => {
-    //   debugger
-    //   return {post: prevState.post, votes: prevState.votes++}
+
+    // TODO: abstract this in PostsList?
+    // const { currentState } = this.state
+    // const { currentPost } = this.state.post
+
+    // this.setState({
+    //   ...currentState,
+    //   post: {
+    //     ...currentPost,
+    //     vote_count: currentPost.vote_count += 1
+    //   } 
     // })
+    this.setState((prevState, props) => {
+      debugger
+      return {
+        ...prevState,
+        post: {
+          ...prevState.post, 
+          vote_count: prevState.post.vote_count++}
+        }
+    })
   }
 
   render() {
@@ -31,7 +44,7 @@ class PostListItem extends Component {
           <h3>{this.state.post.title}</h3>
         </Link>
         <div>
-          <p>Author: {this.state.post.author.username} || Game of discussion: {this.state.post.game} || <button onClick={this.onClickHandler.bind(this)}>Votes: {this.state.votes} </button></p>
+          <p>Author: {this.state.post.author.username} || Game of discussion: {this.state.post.game} || <button onClick={this.onClickHandler.bind(this)}>Votes: {this.state.post.vote_count} </button></p>
         </div>
       </div>
     )

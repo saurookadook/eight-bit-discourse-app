@@ -48,7 +48,6 @@ export function fetchPost(post) {
 // }
 
 export function submitPost(formContent) {
-
   return (dispatch) => {
     dispatch({ type: types.SUBMITTING_POST })
     return fetch(`${API_URL}/posts`, {
@@ -59,7 +58,24 @@ export function submitPost(formContent) {
       .then(response => response.json())
       .then(posts => dispatch({ 
         type: types.UPDATE_POSTS, 
-        posts: posts }));
+        posts }));
   }
+}
 
+export function updatePost(post) {
+  return (dispatch) => {
+    dispatch({type: types.UPDATING_POST})
+    return fetch(`${API_URL}/posts/${post.id}`, {
+      method: 'UPDATE',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({post})
+    })
+      .then(response => response.json())
+      .then(post => dispatch({
+        type: types.UPDATE_POST,
+        post
+      }))
+  }
 }
