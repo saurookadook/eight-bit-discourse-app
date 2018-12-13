@@ -11,7 +11,7 @@ class PostForm extends Component {
     this.state = {
       title: '',
       game: '',
-      authorName: '',
+      author: {},
       discussion: '',
       rating: ''
     }
@@ -33,7 +33,6 @@ class PostForm extends Component {
       // event.currentTarget.reset()
       this.refs.titleInput.value = '';
       this.refs.gameInput.value = '';
-      this.refs.authorInput.value = '';
       this.refs.discussionInput.value = '';
       this.refs.ratingInput.value = '';
 
@@ -41,30 +40,34 @@ class PostForm extends Component {
 
   render() {
     // debugger
+    const { userLoggedIn } = this.props.user.hasOwnProperty('id') ? this.props.user : false;
+
     return (
       <div className="container">
         <div className="row justify-content-center">
           <div className="FormUp col-6 p-4 my-4">
-            <h3>Anything to discuss with the hive mind?</h3>
-            <form id="post-form" onSubmit={this.onSubmitHandler.bind(this)}>
-              <p>
-                <input className="mr-2" ref="titleInput" type="text" name="title" placeholder="Title/Topic" value={this.state.title} onChange={this.onChangeHandler} />
-                <input className="ml-2" ref="gameInput" type="text" name="game" placeholder="Game" value={this.state.game} onChange={this.onChangeHandler} />
-              </p>
-              <p>
-                <input ref="authorInput" type="text" name="authorName" placeholder="Author" value={this.state.author} onChange={this.onChangeHandler} />
-              </p>
-              <p>
-                <textarea ref="discussionInput" name="discussion" className="textarea" placeholder="Your thoughts...." value={this.state.discussion} onChange={this.onChangeHandler} />
-              </p>
-              <p>
-                How would you rate this game?
-              </p>
-              <p>
-                <input ref="ratingInput" type="number" name="rating" placeholder="Rating (1-10)" value={this.state.rating} onChange={this.onChangeHandler} />
-              </p>
-              <button type="submit">Add a post</button>
-            </form>
+          { userLoggedIn ? (
+            <React.Fragment>
+              <h3>Anything to discuss with the hive mind?</h3>
+              <form id="post-form" onSubmit={this.onSubmitHandler.bind(this)}>
+                <p>
+                  <input className="mr-2" ref="titleInput" type="text" name="title" placeholder="Title/Topic" value={this.state.title} onChange={this.onChangeHandler} />
+                  <input className="ml-2" ref="gameInput" type="text" name="game" placeholder="Game" value={this.state.game} onChange={this.onChangeHandler} />
+                </p>
+                <p>
+                  <textarea ref="discussionInput" name="discussion" className="textarea" placeholder="Your thoughts...." value={this.state.discussion} onChange={this.onChangeHandler} />
+                </p>
+                <p>
+                  How would you rate this game?
+                </p>
+                <p>
+                  <input ref="ratingInput" type="number" name="rating" placeholder="Rating (1-10)" value={this.state.rating} onChange={this.onChangeHandler} />
+                </p>
+                  <input ref="authorInput" type="hidden" name="author" value={this.props.user} onChange={this.onChangeHandler} />
+                <button type="submit">Add a post</button>
+              </form>
+            </React.Fragment>
+            ) : ('Log in, dummy!') }
           </div>
         </div>
       </div>
@@ -72,10 +75,6 @@ class PostForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    submitPost: submitPost
-  }, dispatch)
-}
+const mapDispatchToProps = dispatch => bindActionCreators({ submitPost }, dispatch);
 
 export default connect(null, mapDispatchToProps)(PostForm);

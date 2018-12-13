@@ -12,10 +12,6 @@ const INITIAL_STATE = {
     password: ''
 }
 
-// const byPropKey = (name, value) => () => ({
-//   [name]: value
-// })
-
 class LogInForm extends Component {
   constructor(props) {
     super(props)
@@ -23,9 +19,14 @@ class LogInForm extends Component {
     this.state = { ...INITIAL_STATE }
   }
 
+  // byPropKey = (name, value) => () => ({
+  //   [name]: value
+  // })
+
   onChangeHandler = event => {
     // TODO: refactor using byPropKey?
     const { name, value } = event.target
+    // this.setState(byPropKey(name, value));
     this.setState({        
         [name]: value
     });

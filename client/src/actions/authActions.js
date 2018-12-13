@@ -1,5 +1,4 @@
 import fetch from 'isomorphic-fetch';
-// import fetch from 'cross-fetch';
 import { API_URL } from '../constants/apiUrl';
 import * as types from './actionTypes.js';
 

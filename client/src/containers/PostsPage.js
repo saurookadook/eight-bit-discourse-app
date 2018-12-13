@@ -20,7 +20,7 @@ class PostsPage extends Component {
       <div className="PostsPage">
         { hasData ? (
           <React.Fragment>
-            <PostForm />
+            <PostForm user={this.props.auth.user} />
             <PostsList 
               postsList={this.props.posts.all} 
               // updatePost={updatePost} 
@@ -35,9 +35,9 @@ class PostsPage extends Component {
 }
 
 const mapStateToProps = state => {
-  // debugger
+  debugger
   return {
-    posts: state.posts
+    ...state
   }
 }
 

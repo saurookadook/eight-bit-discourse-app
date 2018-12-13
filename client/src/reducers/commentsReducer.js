@@ -14,6 +14,12 @@ export default function commentsReducer (state = [], action) {
     case types.SUBMIT_COMMENT:
       // push comment into post.comments collection
       // debugger
+      // return {
+      //   ...state,
+      //   loading: true,
+      //   loaded: false,
+      //   comments: ????
+      // }
       return Object.assign({}, state, { loading: false, loaded: true }, action.post);
     case types.UPDATE_COMMENT:
       return action.comment

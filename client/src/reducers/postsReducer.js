@@ -1,5 +1,4 @@
 import * as types from '../actions/actionTypes';
-// import initialState from './initialState';
 
 const initialState = {
   loading: false,
@@ -16,6 +15,7 @@ const postsReducer = (state = initialState, action) => {
         loading: true,
       }
     case types.FETCH_POSTS:
+    // debugger
       return {
         ...state,
         loading: false,
@@ -29,7 +29,7 @@ const postsReducer = (state = initialState, action) => {
         all: action.posts
       }
     // case type.FETCH_USER_POSTS:
-    //   return action.posts
+    //   return { ...state, posts: action.posts }
     default:
       return state;
   }

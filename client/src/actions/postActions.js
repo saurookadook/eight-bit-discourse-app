@@ -17,10 +17,8 @@ export const fetchPosts = () => {
 
     return fetch(`${API_URL}/posts`)
       .then(response => response.json())
-      .then(posts => {dispatch({ 
-        type: types.FETCH_POSTS, 
-        posts: posts })
-      });
+      .then(posts => dispatch({ type: types.FETCH_POSTS, posts: posts })
+      );
   }
 }
 

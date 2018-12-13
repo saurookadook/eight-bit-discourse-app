@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Navigation
@@ -23,7 +24,7 @@ import SignUpForm from './containers/auth/SignUp';
 
 import * as routes from './constants/routes';
 import './styles/css/App.css';
-import { bindActionCreators } from '../../../../../Library/Caches/typescript/3.1/node_modules/redux';
+// import { bindActionCreators } from '../../../../../Library/Caches/typescript/3.1/node_modules/redux';
 
 // pass signOut function as props?
 
