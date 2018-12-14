@@ -10,11 +10,13 @@ class PostForm extends Component {
 
     this.state = {
       ...this.state,
-      title: '',
-      game: '',
-      author: {},
-      discussion: '',
-      rating: ''
+      newPost: {
+        title: '',
+        game: '',
+        author: {},
+        discussion: '',
+        rating: ''
+      }
     }
   }
 
@@ -31,11 +33,11 @@ class PostForm extends Component {
 
     this.props.submitPost(this.state);
       // find way to set these all back to default
-      // event.currentTarget.reset()
-      this.refs.titleInput.value = '';
-      this.refs.gameInput.value = '';
-      this.refs.discussionInput.value = '';
-      this.refs.ratingInput.value = '';
+      event.currentTarget.reset()
+      // this.refs.titleInput.value = '';
+      // this.refs.gameInput.value = '';
+      // this.refs.discussionInput.value = '';
+      // this.refs.ratingInput.value = '';
 
   }
 

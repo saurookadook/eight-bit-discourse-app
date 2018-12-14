@@ -17,7 +17,7 @@ export const fetchPosts = () => {
 
     return fetch(`${API_URL}/posts`)
       .then(response => response.json())
-      .then(posts => dispatch({ type: types.FETCH_POSTS, posts: posts })
+      .then(posts => dispatch({ type: types.FETCH_POSTS, posts })
       );
   }
 }
@@ -40,7 +40,7 @@ export function fetchPost(post) {
         .then(response => response.json())
         .then(post => {dispatch({ 
           type: types.FETCH_POST, 
-          post: post })});
+          post })});
     }
   }
 // }
@@ -64,8 +64,9 @@ export function updatePost(post) {
   return (dispatch) => {
     dispatch({type: types.UPDATING_POST})
     return fetch(`${API_URL}/posts/${post.id}`, {
-      method: 'UPDATE',
+      method: 'PATCH',
       header: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({post})
