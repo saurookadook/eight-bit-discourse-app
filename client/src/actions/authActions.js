@@ -43,6 +43,7 @@ export const signup = user => {
       body: JSON.stringify({user: user}),
     })
       .then(response => response.json())
+      // TODO: change to `.then(jresp => dispatch(authenticate({jresp})))`?
       .then(jresp => {
         dispatch(authenticate({
           name: user.username,
@@ -65,14 +66,14 @@ export const authenticate = authCredentials => {
         "Accept": "application/json",
         "Content-Type": "application/json",
       }),
-      body: JSON.stringify({auth: authCredentials}),
+      body: JSON.stringify({authCredentials}),
     })
 
     return fetch(request)
       .then(resp => resp.json())
       .then(response => {
-          const token = response.jwt;          
-          localStorage.setItem('token', token);
+          // const token = response.jwt;
+          localStorage.setItem('token', response.jwt);
           return getUser(authCredentials)
       })
       .then(user => {
