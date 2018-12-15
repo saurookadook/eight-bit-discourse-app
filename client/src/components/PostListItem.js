@@ -27,7 +27,7 @@ class PostListItem extends Component {
     //   } 
     // })
     this.setState((prevState, props) => {
-      debugger
+      // debugger
       return {
           ...prevState,
           vote_count: prevState.post.vote_count++
