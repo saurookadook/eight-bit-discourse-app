@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as actions from './actions';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Navigation
 import NavBar from './components/NavBar';
-import { logout } from './actions/authActions';
 
 // Static
 import { PageLayout } from './components/PageLayout'
@@ -58,7 +58,7 @@ class App extends Component {
         <div className="App">
           <NavBar 
             isAuthenticated={isAuthenticated} 
-            logout={logout} 
+            logout={actions.logout} 
           />
           <PageLayout />
           { isAuthenticated && user ? 
@@ -79,6 +79,6 @@ const mapStateToProps = state => {
    }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(logout, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

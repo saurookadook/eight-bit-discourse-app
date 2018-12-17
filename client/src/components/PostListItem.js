@@ -11,8 +11,8 @@ class PostListItem extends Component {
     }
   }
 
-  onClickHandler = event => {
-    event.preventDefault();
+  // onClickHandler = event => {
+  //   event.preventDefault();
     // debugger
 
     // TODO: abstract this in PostsList?
@@ -26,24 +26,25 @@ class PostListItem extends Component {
     //     vote_count: currentPost.vote_count += 1
     //   } 
     // })
-    this.setState((prevState, props) => {
-      // debugger
-      return {
-          ...prevState,
-          vote_count: prevState.post.vote_count++
-        }
-    })
-  }
+  //   this.setState((prevState, props) => {
+  //     // debugger
+  //     return {
+  //         ...prevState,
+  //         vote_count: prevState.post.vote_count++
+  //       }
+  //   })
+  // }
 
   render() {
+    const { key, post, updateVote } = this.props;
     // debugger
     return (
       <div className="CloudBubble p-2 my-2">
-        <Link className="text-dark" to={`/posts/${this.state.post.id}`}>
-          <h3>{this.state.post.title}</h3>
+        <Link className="text-dark" to={`/posts/${key}`}>
+          <h3>{post.title}</h3>
         </Link>
         <div>
-          <p>Author: {this.state.post.author.username} || Game of discussion: {this.state.post.game} || <button onClick={this.onClickHandler.bind(this)}>Votes: {this.state.post.vote_count} </button></p>
+          <p>Author: {post.author.username} || Game of discussion: {post.game} || <button onClick={updateVote}>Votes: {post.vote_count} </button></p>
         </div>
       </div>
     )

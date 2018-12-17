@@ -34,10 +34,8 @@ class PostsController < ApiController
       end
     end
 
-    def edit
-    end
-
     def update
+      binding.pry
     end
 
     def destroy

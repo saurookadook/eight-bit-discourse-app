@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import * as actions from '../actions'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { updatePost } from '../actions/postActions';
+import * as actions from '../actions'
 import PostForm from './PostForm';
-// import PostsList from '../components/PostsList';
 import PostListItem from '../components/PostListItem';
 import { LoadingPage } from '../components/LoadingPage';
 
@@ -29,7 +27,7 @@ class PostsPage extends Component {
                   <PostListItem
                     key={i}
                     post={post}
-                    // updatePost={updatePost} 
+                    updatePost={this.props.updatePost(post)} 
                   />
                 ))}
               </div>

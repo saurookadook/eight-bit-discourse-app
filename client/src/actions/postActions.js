@@ -61,9 +61,10 @@ export function submitPost(formContent) {
 }
 
 export function updatePost(post) {
+  const userId = post.user_id;
   return (dispatch) => {
     dispatch({type: types.UPDATING_POST})
-    return fetch(`${API_URL}/posts/${post.id}`, {
+    return fetch(`${API_URL}/users/${userId}/posts/${post.id}`, {
       method: 'PATCH',
       header: {
         'Accept': 'application/json',
@@ -71,7 +72,10 @@ export function updatePost(post) {
       },
       body: JSON.stringify({post})
     })
-      .then(response => response.json())
+      .then(response => {
+        debugger
+        return response.json()
+      })
       .then(post => dispatch({
         type: types.UPDATE_POST,
         post
