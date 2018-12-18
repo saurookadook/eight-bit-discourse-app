@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions';
 
 class PostListItem extends Component {
 
@@ -7,36 +10,37 @@ class PostListItem extends Component {
     super(props)
 
     this.state = {
-      post: props.post
+      ...props.post
     }
   }
 
-  // onClickHandler = event => {
-  //   event.preventDefault();
+
+  onClickHandler = event => {
+    debugger
+    event.preventDefault();
     // debugger
 
-    // TODO: abstract this in PostsList?
-    // const { currentState } = this.state
-    // const { currentPost } = this.state.post
+    const { currentState } = this.state
+    const { currentPost } = {
+      ...currentState.post,
+      vote_count: currentState.post.vote_count += 1
+    } 
 
-    // this.setState({
-    //   ...currentState,
-    //   post: {
-    //     ...currentPost,
-    //     vote_count: currentPost.vote_count += 1
-    //   } 
-    // })
-  //   this.setState((prevState, props) => {
-  //     // debugger
-  //     return {
-  //         ...prevState,
-  //         vote_count: prevState.post.vote_count++
-  //       }
-  //   })
-  // }
+  //   this.props.updateVote(currentPost)
+    
+    this.setState(() => {
+      // debugger
+      return {
+          ...currentState,
+          post: {
+            ...currentPost
+          }
+        }
+    })
+  }
 
   render() {
-    const { key, post, updateListItem } = this.props;
+    const { post } = this.props;
     // debugger
     return (
       <div className="CloudBubble p-2 my-2">
@@ -44,11 +48,21 @@ class PostListItem extends Component {
           <h3>{post.title}</h3>
         </Link>
         <div>
-          <p>Author: {post.author.username} || Game of discussion: {post.game} || <button onClick={updateListItem}>Votes: {post.vote_count} </button></p>
+          <p>Author: {post.author.username} || Game of discussion: {post.game} || <button onClick={this.onClickHandler.bind(this)}>Votes: {post.vote_count} </button></p>
         </div>
       </div>
     )
   }
 }
 
+// TODO: for updating vote count
+// const mapStateToProps = (state) => {
+//   return {
+//     ...state.post
+//   }
+// }
+
+// const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+
+// export default connect(mapStateToProps, mapDispatchToProps)(PostListItem);
 export default PostListItem;
