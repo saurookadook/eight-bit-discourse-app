@@ -61,6 +61,7 @@ export function submitPost(formContent) {
 }
 
 export function updatePost(post) {
+  debugger
   const userId = post.user_id;
   return (dispatch) => {
     dispatch({type: types.UPDATING_POST})

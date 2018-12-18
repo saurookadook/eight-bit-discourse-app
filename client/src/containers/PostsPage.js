@@ -12,6 +12,11 @@ class PostsPage extends Component {
     this.props.fetchPosts();
   }
 
+  updateListItem(post) {
+    debugger
+    this.props.updatePost(post);
+  }
+
   render() {
     let hasData = (this.props.posts.loaded && !this.props.posts.loading)
     const posts = this.props.posts.all;
@@ -27,7 +32,7 @@ class PostsPage extends Component {
                   <PostListItem
                     key={i}
                     post={post}
-                    updatePost={this.props.updatePost(post)} 
+                    updatePost={this.updateListItem(post)} 
                   />
                 ))}
               </div>

@@ -36,15 +36,15 @@ class PostListItem extends Component {
   // }
 
   render() {
-    const { key, post, updateVote } = this.props;
+    const { key, post, updateListItem } = this.props;
     // debugger
     return (
       <div className="CloudBubble p-2 my-2">
-        <Link className="text-dark" to={`/posts/${key}`}>
+        <Link className="text-dark" to={`/posts/${post.id}`}>
           <h3>{post.title}</h3>
         </Link>
         <div>
-          <p>Author: {post.author.username} || Game of discussion: {post.game} || <button onClick={updateVote}>Votes: {post.vote_count} </button></p>
+          <p>Author: {post.author.username} || Game of discussion: {post.game} || <button onClick={updateListItem}>Votes: {post.vote_count} </button></p>
         </div>
       </div>
     )

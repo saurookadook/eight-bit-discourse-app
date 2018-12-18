@@ -66,7 +66,7 @@ export const authenticate = authCredentials => {
         "Accept": "application/json",
         "Content-Type": "application/json",
       }),
-      body: JSON.stringify({authCredentials}),
+      body: JSON.stringify({auth: authCredentials}),
     })
 
     return fetch(request)
