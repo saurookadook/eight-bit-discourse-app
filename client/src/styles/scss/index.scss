@@ -1,0 +1,24 @@
+$enable-gradients: true;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import 'App';
+
+body {
+  background: linear-gradient(to bottom right, #6695F5, gray);
+  min-height: 1000px;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App {
+  margin-top: 7em;
+}
+
+// .AppBody {
+
+// }
+
+#food-search {
+  margin-top: 5em;
+}
