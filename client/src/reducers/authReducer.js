@@ -1,17 +1,22 @@
 import * as types from '../actions/actionTypes';
-import initialState from './initialState';
+
+const initialState = {
+  isAuthenticated: false,
+  isAuthenticating: false,
+  user: {},
+  token: '',
+  errors: []
+}
 
 // refactor
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.AUTHENTICATION_REQUEST:
-      // debugger
       return {
         ...state,
         isAuthenticating: true,
       }
     case types.AUTHENTICATION_SUCCESS:
-      // debugger
       return {
         ...state,
         isAuthenticated: true,

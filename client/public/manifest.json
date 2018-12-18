@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "8-bit Discourse",
+  "name": "An app for people who want to discuss games without the trolls!",
   "icons": [
     {
       "src": "favicon.ico",

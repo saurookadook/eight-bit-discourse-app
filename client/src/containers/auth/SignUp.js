@@ -14,10 +14,6 @@ const INITIAL_STATE = {
     errors: []
 }
 
-// const byPropKey = (name, value) => () => ({
-//   [name]: value
-// })
-
 class SignUpForm extends Component {
   constructor(props) {
     super(props)
@@ -25,12 +21,17 @@ class SignUpForm extends Component {
     this.state = { ...INITIAL_STATE }
   }
 
+  // byPropKey = (name, value) => () => ({
+  //   [name]: value
+  // })
+
   onChangeHandler = event => {
     // TODO: refactor using byPropKey?
     const { name, value } = event.target
-    this.setState({        
-        [name]: value
-    });
+    // this.setState(byPropKey(name, value));
+    this.setState({
+      [name]: value
+    })
   }
 
   onSignUp = event => {
@@ -102,8 +103,6 @@ class SignUpForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actions, dispatch)
-}
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(null, mapDispatchToProps)(SignUpForm);

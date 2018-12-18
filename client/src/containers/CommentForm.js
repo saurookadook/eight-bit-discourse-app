@@ -26,10 +26,15 @@ class CommentForm extends Component {
     // debugger
     event.preventDefault()
     // debugger
-    let formContent = Object.assign({}, this.state, {postId: this.props.postId})
+    let formContent = {
+      ...this.state,
+      postId: this.props.postId
+    }
+    // Object.assign({}, this.state, {postId: this.props.postId})
     this.props.submitComment(formContent);
-    this.refs.userInput.value = '';
-    this.refs.contentInput.value = '';
+    event.currentTarget.reset();
+    // this.refs.userInput.value = '';
+    // this.refs.contentInput.value = '';
   }
 
   render() {

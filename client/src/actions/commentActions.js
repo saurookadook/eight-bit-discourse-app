@@ -1,7 +1,7 @@
-import fetch from 'cross-fetch';
-// import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
+// import fetch from 'cross-fetch';
 import * as types from './actionTypes';
-// import { API_URL } from '../constants/apiUrl';
+import { API_URL } from '../constants/apiUrl';
 
 // export function fetchComments(postId) {
 //   return (dispatch) => {
@@ -16,10 +16,10 @@ export function submitComment(formContent) {
   // need `postId` and
   // debugger
   return (dispatch) => {
-    return fetch(`http://localhost:3001/posts/${formContent.postId}/comments`, {
+    return fetch(`${API_URL}/posts/${formContent.postId}/comments`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({comment: formContent})})
+      body: JSON.stringify({formContent})})
       .then(response => response.json())
       .then(post => {dispatch({ type: types.UPDATE_POST, post })});
   }

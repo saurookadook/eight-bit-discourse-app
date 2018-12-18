@@ -1,6 +1,7 @@
-class Api::UsersController < ApplicationController
+class UsersController < ApiController
     # temp fix for auth_token issues
     skip_before_action :verify_authenticity_token, raise: false
+    before_action :authenticate_user
     before_action :set_user, only: [:show, :edit, :update, :delete]
 
     def index
@@ -48,7 +49,7 @@ class Api::UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:id, :username, :email, :password, :errors)
+      params.require(:user).permit(:id, :username, :email, :password, :password_digest, :password_confirmation, :errors)
     end
 
 end

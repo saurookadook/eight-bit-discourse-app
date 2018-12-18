@@ -12,10 +12,6 @@ const INITIAL_STATE = {
     password: ''
 }
 
-// const byPropKey = (name, value) => () => ({
-//   [name]: value
-// })
-
 class LogInForm extends Component {
   constructor(props) {
     super(props)
@@ -23,9 +19,14 @@ class LogInForm extends Component {
     this.state = { ...INITIAL_STATE }
   }
 
+  // byPropKey = (name, value) => () => ({
+  //   [name]: value
+  // })
+
   onChangeHandler = event => {
     // TODO: refactor using byPropKey?
     const { name, value } = event.target
+    // this.setState(byPropKey(name, value));
     this.setState({        
         [name]: value
     });
@@ -44,6 +45,7 @@ class LogInForm extends Component {
         this.setState({ errors: errors })
         window.alert("Sorry, there was an issue logging you in. Please try again.")
       })
+      
   }
 
   render() {
@@ -57,7 +59,7 @@ class LogInForm extends Component {
         <div className="row justify-content-center">
           <div className="FormUp col-6 p-4 my-4">
             <h3>Continue the discourse...</h3>
-            <form id="post-form" onSubmit={this.onLogIn.bind(this)}>
+            <form id="post-form" onSubmit={this.onLogIn}>
               <p>
                 Email:
                 <input 
@@ -90,8 +92,6 @@ class LogInForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actions, dispatch)
-}
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(null, mapDispatchToProps)(LogInForm);

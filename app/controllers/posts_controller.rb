@@ -1,8 +1,7 @@
-class Api::PostsController < ApplicationController
+class PostsController < ApiController
     # temp fix for auth_token issues
     skip_before_action :verify_authenticity_token, raise: false
     # skip_before_action :verify_authenticity_token, except: [:destroy], raise: false
-    # skip_before_action :verify_authenticity_token, only: [:create], raise: false
 
     def index
       @posts = Post.order(created_at: :desc)
@@ -35,10 +34,8 @@ class Api::PostsController < ApplicationController
       end
     end
 
-    def edit
-    end
-
     def update
+      binding.pry
     end
 
     def destroy

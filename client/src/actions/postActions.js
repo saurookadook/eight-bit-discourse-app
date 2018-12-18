@@ -1,5 +1,5 @@
-import fetch from 'cross-fetch';
-// import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
+// import fetch from 'cross-fetch';
 import * as types from './actionTypes';
 // TODO: refactor
 import { API_URL } from '../constants/apiUrl';
@@ -17,10 +17,8 @@ export const fetchPosts = () => {
 
     return fetch(`${API_URL}/posts`)
       .then(response => response.json())
-      .then(posts => {dispatch({ 
-        type: types.FETCH_POSTS, 
-        posts: posts })
-      });
+      .then(posts => dispatch({ type: types.FETCH_POSTS, posts })
+      );
   }
 }
 
@@ -42,13 +40,12 @@ export function fetchPost(post) {
         .then(response => response.json())
         .then(post => {dispatch({ 
           type: types.FETCH_POST, 
-          post: post })});
+          post })});
     }
   }
 // }
 
 export function submitPost(formContent) {
-
   return (dispatch) => {
     dispatch({ type: types.SUBMITTING_POST })
     return fetch(`${API_URL}/posts`, {
@@ -59,7 +56,30 @@ export function submitPost(formContent) {
       .then(response => response.json())
       .then(posts => dispatch({ 
         type: types.UPDATE_POSTS, 
-        posts: posts }));
+        posts }));
   }
+}
 
+export function updatePost(post) {
+  debugger
+  const userId = post.user_id;
+  return (dispatch) => {
+    dispatch({type: types.UPDATING_POST})
+    return fetch(`${API_URL}/users/${userId}/posts/${post.id}`, {
+      method: 'PATCH',
+      header: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({post})
+    })
+      .then(response => {
+        debugger
+        return response.json()
+      })
+      .then(post => dispatch({
+        type: types.UPDATE_POST,
+        post
+      }))
+  }
 }

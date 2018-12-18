@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from './actions';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// Static
+// Navigation
 import NavBar from './components/NavBar';
+
+// Static
 import { PageLayout } from './components/PageLayout'
 import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
@@ -20,13 +24,14 @@ import SignUpForm from './containers/auth/SignUp';
 
 import * as routes from './constants/routes';
 import './styles/css/App.css';
+// import { bindActionCreators } from '../../../../../Library/Caches/typescript/3.1/node_modules/redux';
+
+// pass signOut function as props?
 
 class App extends Component {
-  // TODO: move mapStateToProps to NavBar?
   render() {
-
     const { isAuthenticated, user } = this.props
-
+    
     const publicViews = (
       <div className="container">
         <Route exact path={routes.HOME} component={Welcome} />
@@ -44,17 +49,19 @@ class App extends Component {
         <Route exact path={routes.POST} component={PostPage} />
         {/* <Route exact path={routes.USERS} component={UsersList} /> */}
         <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} /> 
-        {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */}
-        {/* <Route exact path={routes.LOG_OUT} component={LogOut} /> */}
+        {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */} 
       </div>
     )
 
     return (
       <Router>
         <div className="App">
-          <NavBar isAuthenticated={isAuthenticated} />
+          <NavBar 
+            isAuthenticated={isAuthenticated} 
+            logout={actions.logout} 
+          />
           <PageLayout />
-          { isAuthenticated ? 
+          { isAuthenticated && user ? 
             protectedViews 
             : publicViews }
           <Footer />
@@ -64,11 +71,14 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { ...state }
+const mapStateToProps = state => {
+  return { 
+    ...state,
+    isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user
+   }
 }
 
-// export default App = connect(mapStateToProps, {})(App);
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
-export default connect(mapStateToProps)(App);
-// export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
