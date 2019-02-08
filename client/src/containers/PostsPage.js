@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions'
+
+// Static
+import { LoadingPage } from '../components/LoadingPage';
+
+// Content
 import PostForm from './PostForm';
 import PostListItem from '../components/PostListItem';
-import { LoadingPage } from '../components/LoadingPage';
+
 
 class PostsPage extends Component {
 
@@ -47,15 +52,11 @@ class PostsPage extends Component {
 }
 
 const mapStateToProps = state => {
-  // debugger
   return {
     ...state
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  // debugger
-  return bindActionCreators(actions, dispatch);
-};
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsPage);

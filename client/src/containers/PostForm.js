@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { submitPost } from '../actions/postActions.js';
+
+// Constants/Styles
 import '../styles/css/App.css';
+
+// Actions
+import { submitPost } from '../actions/postActions.js';
 
 class PostForm extends Component {
   constructor() {
@@ -29,20 +33,12 @@ class PostForm extends Component {
 
   onSubmitHandler = event => {
     event.preventDefault();
-    // debugger
 
     this.props.submitPost(this.state);
-      // find way to set these all back to default
-      event.currentTarget.reset()
-      // this.refs.titleInput.value = '';
-      // this.refs.gameInput.value = '';
-      // this.refs.discussionInput.value = '';
-      // this.refs.ratingInput.value = '';
-
+    event.currentTarget.reset()
   }
 
   render() {
-    // debugger
     let userLoggedIn = this.props.user.hasOwnProperty('id') ? this.props.user : false;
 
     return (
@@ -79,7 +75,6 @@ class PostForm extends Component {
 }
 
 const mapStateToProps = state => {
-  // debugger
   return { ...state };
 }
 

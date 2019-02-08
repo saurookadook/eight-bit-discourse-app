@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 // import { LinkContainer } from 'react-router-bootstrap'
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+// import { logout } from '../actions/authActions';
 import * as routes from '../constants/routes';
 import '../styles/css/NavBar.css'
 

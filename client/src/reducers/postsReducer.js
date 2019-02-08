@@ -15,7 +15,6 @@ const postsReducer = (state = initialState, action) => {
         loading: true,
       }
     case types.FETCH_POSTS:
-    // debugger
       return {
         ...state,
         loading: false,
@@ -28,6 +27,7 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         all: action.posts
       }
+    // TODO once component is created
     // case type.FETCH_USER_POSTS:
     //   return { ...state, posts: action.posts }
     default:

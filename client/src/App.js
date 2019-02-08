@@ -24,13 +24,10 @@ import SignUpForm from './containers/auth/SignUp';
 
 import * as routes from './constants/routes';
 import './styles/css/App.css';
-// import { bindActionCreators } from '../../../../../Library/Caches/typescript/3.1/node_modules/redux';
-
-// pass signOut function as props?
 
 class App extends Component {
   render() {
-    const { isAuthenticated, user } = this.props
+    const { isAuthenticated, user, logout  } = this.props
     
     const publicViews = (
       <div className="container">
@@ -58,7 +55,7 @@ class App extends Component {
         <div className="App">
           <NavBar 
             isAuthenticated={isAuthenticated} 
-            logout={actions.logout} 
+            logout={logout} 
           />
           <PageLayout />
           { isAuthenticated && user ? 

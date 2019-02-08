@@ -86,21 +86,11 @@ export const authenticate = authCredentials => {
   }
 }
 
-    // return fetch(`${API_URL}/user_token`, {
-    //   method: 'POST',
-    //   // mode: 'no-cors',
-    //   // credentials: 'include',
-    //   headers: {
-    //     // 'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({auth: authCredentials}),
-    //   // credentials: 'same-origin'
-    // })
-
 export const getUser = userCredentials => {
   const request = new Request(`${API_URL}/find_user`, {
     method: "POST",
+    // mode: 'no-cors',
+    // credentials: 'include',
     headers: new Headers({
       "Accept": "application/json",
       "Content-Type": "application/json",
@@ -113,19 +103,6 @@ export const getUser = userCredentials => {
     .then(response => response.json())
     .then(userJson => userJson)
     .catch(errors => {
-      // dispatch(authFailure(errors))
       return authFailure(errors)
     })
 };
-
-  // return fetch(`${API_URL}/find_user`, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     "Authorization": `Bearer ${localStorage.token}`
-  //   },
-  //   body: JSON.stringify({
-  //     user: userCredentials
-  //   }),
-  //   credentials: 'same-origin'
-  // })

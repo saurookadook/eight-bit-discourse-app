@@ -1,5 +1,4 @@
 import * as types from '../actions/actionTypes';
-// import initialState from './initialState';
 
 const initialState = {
   loading: false,
@@ -7,7 +6,6 @@ const initialState = {
   post: {}
 }
 
-// commentsReducer?
 export default function commentsReducer (state = initialState, action) {
   switch(action.type) {
     case types.FETCH_COMMENTS:
@@ -28,7 +26,6 @@ export default function commentsReducer (state = initialState, action) {
         loaded: true,
         post: action.post
       }
-      // return Object.assign({}, state, { loading: false, loaded: true }, action.post);
     case types.UPDATE_COMMENT:
       return action.comment
     case types.REMOVE_COMMENT:
