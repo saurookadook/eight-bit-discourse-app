@@ -8,7 +8,6 @@ const initialState = {
   errors: []
 }
 
-// refactor
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.AUTHENTICATION_REQUEST:

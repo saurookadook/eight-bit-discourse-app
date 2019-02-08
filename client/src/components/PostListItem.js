@@ -16,7 +16,7 @@ class PostListItem extends Component {
 
 
   onClickHandler = event => {
-    debugger
+    // debugger
     event.preventDefault();
     // debugger
 

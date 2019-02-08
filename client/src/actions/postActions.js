@@ -1,7 +1,5 @@
 import fetch from 'isomorphic-fetch';
-// import fetch from 'cross-fetch';
 import * as types from './actionTypes';
-// TODO: refactor
 import { API_URL } from '../constants/apiUrl';
 
 // const setPosts = (posts) => ({
@@ -23,6 +21,7 @@ export const fetchPosts = () => {
 }
 
 export function fetchPost(post) {
+  // TODO once nested functionality is setup
   // if (userId != null || undefined) {
   //   return (dispatch) => {
   //     dispatch({ type: 'LOADING_USER_POST' });
@@ -33,17 +32,13 @@ export function fetchPost(post) {
   // } else {
     return (dispatch) => {
       dispatch({ type: types.LOADING_POST });
-      // dhis fucked up
       return fetch(`${API_URL}/posts/${post.postId}`)
-        // headers
-        // body
         .then(response => response.json())
         .then(post => {dispatch({ 
           type: types.FETCH_POST, 
           post })});
     }
   }
-// }
 
 export function submitPost(formContent) {
   return (dispatch) => {
@@ -61,7 +56,6 @@ export function submitPost(formContent) {
 }
 
 export function updatePost(post) {
-  debugger
   const userId = post.user_id;
   return (dispatch) => {
     dispatch({type: types.UPDATING_POST})
@@ -74,7 +68,7 @@ export function updatePost(post) {
       body: JSON.stringify({post})
     })
       .then(response => {
-        debugger
+    
         return response.json()
       })
       .then(post => dispatch({

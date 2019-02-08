@@ -49,7 +49,6 @@ class LogInForm extends Component {
   }
 
   render() {
-    // debugger
     // --template--
     // <p>
     //   <input ref="authorInput" type="text" name="authorName" placeholder="Author" value={this.state.author} onChange={this.onSignup} />

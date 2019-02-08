@@ -23,14 +23,13 @@ class CommentForm extends Component {
   }
 
   handleOnSubmit = event => {
-    // debugger
     event.preventDefault()
-    // debugger
+
     let formContent = {
       ...this.state,
       postId: this.props.postId
     }
-    // Object.assign({}, this.state, {postId: this.props.postId})
+    
     this.props.submitComment(formContent);
     event.currentTarget.reset();
     // this.refs.userInput.value = '';
