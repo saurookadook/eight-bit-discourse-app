@@ -4,12 +4,13 @@ body {
   margin: 0;
   min-height: 1000px;
   padding: 0;
-  text-align: center;
 }
 
 .App {
+  @include col();
   background: $bg-transparent;
   // margin-top: ( $ems--m + $ems--2s);
+  text-align: center;
 }
   
 /* PageHeader */

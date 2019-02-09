@@ -4,10 +4,17 @@ const authLocal = () => {
   return localStorage.token ? true : false;
 }
 
+const userLocal = () => {
+  if (localStorage.user) {
+    return JSON.parse(localStorage.user);  
+  }
+  return null;
+}
+
 const initialState = {
   isAuthenticated: authLocal(),
   isAuthenticating: false,
-  user: {},
+  user: userLocal(),
   token: '',
   errors: []
 }
