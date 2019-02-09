@@ -32,8 +32,6 @@ class CommentForm extends Component {
     
     this.props.submitComment(formContent);
     event.currentTarget.reset();
-    // this.refs.userInput.value = '';
-    // this.refs.contentInput.value = '';
   }
 
   render() {

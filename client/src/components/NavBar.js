@@ -2,11 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 // import { LinkContainer } from 'react-router-bootstrap'
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { logout } from '../actions/authActions';
 import * as routes from '../constants/routes';
-import '../styles/css/NavBar.css'
+import '../styles/css/index.css'
 
 const NavBar = ({ isAuthenticated, logout }) =>
     <div className="NavBar fixed-top text-left py-2">
@@ -14,6 +11,7 @@ const NavBar = ({ isAuthenticated, logout }) =>
         <NavLink className="NavLink px-1 text-light" to={routes.POSTS}>Latest Posts</NavLink>
         { isAuthenticated ? ( 
           <React.Fragment>
+            {/* <NavLink className="NavLink px-1 ml-4 text-light" to={routes.ACCOUNT}>Account</NavLink> */}
             {/* <NavLink className="NavLink px-1 text-light" to={routes.USER_POSTS}>Your Posts</NavLink> */}
             <NavLink className="NavLink px-1 ml-4 text-light" to={routes.HOME} onClick={logout}>Logout</NavLink>
             </React.Fragment>
@@ -25,7 +23,4 @@ const NavBar = ({ isAuthenticated, logout }) =>
         )}  
       </div>
 
-// const mapDispatchToProps = dispatch => bindActionCreators(logout, dispatch);
-
-// export default connect(null, mapDispatchToProps)(NavBar);
 export default NavBar;

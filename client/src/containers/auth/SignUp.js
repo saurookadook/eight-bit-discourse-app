@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
-import '../../styles/css/App.css';
+import '../../styles/css/index.css';
 
 const INITIAL_STATE = {
     username: '',

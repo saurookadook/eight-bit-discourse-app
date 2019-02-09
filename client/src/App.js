@@ -15,7 +15,7 @@ import { Footer } from './components/Footer';
 // Content
 import PostsPage from './containers/PostsPage';
 import PostPage from './containers/PostPage';
-import AccountPage from './components/AccountPage';
+// import AccountPage from './components/AccountPage';
 // import UserPostsPage from './containers/UserPostsPage';
 
 // User Auth
@@ -45,7 +45,7 @@ class App extends Component {
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />
         {/* <Route exact path={routes.USERS} component={UsersList} /> */}
-        <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} /> 
+        {/* <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} />  */}
         {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */} 
       </div>
     )
