@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/scss/App.scss';
+import '../styles/css/index.css';
 
 const CommentsList = ({ comments }) => {
     if (comments) {
