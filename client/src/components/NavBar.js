@@ -11,7 +11,7 @@ const NavBar = ({ isAuthenticated, logout }) =>
         <NavLink className="NavLink px-1 text-light" to={routes.POSTS}>Latest Posts</NavLink>
         { isAuthenticated ? ( 
           <React.Fragment>
-            {/* <NavLink className="NavLink px-1 ml-4 text-light" to={routes.ACCOUNT}>Account</NavLink> */}
+            <NavLink className="NavLink px-1 ml-4 text-light" to={routes.ACCOUNT}>Account</NavLink>
             {/* <NavLink className="NavLink px-1 text-light" to={routes.USER_POSTS}>Your Posts</NavLink> */}
             <NavLink className="NavLink px-1 ml-4 text-light" to={routes.HOME} onClick={logout}>Logout</NavLink>
             </React.Fragment>

@@ -88,6 +88,7 @@ export const authenticate = authCredentials => {
 
 export const getUser = userCredentials => {
   const request = new Request(`${API_URL}/find_user`, {
+    // TODO: seems odd...?
     method: "POST",
     // mode: 'no-cors',
     // credentials: 'include',

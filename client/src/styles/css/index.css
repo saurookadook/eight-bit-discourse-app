@@ -6820,14 +6820,14 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   background: linear-gradient(to bottom right, #6695F5, gray);
-  min-height: 1000px;
+  font-family: sans-serif;
   margin: 0;
+  min-height: 1000px;
   padding: 0;
-  font-family: sans-serif; }
+  text-align: center; }
 
 .App {
-  background: transparent;
-  margin-top: 7em; }
+  background: transparent; }
 
 /* PageHeader */
 .PageHeader {
@@ -6851,13 +6851,16 @@ footer {
   background-color: #BA5425;
   border-top: 2px solid #000000;
   font-weight: bold; }
+  footer * {
+    text-align: center; }
 
 .FooterBushes {
   border-radius: 15px 15px 0 0;
   border-top: 1px solid #000000;
   border-right: 1px solid #000000;
   border-left: 1px solid #000000;
-  font-size: 1em; }
+  font-size: 1em;
+  text-align: center; }
 
 .MiddleBush {
   background: #4ca730; }
@@ -6871,7 +6874,8 @@ footer {
   border-top: 10px solid #C43126;
   border-left: 10px solid #C43126;
   border-right: 10px solid #020000;
-  border-bottom: 10px solid #020000; }
+  border-bottom: 10px solid #020000;
+  text-align: center; }
 
 /* PostsList */
 .PostsList, .FormUp {
