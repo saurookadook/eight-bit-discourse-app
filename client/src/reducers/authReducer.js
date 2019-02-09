@@ -1,7 +1,11 @@
 import * as types from '../actions/actionTypes';
 
+const authLocal = () => {
+  return localStorage.token ? true : false;
+}
+
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: authLocal(),
   isAuthenticating: false,
   user: {},
   token: '',

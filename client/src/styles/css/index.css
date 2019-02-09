@@ -6815,6 +6815,10 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+.LoadingPage {
+  margin-top: 5em;
+  text-align: center; }
+
 .NavBar {
   background: #000000; }
 
