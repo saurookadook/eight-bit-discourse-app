@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/css/App.css';
+import '../styles/css/index.css';
 
 export const LoadingPage = () =>
   <div className="LoadingPage">

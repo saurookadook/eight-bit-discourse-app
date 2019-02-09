@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Constants/Styles
-import '../styles/css/App.css';
+import '../styles/css/index.css';
 
 // Actions
 import { submitPost } from '../actions/postActions.js';

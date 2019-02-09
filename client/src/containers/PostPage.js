@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 // Constants/Styles
 import * as actions from '../actions';
-import '../styles/css/App.css';
+import '../styles/css/index.css';
 
 // Static
 import { LoadingPage } from '../components/LoadingPage';

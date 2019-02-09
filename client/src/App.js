@@ -23,7 +23,7 @@ import LogInForm from './containers/auth/LogIn';
 import SignUpForm from './containers/auth/SignUp';
 
 import * as routes from './constants/routes';
-import './styles/css/App.css';
+import './styles/css/index.css';
 
 class App extends Component {
   render() {

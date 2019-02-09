@@ -1,0 +1,36 @@
+@mixin col() {
+  // TODO: toss this in variable?
+  // display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  // display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  // display: -ms-flexbox; /* TWEENER - IE 10 */
+  // display: -webkit-flex; /* NEW - Chrome */
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin row() {
+  // display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  // display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  // display: -ms-flexbox; /* TWEENER - IE 10 */
+  // display: -webkit-flex; /* NEW - Chrome */
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin inline-col() {
+  // display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  // display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  // display: -ms-flexbox; /* TWEENER - IE 10 */
+  // display: -webkit-flex; /* NEW - Chrome */
+  display: inline-flex;
+  flex-direction: column;
+}
+
+@mixin inline-row() {
+  // display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  // display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  // display: -ms-flexbox; /* TWEENER - IE 10 */
+  // display: -webkit-flex; /* NEW - Chrome */
+  display: inline-flex;
+  flex-direction: row;
+}

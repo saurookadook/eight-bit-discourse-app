@@ -6815,54 +6815,48 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
-#root .App {
-  margin-top: 1em;
-  text-align: center; }
+.NavBar {
+  background: #000000; }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px; }
+body {
+  background: linear-gradient(to bottom right, #6695F5, gray);
+  min-height: 1000px;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white; }
-
-.App-title {
-  font-size: 1.5em; }
-
-.App-intro {
-  font-size: large; }
+.App {
+  background: transparent;
+  margin-top: 7em; }
 
 /* PageHeader */
 .PageHeader {
   margin-top: 40px; }
 
 .AppDetails {
-  color: #FFF;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
 
 .PageHeaderImage {
   height: 100%; }
 
 .CloudBubble {
-  background: white;
-  border: 1px solid #000;
+  background: #ffffff;
+  border: 1px solid #000000;
   border-radius: 20px; }
 
 /* Welcome */
 /* Footer */
 footer {
   background-color: #BA5425;
-  border-top: 2px solid #000;
+  border-top: 2px solid #000000;
   font-weight: bold; }
 
 .FooterBushes {
   border-radius: 15px 15px 0 0;
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
-  border-left: 1px solid #000;
+  border-top: 1px solid #000000;
+  border-right: 1px solid #000000;
+  border-left: 1px solid #000000;
   font-size: 1em; }
 
 .MiddleBush {
@@ -6882,18 +6876,5 @@ footer {
 /* PostsList */
 .PostsList, .FormUp {
   margin-bottom: 150px; }
-
-body {
-  background: linear-gradient(to bottom right, #6695F5, gray);
-  min-height: 1000px;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif; }
-
-.App {
-  margin-top: 7em; }
-
-#food-search {
-  margin-top: 5em; }
 
 /*# sourceMappingURL=index.css.map */
