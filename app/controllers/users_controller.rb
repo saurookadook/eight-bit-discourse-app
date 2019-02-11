@@ -1,6 +1,6 @@
 class UsersController < ApiController
     before_action :authenticate_user
-    before_action :set_user, only: [:show, :edit, :update, :delete]
+    before_action :set_user!, only: [:show, :edit, :update, :delete]
 
     def index
       @users = User.all
@@ -42,9 +42,9 @@ class UsersController < ApiController
 
     private
 
-    def set_user
-      @user = User.find_by(id: params[:id])
-    end
+    # def set_user
+    #   @user = User.find_by(id: params[:id])
+    # end
 
     def user_params
       params.require(:user).permit(:id, :username, :email, :password, :password_digest, :password_confirmation, :errors)

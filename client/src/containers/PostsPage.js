@@ -24,7 +24,7 @@ class PostsPage extends Component {
 
   render() {
     let hasData = (this.props.posts.loaded && !this.props.posts.loading)
-    const posts = this.props.posts.all;
+    const { posts, auth }  = this.props;
 
     return (
       <div className="PostsPage">
@@ -33,10 +33,11 @@ class PostsPage extends Component {
             <PostForm user={this.props.auth.user} />
             <div className="PostsList text-left mt-3 ml-3">
               <div>
-                {posts.map((post, i) => (
+                {posts.all.map((post, i) => (
                   <PostListItem
                     key={i}
                     post={post}
+                    user={auth.user}
                     // updatePost={this.updateListItem(post)} 
                   />
                 ))}

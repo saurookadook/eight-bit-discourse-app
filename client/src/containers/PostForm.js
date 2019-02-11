@@ -9,23 +9,33 @@ import '../styles/css/index.css';
 import { submitPost } from '../actions/postActions.js';
 
 class PostForm extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
+    const authorInfo = () => {
+      if (this.props.user) {
+        return {
+          id: this.props.user.id,
+          username: this.props.user.username,
+          email: this.props.user.email
+        }
+      } else {
+        return null;
+      }
+      
+    }
 
     this.state = {
-      ...this.state,
-      newPost: {
-        title: '',
-        game: '',
-        author: {},
-        discussion: '',
-        rating: ''
-      }
+      title: '',
+      game: '',
+      author: authorInfo(),
+      discussion: '',
+      rating: ''
     }
   }
 
   onChangeHandler = event => {
-    const { value, name } = event.target
+    const { name, value } = event.target
     this.setState({
       [name]: value
     });
@@ -39,8 +49,10 @@ class PostForm extends Component {
   }
 
   render() {
-    let userLoggedIn = this.props.user.hasOwnProperty('id') ? this.props.user : false;
+    let userLoggedIn = this.props.user ? this.props.user : false;
 
+    // don't need this?
+    // <input ref="authorInput" type="hidden" name="author" value={this.props.user} onChange={this.onChangeHandler} />
     return (
       <div className="container">
         <div className="row justify-content-center">
@@ -62,7 +74,6 @@ class PostForm extends Component {
                 <p>
                   <input ref="ratingInput" type="number" name="rating" placeholder="Rating (1-10)" value={this.state.rating} onChange={this.onChangeHandler} />
                 </p>
-                  <input ref="authorInput" type="hidden" name="author" value={this.props.user} onChange={this.onChangeHandler} />
                 <button type="submit">Add a post</button>
               </form>
             </React.Fragment>

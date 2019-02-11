@@ -12,11 +12,6 @@ body {
   // margin-top: ( $ems--m + $ems--2s);
   text-align: center;
 }
-  
-/* PageHeader */
-.PageHeader {
-  margin-top: 40px;
-}
 
 .AppDetails {
   color: $c-white;
@@ -25,6 +20,12 @@ body {
     1px -1px 0 $c-black,
     -1px 1px 0 $c-black,
     1px 1px 0 $c-black;
+}
+  
+
+/* PageHeader */
+.PageHeader {
+  margin-top: 40px;
 }
 
 .PageHeaderImage {
@@ -37,53 +38,8 @@ body {
   // width: 260px;
 }
 
-.CloudBubble {
-  background: $c-white;
-  border: 1px solid $c-black;
-  border-radius: 20px;
-}
 
 /* Welcome */
-
-/* Footer */
-footer {
-  background-color: $c-orange--brick;
-  border-top: 2px solid $c-black;
-  font-weight: bold;
-
-  * {
-    text-align: center;
-  }
-}
-
-.FooterBushes {
-  border-radius: 15px 15px 0 0;
-  border-top: 1px solid $c-black;
-  border-right: 1px solid $c-black;
-  border-left: 1px solid $c-black;
-  font-size: 1em;
-  text-align: center;
-}
-
-.MiddleBush {
-  background: $c-green--mid;
-}
-
-.OuterBushes {
-  background: $c-green--light;
-}
-
-
-/* Forms */
-.FormUp {
-  background: $c-orange--block;
-  // border: 5px solid;
-  border-top: 10px solid $c-orange--border;
-  border-left: 10px solid $c-orange--border;
-  border-right: 10px solid $c-black--border;
-  border-bottom: 10px solid $c-black--border;
-  text-align: center;
-}
 
 
 /* PostsList */

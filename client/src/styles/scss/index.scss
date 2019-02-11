@@ -22,7 +22,9 @@ $enable-gradients: true;
 // COMPONENTS
 // ---------------------------------------------------------------------------
 
+@import 'components/Bubbles';
 @import 'components/Footer';
+@import 'components/Form';
 @import 'components/LoadingPage';
 @import 'components/NavBar';
 @import 'components/Post';

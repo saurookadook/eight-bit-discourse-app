@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2018_12_12_222616) do
     t.string "title"
     t.string "game"
     t.text "discussion"
-    t.string "rating"
-    t.string "user_id"
+    t.integer "rating"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "vote_count", default: 0

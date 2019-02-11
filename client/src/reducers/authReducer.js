@@ -39,7 +39,7 @@ export default (state = initialState, action) => {
           ...state,
           isAuthenticated: false,
           isAuthenticating: false,
-          user: {},
+          user: null,
           token: null,
           errors: action.errors || []
       }
@@ -49,7 +49,7 @@ export default (state = initialState, action) => {
           ...state,
           isAuthenticated: false,
           isAuthenticating: false,
-          user: {},
+          user: null,
           token: null
       }
     default:
