@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+// import * as actions from '../actions';
 
 class PostListItem extends Component {
 

@@ -14,7 +14,7 @@
 .UserCloudBubble {
   @include col();
   align-items: center;
-  padding: $ems--s $ems--xs;
-  max-width: 70%!important;
-  min-width: 50%!important;
+  padding: $ems--s $ems--m;
+  margin-bottom: $ems--2s;
+  max-width: 30%;
 }

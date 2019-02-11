@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions';
+
 import UserGamesDisplay from '../components/UserGamesDisplay';
 
 class AccountPage extends Component {
+
+  // onClick() {
+
+  // }
+
   render() {
     const { user } = this.props;
 
@@ -25,4 +34,7 @@ class AccountPage extends Component {
   }
 }
 
-export default AccountPage;
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+
+export default connect(null, mapDispatchToProps)(AccountPage);
+// export default AccountPage;

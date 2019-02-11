@@ -6847,9 +6847,9 @@ a.text-dark:hover, a.text-dark:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em 0.5em;
-  max-width: 70% !important;
-  min-width: 50% !important; }
+  padding: 1em 5em;
+  margin-bottom: 2em;
+  max-width: 30%; }
 
 .ViewContainer {
   display: flex;
