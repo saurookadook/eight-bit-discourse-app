@@ -6815,13 +6815,17 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
-.PostBlock {
+.OneUp {
   background: #E47134;
   border-top: 10px solid #C43126;
   border-left: 10px solid #C43126;
   border-right: 10px solid #020000;
   border-bottom: 10px solid #020000;
-  padding: 1em; }
+  box-shadow: 0.5em 0.5em 0.5em #34282C; }
+
+.PostBlock {
+  padding: 1em;
+  margin-bottom: 1em; }
   .PostBlock a {
     color: #000000;
     padding: 1em; }
@@ -6884,12 +6888,6 @@ footer {
 
 /* Forms */
 .FormUp {
-  background: #E47134;
-  border-top: 10px solid #C43126;
-  border-left: 10px solid #C43126;
-  border-right: 10px solid #020000;
-  border-bottom: 10px solid #020000;
-  box-shadow: 0.5em 0.5em 0.5em #34282C;
   text-align: center; }
 
 .LoadingPage {
