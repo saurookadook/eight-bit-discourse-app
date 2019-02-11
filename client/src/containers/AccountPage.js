@@ -5,9 +5,8 @@ class AccountPage extends Component {
     const { user } = this.props;
 
     return (
-      <div className="container">
+      <div className="UserCloudBubble">
         { user.username }
-        TBD
       </div>
     )
   }

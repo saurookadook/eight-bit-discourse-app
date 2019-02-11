@@ -40,7 +40,7 @@ class App extends Component {
     )
 
     const protectedViews = (
-      <div className="container">
+      <div className="ViewContainer">
         <Route exact path={routes.HOME} component={Welcome} />
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />

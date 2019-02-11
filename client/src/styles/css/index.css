@@ -6815,13 +6815,26 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
-.CloudBubble {
+.CloudBubble, .UserCloudBubble {
   background: #ffffff;
   border: 1px solid #000000;
   border-radius: 20px;
   box-shadow: 0 0.5em 0.5em #34282C;
   margin-top: 1em;
   margin-bottom: 1em; }
+
+.UserCloudBubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 0.5em;
+  max-width: 70% !important;
+  min-width: 50% !important; }
+
+.ViewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 /* Footer */
 footer {
