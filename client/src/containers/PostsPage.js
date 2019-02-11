@@ -27,7 +27,7 @@ class PostsPage extends Component {
     const { posts, auth }  = this.props;
 
     return (
-      <div className="PostsPage">
+      <div className="PostsContainer">
         { hasData ? (
           <React.Fragment>
             <PostForm user={this.props.auth.user} />

@@ -7,6 +7,10 @@
   margin-bottom: $ems--s;
 }
 
+.CloudBubble {
+  padding: $ems--xs $ems--s;
+}
+
 .UserCloudBubble {
   @include col();
   align-items: center;

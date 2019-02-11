@@ -43,7 +43,7 @@ class PostListItem extends Component {
     const { post, user } = this.props;
 
     return (
-      <div className="CloudBubble p-2">
+      <div className="CloudBubble">
         <Link className="text-dark" to={`/posts/${post.id}`}>
           <h3>{post.title}</h3>
         </Link>

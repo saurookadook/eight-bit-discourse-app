@@ -2,3 +2,12 @@
   @include col();
   align-items: center;
 }
+
+.PostsContainer {
+  min-width: 50%;
+}
+
+.UserGamesContainer {
+  @include col();
+  align-items: center;
+}

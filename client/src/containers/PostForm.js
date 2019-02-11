@@ -56,7 +56,7 @@ class PostForm extends Component {
     return (
       <div className="container">
         <div className="row justify-content-center">
-          <div className="FormUp col-6 p-4 my-4">
+          <div className="FormUp p-4 my-4">
           { userLoggedIn ? (
             <React.Fragment>
               <h3>Anything to discuss with the hive mind?</h3>

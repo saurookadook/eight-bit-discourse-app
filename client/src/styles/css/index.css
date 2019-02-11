@@ -6823,6 +6823,9 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: 1em;
   margin-bottom: 1em; }
 
+.CloudBubble {
+  padding: 0.5em 1em; }
+
 .UserCloudBubble {
   display: flex;
   flex-direction: column;
@@ -6832,6 +6835,14 @@ a.text-dark:hover, a.text-dark:focus {
   min-width: 50% !important; }
 
 .ViewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.PostsContainer {
+  min-width: 50%; }
+
+.UserGamesContainer {
   display: flex;
   flex-direction: column;
   align-items: center; }
