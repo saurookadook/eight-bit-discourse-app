@@ -20,11 +20,14 @@ class PostPage extends Component {
 
   render() {
     let hasData = (this.props.post.loaded && !this.props.post.loading)
+    const { post } = this.props.post;
 
     return (
       <div className="PostPage">
         { hasData ? (
-          <PostDisplay props={this.props} />
+          <PostDisplay 
+            post={post}
+          />
         ) : (
           <LoadingPage />
         )}

@@ -6849,12 +6849,16 @@ a.text-dark:hover, a.text-dark:focus {
   align-items: center;
   padding: 1em 5em;
   margin-bottom: 2em;
-  max-width: 30%; }
+  max-width: 60%;
+  min-width: 40%; }
 
 .ViewContainer {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 10em;
+  max-width: 65%;
+  min-width: 50%; }
 
 .PostsContainer {
   min-width: 50%; }
@@ -6907,6 +6911,7 @@ body {
 .App {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: transparent;
   text-align: center; }
 

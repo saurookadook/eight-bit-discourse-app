@@ -22,7 +22,6 @@ const UserGamesDisplay = ({ posts }) => {
           </div>
         )
       })}
-      
     </div>
   )
 }

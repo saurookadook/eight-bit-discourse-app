@@ -1,53 +1,59 @@
 class UsersController < ApiController
-    before_action :authenticate_user
-    before_action :set_user!, only: [:show, :edit, :update, :delete]
+  # TODO: fix for update
+  before_action :authenticate_user, except: [:update]
+  before_action :set_user!, only: [:show, :edit, :update, :delete]
 
-    def index
-      @users = User.all
-      render json: @users
-    end
+  def index
+    @users = User.all
+    render json: @users
+  end
 
-    def show
+  def show
+    render json: @user
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.valid?
+      @user.save
       render json: @user
+    else
+      @errors = @user.errors.full_messages
+      render json: @errors, status: 400
     end
+  end
 
-    def create
-      @user = User.new(user_params)
-      if @user.valid?
-        @user.save
-        render json: @user
-      else
-        render json: @user.errors, status: 400
-      end
+  def edit
+  end
+
+  def update
+    binding.pry
+    @user = User.update(user_params)
+    if @user.valid?
+      render json: @user
+    else
+      @errors = @user.errors.full_messages
+      render json: @errors, status: 400
     end
+  end
 
-    def edit
+  def delete
+  end
+
+  def find
+    @user = User.find_by(email: params[:user][:email])
+    if @user
+      render json: @user
+    else
+      @errors = @user.errors.full_messages
+      render json: @errors, status: 400
     end
+  end
 
-    def update
-    end
+  private
 
-    def delete
-    end
-
-    def find
-      @user = User.find_by(email: params[:user][:email])
-      if @user
-        render json: @user
-      else
-        @errors = @user.errors.full_messages
-        render json: @errors
-      end
-    end
-
-    private
-
-    # def set_user
-    #   @user = User.find_by(id: params[:id])
-    # end
-
-    def user_params
-      params.require(:user).permit(:id, :username, :email, :password, :password_digest, :password_confirmation, :errors)
-    end
+  def user_params
+    params.require(:user).permit(:id, :username, :email, :password, :password_digest, :password_confirmation, :errors)
+  end
 
 end

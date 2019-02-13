@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import * as actions from '../actions';
 
 class EditInfoForm extends Component {
@@ -9,36 +8,59 @@ class EditInfoForm extends Component {
     super(props)
 
     this.state = {
-      username: '',
-      email: ''
+      user: {
+        username: '',
+        email: ''
+      }
     }
   }
 
   handleOnChange = event => {
-    const { value, name } = event.target;
+    const { name, value } = event.target;
     this.setState({
-      [name]: value
+      user: {
+        [name]: value
+      }
     });
   }
 
-  // handleOnSubmit = event => {
-  //   event.preventDefault()
-    
-  //   this.props.submitComment();
-  //   event.currentTarget.reset();
-  // }
+  updateUser = event => {
+    event.preventDefault();
+    debugger
+    // const { user } = this.props;
+    // this.props.updateInfo(user);
+  }
 
   render() {
-    const { username, email } = this.props;
+    const { user } = this.props.auth;
 
     return (
-      <div className="DetailsContainer">
-        <form className="EditInfoForm" onSubmit={this.handleOnSubmit.bind(this)}>
-          <input ref="userInput" type="text" name="userusername" placeholder={username} value={this.state.username} onChange={this.handleOnChange} />
-          <input ref="emailInput" type="text" name="email" placeholder={email} value={this.state.email} onChange={this.handleOnChange} />
-          <button type="submit">Update Info</button>
+      <React.Fragment>
+        <form
+          className="EditInfoForm"
+          onSubmit={this.updateUser.bind(this)}
+        >
+          <input 
+            ref="usernameInput"
+            type="text"
+            name="username"
+            placeholder={user.username}
+            value={this.state.user.username}
+            onChange={this.handleOnChange.bind(this)}
+          />
+          <input
+            ref="emailInput"
+            type="text"
+            name="email"
+            placeholder={user.email}
+            value={this.state.user.email}
+            onChange={this.handleOnChange.bind(this)}
+          />
+          <button type="submit">
+            Update Info
+          </button>
         </form>
-      </div>
+      </React.Fragment>
     )
   }
 }

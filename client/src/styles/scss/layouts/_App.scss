@@ -8,8 +8,8 @@ body {
 
 .App {
   @include col();
+  align-items: center;
   background: $bg-transparent;
-  // margin-top: ( $ems--m + $ems--2s);
   text-align: center;
 }
 

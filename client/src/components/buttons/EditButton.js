@@ -1,13 +1,12 @@
 import React from 'react';
 
-const EditButton = ({ dataIndex, dataName, onClick }) => {
+const EditButton = ({ data, onClick }) => {
   return (
     <button
       className="EditBtn"
-      onClick={() => onClick(dataIndex)}
-      title={ dataName ? `Edit ${dataName}` : `Edit` }
+      onClick={() => onClick(data)}
     >
-      Edit: { dataName }
+      Edit Info
     </button>
   )
 }

@@ -38,7 +38,7 @@ class PostsController < ApiController
 
   def post_params
     params.require(:post).permit(:title, :game, :discussion, :rating, :user_id,
-      author_attributes: [:id, :username, :email]
+      author_attributes: [:id, :username, :email, :password_digest]
       )
   end
 

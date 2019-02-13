@@ -1,6 +1,9 @@
 .ViewContainer {
   @include col();
   align-items: center;
+  margin-bottom: $ems--l;
+  max-width: 65%;
+  min-width: 50%;
 }
 
 .PostsContainer {
