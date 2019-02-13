@@ -11,11 +11,18 @@ const userLocal = () => {
   return null;
 }
 
+const authToken = () => {
+  if (localStorage.token && localStorage.token !== '') {
+    return localStorage.token;
+  }
+  return null;
+}
+
 const initialState = {
   isAuthenticated: authLocal(),
   isAuthenticating: false,
   user: userLocal(),
-  token: '',
+  token: authToken(),
   errors: []
 }
 

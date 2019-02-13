@@ -8,53 +8,55 @@ class EditInfoForm extends Component {
     super(props)
 
     this.state = {
-      user: {
-        username: '',
-        email: ''
-      }
+      id: props.user.id,
+      username: props.user.username,
+      email: props.user.email
     }
+
+    this.byPropKey = this.byPropKey.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+  }
+
+  byPropKey = (name, value) => {
+    this.setState({
+      [name]: value
+    })
   }
 
   handleOnChange = event => {
     const { name, value } = event.target;
-    this.setState({
-      user: {
-        [name]: value
-      }
-    });
+    this.byPropKey(name, value);
   }
 
   updateUser = event => {
     event.preventDefault();
     debugger
-    // const { user } = this.props;
-    // this.props.updateInfo(user);
+    this.props.updateUser(this.state);
   }
 
   render() {
-    const { user } = this.props.auth;
-
     return (
       <React.Fragment>
         <form
           className="EditInfoForm"
-          onSubmit={this.updateUser.bind(this)}
+          onSubmit={this.updateUser}
         >
           <input 
             ref="usernameInput"
             type="text"
             name="username"
-            placeholder={user.username}
-            value={this.state.user.username}
-            onChange={this.handleOnChange.bind(this)}
+            defaultValue={this.state.username}
+            placeholder={this.state.username}
+            onChange={this.handleOnChange}
           />
           <input
             ref="emailInput"
             type="text"
             name="email"
-            placeholder={user.email}
-            value={this.state.user.email}
-            onChange={this.handleOnChange.bind(this)}
+            defaultValue={this.state.email}
+            placeholder={this.state.email}
+            onChange={this.handleOnChange}
           />
           <button type="submit">
             Update Info
@@ -65,10 +67,10 @@ class EditInfoForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { ...state };
-}
+// const mapStateToProps = state => {
+//   return { ...state };
+// }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditInfoForm);
+export default connect(null, mapDispatchToProps)(EditInfoForm);

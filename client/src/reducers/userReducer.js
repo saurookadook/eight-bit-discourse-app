@@ -8,13 +8,13 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.SUBMITTING_POST:
+    case types.UPDATING_USER_INFO:
       return {
         ...state,
         loading: true,
         loaded: false
       }
-    case types.LOADING_POST:
+    case types.FETCH_USER_INFO:
       return {
         ...state,
         loading: true,

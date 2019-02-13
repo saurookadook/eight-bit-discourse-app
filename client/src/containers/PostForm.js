@@ -13,11 +13,11 @@ class PostForm extends Component {
     super(props)
 
     const authorInfo = () => {
-      if (this.props.user) {
+      if (props.user) {
         return {
-          id: this.props.user.id,
-          username: this.props.user.username,
-          email: this.props.user.email
+          id: props.user.id,
+          username: props.user.username,
+          email: props.user.email
         }
       } else {
         return null;
@@ -85,10 +85,10 @@ class PostForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { ...state };
-}
+// const mapStateToProps = state => {
+//   return { ...state };
+// }
 
 const mapDispatchToProps = dispatch => bindActionCreators({ submitPost }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default connect(null, mapDispatchToProps)(PostForm);

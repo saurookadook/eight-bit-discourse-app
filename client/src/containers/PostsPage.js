@@ -30,7 +30,9 @@ class PostsPage extends Component {
       <div className="PostsContainer">
         { hasData ? (
           <React.Fragment>
-            <PostForm user={this.props.auth.user} />
+            <PostForm 
+              user={auth.user} 
+            />
             <div className="PostsList text-left mt-3 ml-3">
               <div>
                 {posts.all.map((post, i) => (
