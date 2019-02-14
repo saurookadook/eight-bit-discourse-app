@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 
+// import CancelButton from '../components/buttons/CancelButton';
+
 class EditInfoForm extends Component {
   constructor(props) {
     super(props)
@@ -31,7 +33,7 @@ class EditInfoForm extends Component {
 
   updateUser = event => {
     event.preventDefault();
-    
+
     this.props.updateUser(this.state);
   }
 

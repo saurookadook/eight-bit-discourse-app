@@ -9,6 +9,7 @@ import CancelButton from '../components/buttons/CancelButton';
 
 import UserGamesDisplay from '../components/UserGamesDisplay';
 
+
 class AccountPage extends Component {
   state = {
     ...this.props,
@@ -29,13 +30,15 @@ class AccountPage extends Component {
           <div className="DetailsContainer">
             <h3>Account Details</h3>
           { isEditable ? (
-            <EditInfoForm
-              user={user}
-            >
-              <CancelButton 
+            <>
+              <EditInfoForm
+                user={user}
+                toggleEdit={this.toggleEdit}
+              />
+              <CancelButton
                 onClick={this.toggleEdit}
               />
-            </EditInfoForm>
+            </>
           ) : (
             <React.Fragment>
               <p><strong>Username: </strong>{ user.username }</p>
