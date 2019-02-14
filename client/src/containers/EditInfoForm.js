@@ -31,6 +31,7 @@ class EditInfoForm extends Component {
 
   updateUser = event => {
     event.preventDefault();
+    
     this.props.updateUser(this.state);
   }
 
