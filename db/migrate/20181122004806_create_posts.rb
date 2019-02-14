@@ -4,8 +4,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :game
       t.text :discussion
-      t.string :rating
-      t.string :user_id
+      t.integer :rating
+      t.integer :user_id
 
       t.timestamps
     end

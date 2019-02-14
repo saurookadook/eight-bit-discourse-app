@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+// import * as actions from '../actions';
 
 class PostListItem extends Component {
 
@@ -40,15 +40,29 @@ class PostListItem extends Component {
   }
 
   render() {
-    const { post } = this.props;
-    // debugger
+    const { post, user } = this.props;
+
     return (
-      <div className="CloudBubble p-2 my-2">
+      <div className="CloudBubble">
         <Link className="text-dark" to={`/posts/${post.id}`}>
           <h3>{post.title}</h3>
         </Link>
         <div>
-          <p>Author: {post.author.username} || Game of discussion: {post.game} || <button onClick={this.onClickHandler.bind(this)}>Votes: {post.vote_count} </button></p>
+          <p>
+            <strong>Author:</strong> {post.author.username} || 
+            <strong>Game of discussion:</strong> {post.game} 
+            { user && (
+              <React.Fragment>
+                || 
+                <button 
+                  onClick={this.onClickHandler.bind(this)}>
+                  <strong>Votes:</strong> 
+                  {post.vote_count} 
+                </button>
+              </React.Fragment>
+            )}
+            
+          </p>
         </div>
       </div>
     )

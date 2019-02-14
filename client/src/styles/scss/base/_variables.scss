@@ -6,7 +6,10 @@ $bg-transparent: transparent;
 $c-white: #ffffff;
 $c-black: #000000;
 $c-black--border: #020000;
+$c-black--midnight: #2B1B17;
+$c-black--charcoal: #34282C;
 $c-gray: gray;
+$c-gray--vampire: #565051;
 $c-orange--border: #C43126; 
 $c-orange--block: #E47134;
 $c-orange--brick: #BA5425;
@@ -19,8 +22,14 @@ $c-blue--light: #6695F5;
 // SPACING
 // ---------------------------------------------------------------------------
 
-$ems--xs: .1em;
+$ems--xs: .5em;
 $ems--s: 1em;
 $ems--2s: 2em;
 $ems--m: 5em;
 $ems--l: 10em;
+
+$rems--xs: .5em;
+$rems--s: 1em;
+$rems--2s: 2em;
+$rems--m: 5em;
+$rems--l: 10em;

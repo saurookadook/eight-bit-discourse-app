@@ -6815,49 +6815,74 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
-.NavBar {
-  background: #000000; }
+.OneUp {
+  background: #E47134;
+  border-top: 10px solid #C43126;
+  border-left: 10px solid #C43126;
+  border-right: 10px solid #020000;
+  border-bottom: 10px solid #020000;
+  box-shadow: 0.5em 0.5em 0.5em #34282C; }
 
-body {
-  background: linear-gradient(to bottom right, #6695F5, gray);
-  min-height: 1000px;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif; }
+.PostBlock {
+  padding: 1em;
+  margin-bottom: 1em; }
+  .PostBlock a {
+    color: #000000;
+    padding: 1em; }
+    .PostBlock a:hover {
+      color: #000000; }
 
-.App {
-  background: transparent;
-  margin-top: 7em; }
-
-/* PageHeader */
-.PageHeader {
-  margin-top: 40px; }
-
-.AppDetails {
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
-
-.PageHeaderImage {
-  height: 100%; }
-
-.CloudBubble {
+.CloudBubble, .UserCloudBubble {
   background: #ffffff;
   border: 1px solid #000000;
-  border-radius: 20px; }
+  border-radius: 20px;
+  box-shadow: 0 0.5em 0.5em #34282C;
+  margin-top: 1em;
+  margin-bottom: 1em; }
 
-/* Welcome */
+.CloudBubble {
+  padding: 1em 5em; }
+
+.UserCloudBubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 5em;
+  margin-bottom: 2em;
+  max-width: 60%;
+  min-width: 40%; }
+
+.ViewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10em;
+  max-width: 65%;
+  min-width: 50%; }
+
+.PostsContainer {
+  min-width: 50%; }
+
+.UserGamesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
 /* Footer */
 footer {
   background-color: #BA5425;
   border-top: 2px solid #000000;
   font-weight: bold; }
+  footer * {
+    text-align: center; }
 
 .FooterBushes {
   border-radius: 15px 15px 0 0;
   border-top: 1px solid #000000;
   border-right: 1px solid #000000;
   border-left: 1px solid #000000;
-  font-size: 1em; }
+  font-size: 1em;
+  text-align: center; }
 
 .MiddleBush {
   background: #4ca730; }
@@ -6867,12 +6892,41 @@ footer {
 
 /* Forms */
 .FormUp {
-  background: #E47134;
-  border-top: 10px solid #C43126;
-  border-left: 10px solid #C43126;
-  border-right: 10px solid #020000;
-  border-bottom: 10px solid #020000; }
+  text-align: center; }
 
+.LoadingPage {
+  margin-top: 5em;
+  text-align: center; }
+
+.NavBar {
+  background: #000000; }
+
+body {
+  background: linear-gradient(to bottom right, #6695F5, gray);
+  font-family: sans-serif;
+  margin: 0;
+  min-height: 1000px;
+  padding: 0; }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  text-align: center; }
+
+.AppDetails {
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
+
+/* PageHeader */
+.PageHeader {
+  margin-top: 40px; }
+
+.PageHeaderImage {
+  height: 100%; }
+
+/* Welcome */
 /* PostsList */
 .PostsList, .FormUp {
   margin-bottom: 150px; }

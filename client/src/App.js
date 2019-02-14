@@ -15,7 +15,7 @@ import { Footer } from './components/Footer';
 // Content
 import PostsPage from './containers/PostsPage';
 import PostPage from './containers/PostPage';
-import AccountPage from './components/AccountPage';
+import AccountPage from './containers/AccountPage';
 // import UserPostsPage from './containers/UserPostsPage';
 
 // User Auth
@@ -27,10 +27,11 @@ import './styles/css/index.css';
 
 class App extends Component {
   render() {
-    const { isAuthenticated, user, logout  } = this.props
+    const { isAuthenticated, user } = this.props.auth;
+    const { logout  } = this.props;
     
     const publicViews = (
-      <div className="container">
+      <div className="ViewContainer">
         <Route exact path={routes.HOME} component={Welcome} />
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />
@@ -40,7 +41,7 @@ class App extends Component {
     )
 
     const protectedViews = (
-      <div className="container">
+      <div className="ViewContainer">
         <Route exact path={routes.HOME} component={Welcome} />
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />
@@ -50,6 +51,7 @@ class App extends Component {
       </div>
     )
 
+    // debugger
     return (
       <Router>
         <div className="App">
@@ -69,11 +71,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return { 
-    ...state,
-    isAuthenticated: state.auth.isAuthenticated,
-    user: state.auth.user
-   }
+  return { ...state }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);

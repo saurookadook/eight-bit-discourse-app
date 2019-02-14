@@ -20,7 +20,7 @@ export const fetchPosts = () => {
   }
 }
 
-export function fetchPost(post) {
+export const fetchPost = (post) => {
   // TODO once nested functionality is setup
   // if (userId != null || undefined) {
   //   return (dispatch) => {
@@ -40,12 +40,14 @@ export function fetchPost(post) {
     }
   }
 
-export function submitPost(formContent) {
+export const submitPost = (formContent) => {
   return (dispatch) => {
     dispatch({ type: types.SUBMITTING_POST })
     return fetch(`${API_URL}/posts`, {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({post: formContent})
     })
       .then(response => response.json())
@@ -55,7 +57,7 @@ export function submitPost(formContent) {
   }
 }
 
-export function updatePost(post) {
+export const updatePost = (post) => {
   const userId = post.user_id;
   return (dispatch) => {
     dispatch({type: types.UPDATING_POST})

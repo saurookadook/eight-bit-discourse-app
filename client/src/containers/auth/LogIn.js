@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
-import '../../styles/css/App.css';
+import '../../styles/css/index.css';
 
 const INITIAL_STATE = {
     email: '',
@@ -49,43 +49,35 @@ class LogInForm extends Component {
   }
 
   render() {
-    // --template--
-    // <p>
-    //   <input ref="authorInput" type="text" name="authorName" placeholder="Author" value={this.state.author} onChange={this.onSignup} />
-    // </p>
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="FormUp col-6 p-4 my-4">
-            <h3>Continue the discourse...</h3>
-            <form id="post-form" onSubmit={this.onLogIn}>
-              <p>
-                Email:
-                <input 
-                  className="ml-2" 
-                  ref="email" 
-                  type="text" 
-                  name="email" 
-                  placeholder="Email" 
-                  value={this.state.email} 
-                  onChange={this.onChangeHandler} 
-                />
-              </p>
-              <p>
-                Password:
-                <input 
-                  ref="password" 
-                  type="password" 
-                  name="password" 
-                  placeholder="Password" 
-                  value={this.state.password}
-                  onChange={this.onChangeHandler} 
-                />
-              </p>
-              <button type="submit">Log In</button>
-            </form>
-          </div>
-        </div>
+      <div className="OneUp FormUp col-6 p-4 my-4">
+        <h3>Continue the discourse...</h3>
+        <form id="post-form" onSubmit={this.onLogIn}>
+          <p>
+            Email:
+            <input 
+              className="ml-2" 
+              ref="email" 
+              type="text" 
+              name="email" 
+              placeholder="Email" 
+              value={this.state.email} 
+              onChange={this.onChangeHandler} 
+            />
+          </p>
+          <p>
+            Password:
+            <input 
+              ref="password" 
+              type="password" 
+              name="password" 
+              placeholder="Password" 
+              value={this.state.password}
+              onChange={this.onChangeHandler} 
+            />
+          </p>
+          <button type="submit">Log In</button>
+        </form>
       </div>
     )
   }

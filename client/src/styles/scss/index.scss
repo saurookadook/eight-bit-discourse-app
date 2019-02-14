@@ -11,10 +11,23 @@ $enable-gradients: true;
 
 
 // ---------------------------------------------------------------------------
+// MIXINS
+// ---------------------------------------------------------------------------
+
+@import 'mixins/clearfix';
+@import 'mixins/flexes';
+
+
+// ---------------------------------------------------------------------------
 // COMPONENTS
 // ---------------------------------------------------------------------------
 
+@import 'components/Blocks';
+@import 'components/Bubbles';
+@import 'components/Containers';
 @import 'components/Footer';
+@import 'components/Form';
+@import 'components/LoadingPage';
 @import 'components/NavBar';
 @import 'components/Post';
 
@@ -24,11 +37,3 @@ $enable-gradients: true;
 // ---------------------------------------------------------------------------
 
 @import 'layouts/App';
-
-
-// ---------------------------------------------------------------------------
-// MIXINS
-// ---------------------------------------------------------------------------
-
-@import 'mixins/clearfix';
-@import 'mixins/flexes';

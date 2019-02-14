@@ -1,52 +1,45 @@
 class PostsController < ApiController
-    # temp fix for auth_token issues
-    skip_before_action :verify_authenticity_token, raise: false
-    # skip_before_action :verify_authenticity_token, except: [:destroy], raise: false
+  before_action :set_user!, only: [:create, :update, :destroy]
 
-    def index
-      @posts = Post.order(created_at: :desc)
-      render json: @posts, include: ['author']
+  def index
+    @posts = Post.order(created_at: :desc)
+    render json: @posts
+  end
+
+  def show
+    @post = Post.find(params[:id])
+
+    render json: @post, include: ['author', 'comments', 'comments.user']
+  end
+
+  def create
+    @post = @user.posts.build(post_params)
+
+    if @post.valid?
+      @post.save
+      self.class.index
+      # @posts = Post.order(created_at: :desc)
+      # render json: @posts
+      # find way to do this with just rendering @post
+      # render json: @posts, include: ['author']
+    else
+      render json: { message: "There was an issue submitting your post, please try again."}
     end
+  end
 
-    def show
-      @post = Post.find(params[:id])
+  def update
+    binding.pry
+  end
 
-      render json: @post, include: ['author', 'comments', 'comments.user']
-    end
+  def destroy
+  end
 
-    def create
-      # TODO: implement user validation
-      # fake user authentication
-      @user = User.find_by(username: params[:post][:authorName])
-      if !@user
-        @user = User.create(username: params[:post][:authorName], password: SecureRandom.hex(10))
-      end
+  private
 
-      @post = @user.posts.build(title: params[:post][:title], game: params[:post][:game], discussion: params[:post][:discussion], rating: params[:post][:rating], user_id: @user.id)
-      # binding.pry
-      if @post.valid?
-        @post.save
-        @posts = Post.order(created_at: :desc)
-        # find way to do this with just rendering @post
-        render json: @posts, include: ['author']
-      else
-        render json: { message: "There was an issue submitting your post, please try again."}
-      end
-    end
-
-    def update
-      binding.pry
-    end
-
-    def destroy
-    end
-
-    private
-
-    def post_params
-      params.require(:post).permit(:title, :game, :discussion, :rating, :user_id,
-        user_attributes: [:id, :username, :email, :password]
-        )
-    end
+  def post_params
+    params.require(:post).permit(:title, :game, :discussion, :rating, :user_id,
+      author_attributes: [:id, :username, :email, :password_digest]
+      )
+  end
 
 end

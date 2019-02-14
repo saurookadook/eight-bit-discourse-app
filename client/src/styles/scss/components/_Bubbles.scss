@@ -1,0 +1,26 @@
+.CloudBubble, .UserCloudBubble {
+  background: $c-white;
+  border: 1px solid $c-black;
+  border-radius: 20px;
+  box-shadow: 0 $ems--xs $ems--xs $c-black--charcoal;
+  margin-top: $ems--s;
+  margin-bottom: $ems--s;
+}
+
+.CloudBubble {
+  padding: $ems--s $ems--m;
+}
+
+// .PostCloudBubble {
+//   @include col();
+//   justify-content: flex-start;
+// }
+
+.UserCloudBubble {
+  @include col();
+  align-items: center;
+  padding: $ems--s $ems--m;
+  margin-bottom: $ems--2s;
+  max-width: 60%;
+  min-width: 40%;
+}

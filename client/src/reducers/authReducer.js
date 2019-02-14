@@ -1,10 +1,30 @@
 import * as types from '../actions/actionTypes';
 
+const authLocal = () => {
+  return localStorage.token ? true : false;
+}
+
+const userLocal = () => {
+  if (localStorage.user) {
+    return JSON.parse(localStorage.user);  
+  }
+  return null;
+}
+
+const authToken = () => {
+  if (localStorage.token && localStorage.token !== '') {
+    return localStorage.token;
+  }
+  return null;
+}
+
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: authLocal(),
   isAuthenticating: false,
-  user: {},
-  token: '',
+  loading: false,
+  loaded: false,
+  user: userLocal(),
+  token: authToken(),
   errors: []
 }
 
@@ -28,9 +48,23 @@ export default (state = initialState, action) => {
           ...state,
           isAuthenticated: false,
           isAuthenticating: false,
-          user: {},
+          user: null,
           token: null,
           errors: action.errors || []
+      }
+    // TODO: move to separate reducer?
+    case types.UPDATING_USER_INFO:
+      return {
+        ...state,
+        loading: true,
+        loaded: false
+      }
+    case types.FETCH_USER_INFO:
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        user: action.user
       }
     case types.LOGOUT:
       // TODO: logout message?
@@ -38,7 +72,7 @@ export default (state = initialState, action) => {
           ...state,
           isAuthenticated: false,
           isAuthenticating: false,
-          user: {},
+          user: null,
           token: null
       }
     default:

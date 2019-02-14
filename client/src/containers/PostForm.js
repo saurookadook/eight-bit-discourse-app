@@ -9,23 +9,33 @@ import '../styles/css/index.css';
 import { submitPost } from '../actions/postActions.js';
 
 class PostForm extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
+    const authorInfo = () => {
+      if (props.user) {
+        return {
+          id: props.user.id,
+          username: props.user.username,
+          email: props.user.email
+        }
+      } else {
+        return null;
+      }
+      
+    }
 
     this.state = {
-      ...this.state,
-      newPost: {
-        title: '',
-        game: '',
-        author: {},
-        discussion: '',
-        rating: ''
-      }
+      title: '',
+      game: '',
+      author: authorInfo(),
+      discussion: '',
+      rating: ''
     }
   }
 
   onChangeHandler = event => {
-    const { value, name } = event.target
+    const { name, value } = event.target
     this.setState({
       [name]: value
     });
@@ -39,12 +49,14 @@ class PostForm extends Component {
   }
 
   render() {
-    let userLoggedIn = this.props.user.hasOwnProperty('id') ? this.props.user : false;
+    let userLoggedIn = this.props.user ? this.props.user : false;
 
+    // don't need this?
+    // <input ref="authorInput" type="hidden" name="author" value={this.props.user} onChange={this.onChangeHandler} />
     return (
       <div className="container">
         <div className="row justify-content-center">
-          <div className="FormUp col-6 p-4 my-4">
+          <div className="OneUp FormUp p-4 my-4">
           { userLoggedIn ? (
             <React.Fragment>
               <h3>Anything to discuss with the hive mind?</h3>
@@ -62,7 +74,6 @@ class PostForm extends Component {
                 <p>
                   <input ref="ratingInput" type="number" name="rating" placeholder="Rating (1-10)" value={this.state.rating} onChange={this.onChangeHandler} />
                 </p>
-                  <input ref="authorInput" type="hidden" name="author" value={this.props.user} onChange={this.onChangeHandler} />
                 <button type="submit">Add a post</button>
               </form>
             </React.Fragment>
@@ -74,10 +85,10 @@ class PostForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { ...state };
-}
+// const mapStateToProps = state => {
+//   return { ...state };
+// }
 
 const mapDispatchToProps = dispatch => bindActionCreators({ submitPost }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default connect(null, mapDispatchToProps)(PostForm);
