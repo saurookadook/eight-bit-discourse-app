@@ -8,8 +8,13 @@
 }
 
 .CloudBubble {
-  padding: $ems--xs $ems--s;
+  padding: $ems--s $ems--m;
 }
+
+// .PostCloudBubble {
+//   @include col();
+//   justify-content: flex-start;
+// }
 
 .UserCloudBubble {
   @include col();

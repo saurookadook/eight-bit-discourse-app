@@ -27,9 +27,9 @@ class UsersController < ApiController
   end
 
   def update
-    binding.pry
-    @user = User.update(user_params)
+    @user.update(user_params)
     if @user.valid?
+      @user.save
       render json: @user
     else
       @errors = @user.errors.full_messages

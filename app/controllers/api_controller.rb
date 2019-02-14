@@ -7,8 +7,11 @@ class ApiController < ActionController::API
   protected
 
   def set_user!
-    if params[:post][:author]
+    # TODO: custom method for pulling out user info?
+    if params[:post]
       @user = User.find_by(id: params[:post][:author][:id])
+    # elsif params[:user]
+    #   @user = User.find_by(id: params[:user][:id])
     else
       @user = User.find_by(id: params[:id])
     end

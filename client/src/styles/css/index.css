@@ -6841,7 +6841,7 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 1em; }
 
 .CloudBubble {
-  padding: 0.5em 1em; }
+  padding: 1em 5em; }
 
 .UserCloudBubble {
   display: flex;

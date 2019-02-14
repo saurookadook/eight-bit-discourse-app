@@ -21,6 +21,8 @@ const authToken = () => {
 const initialState = {
   isAuthenticated: authLocal(),
   isAuthenticating: false,
+  loading: false,
+  loaded: false,
   user: userLocal(),
   token: authToken(),
   errors: []
@@ -49,6 +51,20 @@ export default (state = initialState, action) => {
           user: null,
           token: null,
           errors: action.errors || []
+      }
+    // TODO: move to separate reducer?
+    case types.UPDATING_USER_INFO:
+      return {
+        ...state,
+        loading: true,
+        loaded: false
+      }
+    case types.FETCH_USER_INFO:
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        user: action.user
       }
     case types.LOGOUT:
       // TODO: logout message?
