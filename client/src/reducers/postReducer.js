@@ -3,7 +3,7 @@ import * as types from '../actions/actionTypes';
 const initialState = {
   loading: false,
   loaded: false,
-  post: {}
+  post: null
 }
 
 const postReducer = (state = initialState, action) => {

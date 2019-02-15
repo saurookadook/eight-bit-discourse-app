@@ -15,7 +15,7 @@ import PostDisplay from '../components/PostDisplay';
 class PostPage extends Component {
 
   componentDidMount() {
-    this.props.fetchPost(this.props.post)
+    this.props.fetchPost(this.props.postId)
   }
 
   render() {
@@ -37,19 +37,14 @@ class PostPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // find the post by id in posts
-  if (!state.post.loaded) { // somehow, `state.post` is getting set with `all` after hitting `fetchPost`
-    let postId = parseInt(ownProps.match.params.id)
+  if (!state.post.loaded) { // somehow, `state.post` is getting set with `all` after hitting `fetchPost`3
     return {
-      post: {
-        loading: false,
-        loaded: false,
-        postId: postId
-      }
+      ...state,
+      postId: ownProps.match.params.id
     }
   } else {
     return {
-      post: state.post
+      ...state
     }
   }
 }

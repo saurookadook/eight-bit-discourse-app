@@ -64,11 +64,10 @@ class AccountPage extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { ...state };
-}
+// const mapStateToProps = state => {
+//   return { ...state };
+// }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(null, mapDispatchToProps)(AccountPage);
-// export default AccountPage;

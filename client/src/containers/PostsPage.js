@@ -14,7 +14,9 @@ import PostListItem from '../components/PostListItem';
 class PostsPage extends Component {
 
   componentDidMount() {
-    this.props.fetchPosts();
+    if (!this.props.posts.all) {
+      this.props.fetchPosts();
+    }
   }
 
   // updateListItem(post) {
