@@ -15,18 +15,21 @@ import PostDisplay from '../components/PostDisplay';
 class PostPage extends Component {
 
   componentDidMount() {
-    this.props.fetchPost(this.props.postId)
+    if (this.props.postId && !this.props.post.loaded) {
+      this.props.fetchPost(this.props.postId)
+    }
   }
 
   render() {
     let hasData = (this.props.post.loaded && !this.props.post.loading)
-    const { post } = this.props.post;
+    const { auth, post } = this.props;
 
     return (
       <div className="PostPage">
         { hasData ? (
-          <PostDisplay 
-            post={post}
+          <PostDisplay
+            auth={auth}
+            post={post.post}
           />
         ) : (
           <LoadingPage />

@@ -6931,4 +6931,7 @@ body {
 .PostsList, .FormUp {
   margin-bottom: 150px; }
 
+.Separator {
+  margin: 0 0.5em; }
+
 /*# sourceMappingURL=index.css.map */

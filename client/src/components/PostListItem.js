@@ -49,11 +49,12 @@ class PostListItem extends Component {
         </Link>
         <div>
           <p>
-            <strong>Author:</strong> {post.author.username} || 
+            <strong>Author:</strong> {post.author.username}
+            <span className="Separator">||</span>
             <strong>Game of discussion:</strong> {post.game} 
             { user && (
               <React.Fragment>
-                || 
+                <span className="Separator">||</span>
                 <button 
                   onClick={this.onClickHandler.bind(this)}>
                   <strong>Votes:</strong> 
@@ -61,7 +62,6 @@ class PostListItem extends Component {
                 </button>
               </React.Fragment>
             )}
-            
           </p>
         </div>
       </div>
