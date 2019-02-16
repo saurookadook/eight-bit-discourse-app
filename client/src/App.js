@@ -12,6 +12,7 @@ import './styles/css/index.css';
 import NavBar from './components/NavBar';
 
 // Static
+import HtmlHead from './components/shared/HtmlHead';
 import { PageLayout } from './components/PageLayout'
 import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
@@ -55,6 +56,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <HtmlHead />
           <NavBar 
             isAuthenticated={isAuthenticated} 
             logout={logout} 

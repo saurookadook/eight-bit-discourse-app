@@ -6,7 +6,7 @@ const EditButton = ({ data, onClick }) => {
       className="EditBtn"
       onClick={() => onClick(data)}
     >
-      Edit Info
+      <i className="fas fa-pen-square" ></i>
     </button>
   )
 }
