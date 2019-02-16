@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from './actions';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// Constants/Styles
+import * as actions from './actions';
+import * as routes from './constants/routes';
+import './styles/css/index.css';
 
 // Navigation
 import NavBar from './components/NavBar';
@@ -21,9 +25,6 @@ import AccountPage from './containers/AccountPage';
 // User Auth
 import LogInForm from './containers/auth/LogIn';
 import SignUpForm from './containers/auth/SignUp';
-
-import * as routes from './constants/routes';
-import './styles/css/index.css';
 
 class App extends Component {
   render() {
@@ -51,7 +52,6 @@ class App extends Component {
       </div>
     )
 
-    // debugger
     return (
       <Router>
         <div className="App">

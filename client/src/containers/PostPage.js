@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 
 // Constants/Styles
 import * as actions from '../actions';
-import '../styles/css/index.css';
 
 // Static
 import { LoadingPage } from '../components/LoadingPage';
@@ -15,9 +14,10 @@ import PostDisplay from '../components/PostDisplay';
 class PostPage extends Component {
 
   componentDidMount() {
-    if (this.props.postId && !this.props.post.loaded) {
+    // TODO: only call fetchPost if it's a new post
+    // if (this.props.postId !== this.props.post.post.id) {
       this.props.fetchPost(this.props.postId)
-    }
+    // }
   }
 
   render() {
@@ -40,16 +40,10 @@ class PostPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  if (!state.post.loaded) { // somehow, `state.post` is getting set with `all` after hitting `fetchPost`3
     return {
       ...state,
       postId: ownProps.match.params.id
     }
-  } else {
-    return {
-      ...state
-    }
-  }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
