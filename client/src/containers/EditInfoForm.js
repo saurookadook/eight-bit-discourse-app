@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 
+import SubmitButton from '../components/buttons/SubmitButton';
 import CancelButton from '../components/buttons/CancelButton';
 
 class EditInfoForm extends Component {
@@ -60,9 +61,7 @@ class EditInfoForm extends Component {
             placeholder={this.state.email}
             onChange={this.handleOnChange}
           />
-          <button type="submit">
-            <i className="fas fa-circle" />
-          </button>
+          <SubmitButton />
           <CancelButton
             onClick={this.props.onClick}
           />
