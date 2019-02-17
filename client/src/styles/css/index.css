@@ -6852,6 +6852,10 @@ a.text-dark:hover, a.text-dark:focus {
   max-width: 60%;
   min-width: 40%; }
 
+.BtnBasic {
+  background: transparent;
+  border: 0; }
+
 .BtnText {
   margin-left: 0.5em; }
 

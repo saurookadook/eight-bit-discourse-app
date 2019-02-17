@@ -33,11 +33,11 @@ class AccountPage extends Component {
             <>
               <EditInfoForm
                 user={user}
-                toggleEdit={this.toggleEdit}
-              />
-              <CancelButton
                 onClick={this.toggleEdit}
               />
+              {/* <CancelButton
+                onClick={this.toggleEdit}
+              /> */}
             </>
           ) : (
             <React.Fragment>

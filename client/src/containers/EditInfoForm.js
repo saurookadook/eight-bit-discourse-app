@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 
-// import CancelButton from '../components/buttons/CancelButton';
+import CancelButton from '../components/buttons/CancelButton';
 
 class EditInfoForm extends Component {
   constructor(props) {
@@ -63,6 +63,9 @@ class EditInfoForm extends Component {
           <button type="submit">
             <i className="fas fa-circle" />
           </button>
+          <CancelButton
+            onClick={this.props.onClick}
+          />
         </form>
       </React.Fragment>
     )
