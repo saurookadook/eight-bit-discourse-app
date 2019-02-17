@@ -6852,6 +6852,12 @@ a.text-dark:hover, a.text-dark:focus {
   max-width: 60%;
   min-width: 40%; }
 
+.BtnText {
+  margin-left: 0.5em; }
+
+.EditBtn {
+  padding: 0.5em; }
+
 .ViewContainer {
   display: flex;
   flex-direction: column;

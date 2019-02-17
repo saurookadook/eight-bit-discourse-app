@@ -6,7 +6,7 @@ const CancelButton =  ({ onClick }) => {
         className="CancelBtn"
         onClick={() => onClick()}
       >
-        <i className="fas fa-times-cirle" />
+        <i className="fas fa-times" />
       </button>
     )
   }

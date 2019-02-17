@@ -15,7 +15,7 @@ class EditInfoForm extends Component {
       email: props.user.email
     }
 
-    this.byPropKey = this.byPropKey.bind(this);
+    // this.byPropKey = this.byPropKey.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
     this.updateUser = this.updateUser.bind(this);
   }
@@ -61,7 +61,7 @@ class EditInfoForm extends Component {
             onChange={this.handleOnChange}
           />
           <button type="submit">
-            Update Info
+            <i className="fas fa-circle" />
           </button>
         </form>
       </React.Fragment>
