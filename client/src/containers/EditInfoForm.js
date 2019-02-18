@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 
+import SubmitButton from '../components/buttons/SubmitButton';
+import CancelButton from '../components/buttons/CancelButton';
+
 class EditInfoForm extends Component {
   constructor(props) {
     super(props)
@@ -13,7 +16,7 @@ class EditInfoForm extends Component {
       email: props.user.email
     }
 
-    this.byPropKey = this.byPropKey.bind(this);
+    // this.byPropKey = this.byPropKey.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
     this.updateUser = this.updateUser.bind(this);
   }
@@ -31,6 +34,7 @@ class EditInfoForm extends Component {
 
   updateUser = event => {
     event.preventDefault();
+
     this.props.updateUser(this.state);
   }
 
@@ -57,9 +61,10 @@ class EditInfoForm extends Component {
             placeholder={this.state.email}
             onChange={this.handleOnChange}
           />
-          <button type="submit">
-            Update Info
-          </button>
+          <SubmitButton />
+          <CancelButton
+            onClick={this.props.onClick}
+          />
         </form>
       </React.Fragment>
     )

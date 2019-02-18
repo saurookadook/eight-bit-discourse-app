@@ -7,29 +7,28 @@ import * as routes from '../../constants/routes';
 
 import '../../styles/css/index.css';
 
-const INITIAL_STATE = {
-    email: '',
-    password: ''
-}
-
 class LogInForm extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
-    this.state = { ...INITIAL_STATE }
+    this.state = { 
+      email: '',
+      password: '' 
+    }
+
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onLogIn = this.onLogIn.bind(this);
   }
 
-  // byPropKey = (name, value) => () => ({
-  //   [name]: value
-  // })
+  byPropKey = (name, value) => {
+    this.setState({
+      [name]: value
+    })
+  }
 
   onChangeHandler = event => {
-    // TODO: refactor using byPropKey?
     const { name, value } = event.target
-    // this.setState(byPropKey(name, value));
-    this.setState({        
-        [name]: value
-    });
+    this.byPropKey(name, value);
   }
 
   onLogIn = event => {
@@ -76,7 +75,9 @@ class LogInForm extends Component {
               onChange={this.onChangeHandler} 
             />
           </p>
-          <button type="submit">Log In</button>
+          <button type="submit">
+            Log In
+          </button>
         </form>
       </div>
     )

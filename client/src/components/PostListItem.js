@@ -12,6 +12,8 @@ class PostListItem extends Component {
     this.state = {
       ...props.post
     }
+
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
 
 
@@ -49,19 +51,20 @@ class PostListItem extends Component {
         </Link>
         <div>
           <p>
-            <strong>Author:</strong> {post.author.username} || 
+            <strong>Author:</strong> {post.author.username}
+            <span className="Separator">||</span>
             <strong>Game of discussion:</strong> {post.game} 
             { user && (
               <React.Fragment>
-                || 
-                <button 
-                  onClick={this.onClickHandler.bind(this)}>
+                <span className="Separator">||</span>
+                <button
+                  className="BtnBasic"
+                  onClick={this.onClickHandler}>
                   <strong>Votes:</strong> 
                   {post.vote_count} 
                 </button>
               </React.Fragment>
             )}
-            
           </p>
         </div>
       </div>

@@ -6852,6 +6852,13 @@ a.text-dark:hover, a.text-dark:focus {
   max-width: 60%;
   min-width: 40%; }
 
+.BtnBasic {
+  background: transparent;
+  border: 0; }
+
+.BtnText {
+  margin-left: 0.5em; }
+
 .ViewContainer {
   display: flex;
   flex-direction: column;
@@ -6930,5 +6937,8 @@ body {
 /* PostsList */
 .PostsList, .FormUp {
   margin-bottom: 150px; }
+
+.Separator {
+  margin: 0 0.5em; }
 
 /*# sourceMappingURL=index.css.map */

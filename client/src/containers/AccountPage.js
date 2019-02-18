@@ -5,8 +5,10 @@ import * as actions from '../actions';
 
 import EditInfoForm from './EditInfoForm';
 import EditButton from '../components/buttons/EditButton';
+// import CancelButton from '../components/buttons/CancelButton';
 
 import UserGamesDisplay from '../components/UserGamesDisplay';
+
 
 class AccountPage extends Component {
   state = {
@@ -28,9 +30,15 @@ class AccountPage extends Component {
           <div className="DetailsContainer">
             <h3>Account Details</h3>
           { isEditable ? (
-            <EditInfoForm
-              user={user}
-            />
+            <>
+              <EditInfoForm
+                user={user}
+                onClick={this.toggleEdit}
+              />
+              {/* <CancelButton
+                onClick={this.toggleEdit}
+              /> */}
+            </>
           ) : (
             <React.Fragment>
               <p><strong>Username: </strong>{ user.username }</p>
@@ -56,11 +64,10 @@ class AccountPage extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { ...state };
-}
+// const mapStateToProps = state => {
+//   return { ...state };
+// }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(null, mapDispatchToProps)(AccountPage);
-// export default AccountPage;

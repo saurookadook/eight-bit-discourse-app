@@ -51,8 +51,6 @@ class PostForm extends Component {
   render() {
     let userLoggedIn = this.props.user ? this.props.user : false;
 
-    // don't need this?
-    // <input ref="authorInput" type="hidden" name="author" value={this.props.user} onChange={this.onChangeHandler} />
     return (
       <div className="container">
         <div className="row justify-content-center">

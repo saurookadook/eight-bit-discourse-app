@@ -3,10 +3,12 @@ import React from 'react';
 const EditButton = ({ data, onClick }) => {
   return (
     <button
-      className="EditBtn"
+      className="BtnBasic EditBtn"
       onClick={() => onClick(data)}
     >
-      Edit Info
+      <i className="fas fa-pen-square" >
+        <span className="BtnText">Edit</span>
+      </i>
     </button>
   )
 }

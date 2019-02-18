@@ -4,13 +4,20 @@ import CommentsList from './CommentsList';
 import CommentForm from '../containers/CommentForm';
 import '../styles/css/index.css'
 
-const PostDisplay = ({ post }) => {
+const PostDisplay = ({ auth, post }) => {
   return (
     <div className="PostDislay">
       <Post post={post} />
       <div className="comments">
-        <CommentsList comments={post.comments} />
-        <CommentForm postId={post.id} />
+        <CommentsList
+          comments={post.comments}
+        />
+        { auth.user && (
+          <CommentForm
+            user={auth.user}
+            postId={post.id}
+          />
+        )}
       </div>
     </div>
   )
