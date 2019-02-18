@@ -32,6 +32,9 @@ class PostForm extends Component {
       discussion: '',
       rating: ''
     }
+
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
 
   onChangeHandler = event => {
@@ -58,21 +61,56 @@ class PostForm extends Component {
           { userLoggedIn ? (
             <React.Fragment>
               <h3>Anything to discuss with the hive mind?</h3>
-              <form id="post-form" onSubmit={this.onSubmitHandler.bind(this)}>
+              <form
+                id="post-form"
+                onSubmit={this.onSubmitHandler}
+              >
                 <p>
-                  <input className="mr-2" ref="titleInput" type="text" name="title" placeholder="Title/Topic" value={this.state.title} onChange={this.onChangeHandler} />
-                  <input className="ml-2" ref="gameInput" type="text" name="game" placeholder="Game" value={this.state.game} onChange={this.onChangeHandler} />
+                  <input
+                    className="mr-2"
+                    ref="titleInput"
+                    type="text"
+                    name="title"
+                    placeholder="Title/Topic"
+                    value={this.state.title}
+                    onChange={this.onChangeHandler}
+                  />
+                  <input
+                    className="ml-2"
+                    ref="gameInput"
+                    type="text"
+                    name="game"
+                    placeholder="Game"
+                    value={this.state.game}
+                    onChange={this.onChangeHandler}
+                  />
                 </p>
                 <p>
-                  <textarea ref="discussionInput" name="discussion" className="textarea" placeholder="Your thoughts...." value={this.state.discussion} onChange={this.onChangeHandler} />
+                  <textarea
+                    ref="discussionInput"
+                    name="discussion"
+                    className="textarea"
+                    placeholder="Your thoughts...."
+                    value={this.state.discussion}
+                    onChange={this.onChangeHandler}
+                  />
                 </p>
                 <p>
                   How would you rate this game?
                 </p>
                 <p>
-                  <input ref="ratingInput" type="number" name="rating" placeholder="Rating (1-10)" value={this.state.rating} onChange={this.onChangeHandler} />
+                  <input
+                    ref="ratingInput"
+                    type="number"
+                    name="rating"
+                    placeholder="Rating (1-10)"
+                    value={this.state.rating}
+                    onChange={this.onChangeHandler}
+                  />
                 </p>
-                <button type="submit">Add a post</button>
+                <button type="submit">
+                  Add a post
+                </button>
               </form>
             </React.Fragment>
             ) : ('Log in, dummy!') }

@@ -59,7 +59,8 @@ class PostListItem extends Component {
                 <span className="Separator">||</span>
                 <button
                   className="BtnBasic"
-                  onClick={this.onClickHandler}>
+                  onClick={this.onClickHandler}
+                >
                   <strong>Votes:</strong> 
                   {post.vote_count} 
                 </button>

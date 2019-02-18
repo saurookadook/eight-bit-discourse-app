@@ -5,7 +5,6 @@ import * as actions from '../actions';
 
 import EditInfoForm from './EditInfoForm';
 import EditButton from '../components/buttons/EditButton';
-// import CancelButton from '../components/buttons/CancelButton';
 
 import UserGamesDisplay from '../components/UserGamesDisplay';
 
@@ -30,15 +29,10 @@ class AccountPage extends Component {
           <div className="DetailsContainer">
             <h3>Account Details</h3>
           { isEditable ? (
-            <>
-              <EditInfoForm
-                user={user}
-                onClick={this.toggleEdit}
-              />
-              {/* <CancelButton
-                onClick={this.toggleEdit}
-              /> */}
-            </>
+            <EditInfoForm
+              user={user}
+              onClick={this.toggleEdit}
+            />
           ) : (
             <React.Fragment>
               <p><strong>Username: </strong>{ user.username }</p>
