@@ -6898,7 +6898,12 @@ footer {
   background: #C6F552; }
 
 /* Forms */
+.FormLabel {
+  margin-right: 0.5em; }
+
 .FormUp {
+  margin: 2.5em;
+  padding: 2.5em;
   text-align: center; }
 
 .LoadingPage {
@@ -6934,6 +6939,13 @@ body {
   height: 100%; }
 
 /* Welcome */
+.WelcomeMessage, .HomeDescription {
+  margin-top: 0.5em;
+  text-align: left; }
+
+.HomeDescription {
+  margin-bottom: 2em; }
+
 /* PostsList */
 .PostsList, .FormUp {
   margin-bottom: 150px; }

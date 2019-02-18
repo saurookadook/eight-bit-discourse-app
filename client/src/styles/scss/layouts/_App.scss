@@ -40,7 +40,15 @@ body {
 
 
 /* Welcome */
+.WelcomeMessage, .HomeDescription {
+  margin-top: $rems--xs;
+  // margin-left: $rems--s;
+  text-align: left;
+}
 
+.HomeDescription {
+  margin-bottom: $rems--2s;
+}
 
 /* PostsList */
 .PostsList, .FormUp {
