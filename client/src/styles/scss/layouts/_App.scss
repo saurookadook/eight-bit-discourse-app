@@ -11,21 +11,29 @@ body {
   align-items: center;
   background: $bg-transparent;
   text-align: center;
+} 
+
+/* PageHeader */
+.PageHeader {
+  background: $c-yellow--header;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  margin-top: 40px;
+  min-height: $px--m;
+  width: 100vw;
 }
 
 .AppDetails {
+  @include col();
+  align-items: flex-start;
   color: $c-white;
+  justify-content: center;
+  padding-left: $rems--m;
   text-shadow:
     -1px -1px 0 $c-black,
     1px -1px 0 $c-black,
     -1px 1px 0 $c-black,
     1px 1px 0 $c-black;
-}
-  
-
-/* PageHeader */
-.PageHeader {
-  margin-top: 40px;
 }
 
 .PageHeaderImage {

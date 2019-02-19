@@ -6841,6 +6841,7 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 1em; }
 
 .CloudBubble {
+  margin-top: 2em;
   padding: 1em 5em; }
 
 .UserCloudBubble {
@@ -6927,13 +6928,23 @@ body {
   background: transparent;
   text-align: center; }
 
-.AppDetails {
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
-
 /* PageHeader */
 .PageHeader {
-  margin-top: 40px; }
+  background: #ffc107;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  margin-top: 40px;
+  min-height: 250px;
+  width: 100vw; }
+
+.AppDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #ffffff;
+  justify-content: center;
+  padding-left: 5em;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
 
 .PageHeaderImage {
   height: 100%; }
