@@ -1,10 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
-// import { LinkContainer } from 'react-router-bootstrap'
 import * as routes from '../constants/routes';
 import '../styles/css/index.css'
 
+// Keep these Bootstrap elements for now
 const NavBar = ({ isAuthenticated, logout }) =>
     <div className="NavBar fixed-top text-left py-2">
         <NavLink className="NavLink Home px-1 ml-4 text-light" to={routes.HOME}>Home</NavLink>
