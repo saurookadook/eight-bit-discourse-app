@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Constants/Styles
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
-import '../../styles/css/index.css';
-
+// TODO: unnecessary?
 const INITIAL_STATE = {
     username: '',
     email: '',
@@ -21,17 +21,15 @@ class SignUpForm extends Component {
     this.state = { ...INITIAL_STATE }
   }
 
-  // byPropKey = (name, value) => () => ({
-  //   [name]: value
-  // })
-
-  onChangeHandler = event => {
-    // TODO: refactor using byPropKey?
-    const { name, value } = event.target
-    // this.setState(byPropKey(name, value));
+  byPropKey = (name, value) => {
     this.setState({
       [name]: value
     })
+  }
+
+  onChangeHandler = event => {
+    const { name, value } = event.target
+    this.byPropKey(name, value);
   }
 
   onSignUp = event => {

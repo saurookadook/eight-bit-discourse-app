@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Constants/Styles
-import { submitComment } from '../actions/commentActions';
+import * as actions from '../actions';
 
 class CommentForm extends Component {
   constructor(props) {
@@ -74,10 +74,6 @@ class CommentForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    submitComment: submitComment
-  }, dispatch)
-}
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(null, mapDispatchToProps)(CommentForm);

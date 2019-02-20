@@ -72,7 +72,6 @@ export const authenticate = authCredentials => {
     return fetch(request)
       .then(resp => resp.json())
       .then(response => {
-          // const token = response.jwt;
           localStorage.setItem('token', response.jwt);
           return getUser(authCredentials);
       })
@@ -91,8 +90,6 @@ export const getUser = userCredentials => {
   const request = new Request(`${API_URL}/find_user`, {
     // TODO: seems odd...?
     method: "POST",
-    // mode: 'no-cors',
-    // credentials: 'include',
     headers: new Headers({
       "Accept": "application/json",
       "Content-Type": "application/json",
