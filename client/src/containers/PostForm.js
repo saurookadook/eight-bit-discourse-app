@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Constants/Styles
-import '../styles/css/index.css';
-
-// Actions
 import { submitPost } from '../actions/postActions.js';
 
 class PostForm extends Component {
@@ -33,15 +30,20 @@ class PostForm extends Component {
       rating: ''
     }
 
+    this.byPropKey = this.byPropKey.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
 
-  onChangeHandler = event => {
-    const { name, value } = event.target
+  byPropKey = (name, value) => {
     this.setState({
       [name]: value
-    });
+    })
+  }
+
+  onChangeHandler = event => {
+    const { name, value } = event.target
+    this.byPropKey(name, value);
   }
 
   onSubmitHandler = event => {

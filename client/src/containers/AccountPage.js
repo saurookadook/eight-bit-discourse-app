@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+// Constants/Styles
 import * as actions from '../actions';
 
-import EditInfoForm from './EditInfoForm';
+// Static/Stateless
 import EditButton from '../components/buttons/EditButton';
-
 import UserGamesDisplay from '../components/UserGamesDisplay';
 
+// Content/Forms
+import EditInfoForm from './EditInfoForm';
 
 class AccountPage extends Component {
   state = {

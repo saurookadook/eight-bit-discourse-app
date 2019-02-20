@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+// Constants/Styles
 import * as actions from '../actions'
 
-// Static
+// Static/Stateless
 import { LoadingPage } from '../components/LoadingPage';
 
-// Content
+// Content/Forms
 import PostForm from './PostForm';
 import PostListItem from '../components/PostListItem';
 

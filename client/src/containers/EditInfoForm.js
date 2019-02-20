@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+// Constants/Styles
 import * as actions from '../actions';
 
+// Static/Stateless
 import SubmitButton from '../components/buttons/SubmitButton';
 import CancelButton from '../components/buttons/CancelButton';
 
@@ -16,7 +19,7 @@ class EditInfoForm extends Component {
       email: props.user.email
     }
 
-    // this.byPropKey = this.byPropKey.bind(this);
+    this.byPropKey = this.byPropKey.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
     this.updateUser = this.updateUser.bind(this);
   }

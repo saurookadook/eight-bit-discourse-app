@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+// Constants/Styles
 import * as routes from '../constants/routes';
-import '../styles/css/index.css'
 
 // Keep these Bootstrap elements for now
 const NavBar = ({ isAuthenticated, logout }) =>
