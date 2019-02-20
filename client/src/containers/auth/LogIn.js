@@ -14,6 +14,7 @@ class LogInForm extends Component {
       password: '' 
     }
 
+    this.byPropKey = this.byPropKey.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onLogIn = this.onLogIn.bind(this);
   }

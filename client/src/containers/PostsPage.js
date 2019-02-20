@@ -21,11 +21,6 @@ class PostsPage extends Component {
     }
   }
 
-  // updateListItem(post) {
-  //   debugger
-  //   this.props.updatePost(post);
-  // }
-
   render() {
     let hasData = (this.props.posts.loaded && !this.props.posts.loading)
     const { posts, auth }  = this.props;
@@ -44,7 +39,6 @@ class PostsPage extends Component {
                     key={i}
                     post={post}
                     user={auth.user}
-                    // updatePost={this.updateListItem(post)} 
                   />
                 ))}
               </div>

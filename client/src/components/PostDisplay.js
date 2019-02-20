@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Content
 import Post from './Post';
 import CommentsList from './CommentsList';
 import CommentForm from '../containers/CommentForm';
