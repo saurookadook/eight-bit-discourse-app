@@ -44,6 +44,7 @@ class PostListItem extends Component {
   render() {
     const { post, user } = this.props;
 
+    // TODO: configure vote count, possibly involves vote model? upvote/downvote?
     return (
       <div className="CloudBubble">
         <Link className="text-dark" to={`/posts/${post.id}`}>
