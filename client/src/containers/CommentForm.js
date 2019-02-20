@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { submitComment } from '../actions/commentActions.js';
 
+// Constants/Styles
+import { submitComment } from '../actions/commentActions';
 
 class CommentForm extends Component {
   constructor(props) {
@@ -13,15 +14,20 @@ class CommentForm extends Component {
       content: ''
     }
 
+    this.byPropKey = this.byPropKey.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
-  handleOnChange = event => {
-    const { value, name } = event.target;
+  byPropKey = (name, value) => {
     this.setState({
       [name]: value
-    });
+    })
+  }
+
+  handleOnChange = event => {
+    const { name, value } = event.target;
+    this.byPropKey(name, value);
   }
 
   handleOnSubmit = event => {
