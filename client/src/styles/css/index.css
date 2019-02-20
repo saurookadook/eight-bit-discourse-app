@@ -6841,6 +6841,7 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 1em; }
 
 .CloudBubble {
+  margin-top: 2em;
   padding: 1em 5em; }
 
 .UserCloudBubble {
@@ -6858,6 +6859,24 @@ a.text-dark:hover, a.text-dark:focus {
 
 .BtnText {
   margin-left: 0.5em; }
+
+/* PostDisplay */
+.Comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.CommentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.CommentsHeader {
+  padding: 0.5em 1em !important;
+  text-align: center;
+  width: 60% !important; }
 
 .ViewContainer {
   display: flex;
@@ -6898,8 +6917,17 @@ footer {
   background: #C6F552; }
 
 /* Forms */
+.FormLabel {
+  margin-right: 0.5em; }
+
 .FormUp {
+  margin: 2.5em;
+  padding: 2.5em;
   text-align: center; }
+
+.CommentUp {
+  padding: 2em !important;
+  max-width: 60%; }
 
 .LoadingPage {
   margin-top: 5em;
@@ -6907,6 +6935,19 @@ footer {
 
 .NavBar {
   background: #000000; }
+
+.Home {
+  margin-right: 1em; }
+
+.PostCloud {
+  display: grid;
+  grid-template-columns: 40% 60%; }
+
+.PostInfo {
+  grid-column-start: 1; }
+
+.Summary {
+  grid-column-start: 2; }
 
 body {
   background: linear-gradient(to bottom right, #6695F5, gray);
@@ -6922,18 +6963,35 @@ body {
   background: transparent;
   text-align: center; }
 
-.AppDetails {
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
-
 /* PageHeader */
 .PageHeader {
-  margin-top: 40px; }
+  background: #ffc107;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  margin-top: 40px;
+  min-height: 250px;
+  width: 100vw; }
+
+.AppDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #ffffff;
+  justify-content: center;
+  padding-left: 5em;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
 
 .PageHeaderImage {
   height: 100%; }
 
 /* Welcome */
+.WelcomeMessage, .HomeDescription {
+  margin-top: 0.5em;
+  text-align: left; }
+
+.HomeDescription {
+  margin-bottom: 2em; }
+
 /* PostsList */
 .PostsList, .FormUp {
   margin-bottom: 150px; }

@@ -37,39 +37,32 @@ class CommentForm extends Component {
   }
 
   render() {
-    // debugger
-    // eventually have user input default to logged in user? (or provide that information via hidden inputs?)
-    // <input ref="userId" type="hidden" naame="userId" value={this.state.user.id} />
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="OneUp FormUp col-8 p-3 my-4">
-            <h3>Add a comment:</h3>
-            <form
-              className="CommentForm"
-              onSubmit={this.handleOnSubmit}
-            >
-              <input
-                ref="postId"
-                type="hidden"
-                name="post"
-                value={this.props.postId}
-              />
-              <input
-                ref="contentInput"
-                className="mx-2"
-                type="text"
-                name="content"
-                placeholder="Content"
-                value={this.state.content}
-                onChange={this.handleOnChange}
-              />
-              <button type="submit" >
-                Add a comment
-              </button>
-            </form>
-          </div>
-        </div>
+      <div className="OneUp FormUp CommentUp">
+        <h3>Add a comment:</h3>
+        <form
+          className="CommentForm"
+          onSubmit={this.handleOnSubmit}
+        >
+          <input
+            ref="postId"
+            type="hidden"
+            name="post"
+            value={this.props.postId}
+          />
+          <input
+            ref="contentInput"
+            className="mx-2"
+            type="text"
+            name="content"
+            placeholder="Content"
+            value={this.state.content}
+            onChange={this.handleOnChange}
+          />
+          <button type="submit" >
+            Add a comment
+          </button>
+        </form>
       </div>
     )
   }

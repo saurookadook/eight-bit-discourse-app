@@ -8,7 +8,7 @@ const PostDisplay = ({ auth, post }) => {
   return (
     <div className="PostDislay">
       <Post post={post} />
-      <div className="comments">
+      <div className="Comments">
         <CommentsList
           comments={post.comments}
         />

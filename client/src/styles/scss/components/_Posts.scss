@@ -1,0 +1,12 @@
+.PostCloud {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.PostInfo {
+  grid-column-start: 1;
+}
+
+.Summary {
+  grid-column-start: 2;
+}

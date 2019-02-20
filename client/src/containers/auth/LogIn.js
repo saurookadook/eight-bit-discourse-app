@@ -5,8 +5,6 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
-import '../../styles/css/index.css';
-
 class LogInForm extends Component {
   constructor() {
     super()
@@ -49,30 +47,36 @@ class LogInForm extends Component {
 
   render() {
     return (
-      <div className="OneUp FormUp col-6 p-4 my-4">
+      <div className="OneUp FormUp">
         <h3>Continue the discourse...</h3>
-        <form id="post-form" onSubmit={this.onLogIn}>
+        <form
+          id="post-form"
+          onSubmit={this.onLogIn}
+        >
           <p>
-            Email:
-            <input 
-              className="ml-2" 
-              ref="email" 
-              type="text" 
-              name="email" 
-              placeholder="Email" 
-              value={this.state.email} 
-              onChange={this.onChangeHandler} 
+            <span className="FormLabel">
+              Email:
+            </span>
+            <input
+              ref="email"
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={this.onChangeHandler}
             />
           </p>
           <p>
-            Password:
+            <span className="FormLabel">
+              Password:
+            </span>
             <input 
-              ref="password" 
-              type="password" 
-              name="password" 
-              placeholder="Password" 
+              ref="password"
+              type="password"
+              name="password"
+              placeholder="Password"
               value={this.state.password}
-              onChange={this.onChangeHandler} 
+              onChange={this.onChangeHandler}
             />
           </p>
           <button type="submit">
