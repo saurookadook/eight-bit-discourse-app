@@ -5,8 +5,6 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
-import '../../styles/css/index.css';
-
 class LogInForm extends Component {
   constructor() {
     super()
@@ -56,9 +54,7 @@ class LogInForm extends Component {
           onSubmit={this.onLogIn}
         >
           <p>
-            <span
-              className="FormLabel"
-            >
+            <span className="FormLabel">
               Email:
             </span>
             <input
@@ -71,9 +67,7 @@ class LogInForm extends Component {
             />
           </p>
           <p>
-            <span
-                className="FormLabel"
-            >
+            <span className="FormLabel">
               Password:
             </span>
             <input 

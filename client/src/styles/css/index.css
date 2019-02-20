@@ -6860,6 +6860,24 @@ a.text-dark:hover, a.text-dark:focus {
 .BtnText {
   margin-left: 0.5em; }
 
+/* PostDisplay */
+.Comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.CommentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.CommentsHeader {
+  padding: 0.5em 1em !important;
+  text-align: center;
+  width: 60% !important; }
+
 .ViewContainer {
   display: flex;
   flex-direction: column;
@@ -6907,12 +6925,29 @@ footer {
   padding: 2.5em;
   text-align: center; }
 
+.CommentUp {
+  padding: 2em !important;
+  max-width: 60%; }
+
 .LoadingPage {
   margin-top: 5em;
   text-align: center; }
 
 .NavBar {
   background: #000000; }
+
+.Home {
+  margin-right: 1em; }
+
+.PostCloud {
+  display: grid;
+  grid-template-columns: 40% 60%; }
+
+.PostInfo {
+  grid-column-start: 1; }
+
+.Summary {
+  grid-column-start: 2; }
 
 body {
   background: linear-gradient(to bottom right, #6695F5, gray);

@@ -16,6 +16,7 @@ $enable-gradients: true;
 
 @import 'mixins/clearfix';
 @import 'mixins/flexes';
+@import 'mixins/grids';
 
 
 // ---------------------------------------------------------------------------
@@ -25,12 +26,13 @@ $enable-gradients: true;
 @import 'components/Blocks';
 @import 'components/Bubbles';
 @import 'components/Buttons';
+@import 'components/Comments';
 @import 'components/Containers';
 @import 'components/Footer';
 @import 'components/Form';
 @import 'components/LoadingPage';
 @import 'components/NavBar';
-@import 'components/Post';
+@import 'components/Posts';
 
 
 // ---------------------------------------------------------------------------

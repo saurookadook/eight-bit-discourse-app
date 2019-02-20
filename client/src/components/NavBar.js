@@ -7,7 +7,7 @@ import '../styles/css/index.css'
 
 const NavBar = ({ isAuthenticated, logout }) =>
     <div className="NavBar fixed-top text-left py-2">
-        <NavLink className="NavLink px-1 ml-4 text-light" to={routes.HOME}>Home</NavLink>
+        <NavLink className="NavLink Home px-1 ml-4 text-light" to={routes.HOME}>Home</NavLink>
         <NavLink className="NavLink px-1 text-light" to={routes.POSTS}>Latest Posts</NavLink>
         { isAuthenticated ? ( 
           <React.Fragment>
