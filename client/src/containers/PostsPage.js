@@ -33,15 +33,13 @@ class PostsPage extends Component {
               user={auth.user} 
             />
             <div className="PostsList text-left mt-3 ml-3">
-              <div>
-                {posts.all.map((post, i) => (
-                  <PostListItem
-                    key={i}
-                    post={post}
-                    user={auth.user}
-                  />
-                ))}
-              </div>
+              {posts.all.map((post, i) => (
+                <PostListItem
+                  key={i}
+                  post={post}
+                  user={auth.user}
+                />
+              ))}
             </div>
           </React.Fragment>
         ) : (
