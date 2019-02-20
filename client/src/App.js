@@ -37,6 +37,11 @@ class App extends Component {
         <Route exact path={routes.HOME} component={Welcome} />
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />
+      </div>
+    )
+
+    const unprotectedViews = (
+      <div className="ViewContainer">
         <Route exact path={routes.LOG_IN} component={LogInForm} />
         <Route exact path={routes.SIGN_UP} component={SignUpForm} />
       </div>
@@ -44,9 +49,6 @@ class App extends Component {
 
     const protectedViews = (
       <div className="ViewContainer">
-        <Route exact path={routes.HOME} component={Welcome} />
-        <Route exact path={routes.POSTS} component={PostsPage} />
-        <Route exact path={routes.POST} component={PostPage} />
         {/* <Route exact path={routes.USERS} component={UsersList} /> */}
         <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} /> 
         {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */} 
@@ -64,7 +66,8 @@ class App extends Component {
           <PageLayout />
           { isAuthenticated && user ? 
             protectedViews 
-            : publicViews }
+            : unprotectedViews }
+          { publicViews }
           <Footer />
         </div>
       </Router>
