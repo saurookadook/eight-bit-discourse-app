@@ -16,6 +16,13 @@ footer {
   border-left: 1px solid $c-black;
   font-size: 1em;
   text-align: center;
+
+  .FooterLink {
+    color: $c-black;
+    font-size: 100%;
+    padding-top: $ems--xs;
+    text-decoration: none;
+  }
 }
 
 .MiddleBush {

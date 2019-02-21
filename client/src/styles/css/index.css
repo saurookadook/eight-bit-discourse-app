@@ -6815,6 +6815,16 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+body {
+  background: linear-gradient(to bottom right, #6695F5, gray);
+  font-family: sans-serif;
+  margin: 0;
+  min-height: 1000px;
+  padding: 0; }
+
+a {
+  color: #000000; }
+
 .OneUp {
   background: #E47134;
   border-top: 10px solid #C43126;
@@ -6909,6 +6919,11 @@ footer {
   border-left: 1px solid #000000;
   font-size: 1em;
   text-align: center; }
+  .FooterBushes .FooterLink {
+    color: #000000;
+    font-size: 100%;
+    padding-top: 0.5em;
+    text-decoration: none; }
 
 .MiddleBush {
   background: #4ca730; }
@@ -6949,13 +6964,6 @@ footer {
 
 .Summary {
   grid-column-start: 2; }
-
-body {
-  background: linear-gradient(to bottom right, #6695F5, gray);
-  font-family: sans-serif;
-  margin: 0;
-  min-height: 1000px;
-  padding: 0; }
 
 .App {
   display: flex;
