@@ -14,8 +14,10 @@ import NavBar from './components/NavBar';
 // Static
 import HtmlHead from './components/shared/HtmlHead';
 import { PageLayout } from './components/PageLayout'
-import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
+import { Welcome } from './components/Welcome';
+import About from './components/About';
+
 
 // Content
 import PostsPage from './containers/PostsPage';
@@ -35,6 +37,7 @@ class App extends Component {
     const publicViews = (
       <React.Fragment>
         <Route exact path={routes.HOME} component={Welcome} />
+        <Route exact path={routes.ABOUT} component={About} />
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />
       </React.Fragment>
