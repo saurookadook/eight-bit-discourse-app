@@ -1,73 +1,118 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+// Constants/Styles
 import { submitPost } from '../actions/postActions.js';
-import '../styles/css/App.css';
 
 class PostForm extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
+    const authorInfo = () => {
+      if (props.user) {
+        return {
+          id: props.user.id,
+          username: props.user.username,
+          email: props.user.email
+        }
+      } else {
+        return null;
+      }
+      
+    }
 
     this.state = {
-      ...this.state,
-      newPost: {
-        title: '',
-        game: '',
-        author: {},
-        discussion: '',
-        rating: ''
-      }
+      title: '',
+      game: '',
+      author: authorInfo(),
+      discussion: '',
+      rating: ''
     }
+
+    this.byPropKey = this.byPropKey.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
+  }
+
+  byPropKey = (name, value) => {
+    this.setState({
+      [name]: value
+    })
   }
 
   onChangeHandler = event => {
-    const { value, name } = event.target
-    this.setState({
-      [name]: value
-    });
+    const { name, value } = event.target
+    this.byPropKey(name, value);
   }
 
   onSubmitHandler = event => {
     event.preventDefault();
-    // debugger
 
     this.props.submitPost(this.state);
-      // find way to set these all back to default
-      event.currentTarget.reset()
-      // this.refs.titleInput.value = '';
-      // this.refs.gameInput.value = '';
-      // this.refs.discussionInput.value = '';
-      // this.refs.ratingInput.value = '';
-
+    event.currentTarget.reset()
   }
 
   render() {
-    // debugger
-    let userLoggedIn = this.props.user.hasOwnProperty('id') ? this.props.user : false;
+    let userLoggedIn = this.props.user ? this.props.user : false;
 
     return (
       <div className="container">
         <div className="row justify-content-center">
-          <div className="FormUp col-6 p-4 my-4">
+          <div className="OneUp FormUp p-4 my-4">
           { userLoggedIn ? (
             <React.Fragment>
               <h3>Anything to discuss with the hive mind?</h3>
-              <form id="post-form" onSubmit={this.onSubmitHandler.bind(this)}>
+              <form
+                id="post-form"
+                onSubmit={this.onSubmitHandler}
+              >
                 <p>
-                  <input className="mr-2" ref="titleInput" type="text" name="title" placeholder="Title/Topic" value={this.state.title} onChange={this.onChangeHandler} />
-                  <input className="ml-2" ref="gameInput" type="text" name="game" placeholder="Game" value={this.state.game} onChange={this.onChangeHandler} />
+                  <input
+                    className="mr-2"
+                    ref="titleInput"
+                    type="text"
+                    name="title"
+                    placeholder="Title/Topic"
+                    value={this.state.title}
+                    onChange={this.onChangeHandler}
+                  />
+                  <input
+                    className="ml-2"
+                    ref="gameInput"
+                    type="text"
+                    name="game"
+                    placeholder="Game"
+                    value={this.state.game}
+                    onChange={this.onChangeHandler}
+                  />
                 </p>
                 <p>
-                  <textarea ref="discussionInput" name="discussion" className="textarea" placeholder="Your thoughts...." value={this.state.discussion} onChange={this.onChangeHandler} />
+                  <textarea
+                    ref="discussionInput"
+                    name="discussion"
+                    className="textarea"
+                    placeholder="Your thoughts...."
+                    value={this.state.discussion}
+                    onChange={this.onChangeHandler}
+                  />
                 </p>
                 <p>
                   How would you rate this game?
                 </p>
                 <p>
-                  <input ref="ratingInput" type="number" name="rating" placeholder="Rating (1-10)" value={this.state.rating} onChange={this.onChangeHandler} />
+                  <input
+                    ref="ratingInput"
+                    type="number"
+                    name="rating"
+                    placeholder="Rating (1-10)"
+                    value={this.state.rating}
+                    onChange={this.onChangeHandler}
+                  />
                 </p>
-                  <input ref="authorInput" type="hidden" name="author" value={this.props.user} onChange={this.onChangeHandler} />
-                <button type="submit">Add a post</button>
+                <button type="submit">
+                  Add a post
+                </button>
               </form>
             </React.Fragment>
             ) : ('Log in, dummy!') }
@@ -78,11 +123,6 @@ class PostForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  // debugger
-  return { ...state };
-}
-
 const mapDispatchToProps = dispatch => bindActionCreators({ submitPost }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default connect(null, mapDispatchToProps)(PostForm);

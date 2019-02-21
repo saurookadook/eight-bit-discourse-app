@@ -1,24 +1,42 @@
 $enable-gradients: true;
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
-@import 'App';
 
-body {
-  background: linear-gradient(to bottom right, #6695F5, gray);
-  min-height: 1000px;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+// ---------------------------------------------------------------------------
+// BASE
+// ---------------------------------------------------------------------------
 
-.App {
-  margin-top: 7em;
-}
+@import 'base/global';
+@import 'base/variables';
 
-// .AppBody {
 
-// }
+// ---------------------------------------------------------------------------
+// MIXINS
+// ---------------------------------------------------------------------------
 
-#food-search {
-  margin-top: 5em;
-}
+@import 'mixins/clearfix';
+@import 'mixins/flexes';
+@import 'mixins/grids';
+
+
+// ---------------------------------------------------------------------------
+// COMPONENTS
+// ---------------------------------------------------------------------------
+
+@import 'components/Blocks';
+@import 'components/Bubbles';
+@import 'components/Buttons';
+@import 'components/Comments';
+@import 'components/Containers';
+@import 'components/Footer';
+@import 'components/Form';
+@import 'components/LoadingPage';
+@import 'components/NavBar';
+@import 'components/Posts';
+
+
+// ---------------------------------------------------------------------------
+// LAYOUTS
+// ---------------------------------------------------------------------------
+
+@import 'layouts/App';

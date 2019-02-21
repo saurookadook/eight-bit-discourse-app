@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Constants/Styles
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
-import '../../styles/css/App.css';
-
+// TODO: unnecessary?
 const INITIAL_STATE = {
     username: '',
     email: '',
@@ -21,17 +21,15 @@ class SignUpForm extends Component {
     this.state = { ...INITIAL_STATE }
   }
 
-  // byPropKey = (name, value) => () => ({
-  //   [name]: value
-  // })
-
-  onChangeHandler = event => {
-    // TODO: refactor using byPropKey?
-    const { name, value } = event.target
-    // this.setState(byPropKey(name, value));
+  byPropKey = (name, value) => {
     this.setState({
       [name]: value
     })
+  }
+
+  onChangeHandler = event => {
+    const { name, value } = event.target
+    this.byPropKey(name, value);
   }
 
   onSignUp = event => {
@@ -48,15 +46,10 @@ class SignUpForm extends Component {
   }
 
   render() {
-    // debugger
-    // --template--
-    // <p>
-    //   <input ref="authorInput" type="text" name="authorName" placeholder="Author" value={this.state.author} onChange={this.onSignup} />
-    // </p>
     return (
       <div className="container">
         <div className="row justify-content-center">
-          <div className="FormUp col-6 p-4 my-4">
+          <div className="OneUp FormUp col-6 p-4 my-4">
             <h3>Join the conversation!</h3>
             <form id="post-form" onSubmit={this.onSignUp.bind(this)}>
               <p>

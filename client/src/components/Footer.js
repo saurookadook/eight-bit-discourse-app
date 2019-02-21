@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/css/App.css';
 
+// TODO: remove Bootstrap, makes bushes into actual links
 export const Footer = () =>
     <div className="fixed-bottom pt-3 clearfix">
       <div className="container">

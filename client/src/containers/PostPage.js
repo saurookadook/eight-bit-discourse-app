@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import '../styles/css/App.css';
-import PostDisplay from '../components/PostDisplay';
-import { LoadingPage } from '../components/LoadingPage';
+
+// Constants/Styles
 import * as actions from '../actions';
+
+// Static
+import { LoadingPage } from '../components/LoadingPage';
+
+// Content
+import PostDisplay from '../components/PostDisplay';
 
 class PostPage extends Component {
 
   componentDidMount() {
-    this.props.fetchPost(this.props.post)
+    // TODO: only call fetchPost if it's a new post
+    // if (this.props.postId !== this.props.post.post.id) {
+      this.props.fetchPost(this.props.postId)
+    // }
   }
 
   render() {
     let hasData = (this.props.post.loaded && !this.props.post.loading)
-    // debugger
+    const { auth, post } = this.props;
+
     return (
       <div className="PostPage">
         { hasData ? (
-          <PostDisplay props={this.props} />
+          <PostDisplay
+            auth={auth}
+            post={post.post}
+          />
         ) : (
           <LoadingPage />
         )}
@@ -28,22 +40,10 @@ class PostPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // find the post by id in posts
-  // debugger
-  if (!state.post.loaded) { // somehow, `state.post` is getting set with `all` after hitting `fetchPost`
-    let postId = parseInt(ownProps.match.params.id)
     return {
-      post: {
-        loading: false,
-        loaded: false,
-        postId: postId
-      }
+      ...state,
+      postId: ownProps.match.params.id
     }
-  } else {
-    return {
-      post: state.post
-    }
-  }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);

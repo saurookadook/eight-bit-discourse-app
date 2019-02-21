@@ -1,0 +1,27 @@
+/* Footer */
+footer {
+  background-color: $c-orange--brick;
+  border-top: 2px solid $c-black;
+  font-weight: bold;
+
+  * {
+    text-align: center;
+  }
+}
+
+.FooterBushes {
+  border-radius: 15px 15px 0 0;
+  border-top: 1px solid $c-black;
+  border-right: 1px solid $c-black;
+  border-left: 1px solid $c-black;
+  font-size: 1em;
+  text-align: center;
+}
+
+.MiddleBush {
+  background: $c-green--mid;
+}
+
+.OuterBushes {
+  background: $c-green--light;
+}

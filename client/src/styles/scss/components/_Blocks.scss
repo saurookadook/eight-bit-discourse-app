@@ -1,0 +1,22 @@
+.OneUp {
+  background: $c-orange--block;
+  border-top: 10px solid $c-orange--border;
+  border-left: 10px solid $c-orange--border;
+  border-right: 10px solid $c-black--border;
+  border-bottom: 10px solid $c-black--border;
+  box-shadow: $ems--xs $ems--xs $ems--xs $c-black--charcoal;
+}
+
+.PostBlock {
+  padding: $ems--s;
+  margin-bottom: $ems--s;
+
+  a {
+    color: $c-black;
+    padding: $ems--s;
+
+    &:hover {
+      color: $c-black;
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import React from 'react';
-import '../styles/css/App.css';
 
 export const LoadingPage = () =>
-  <div className="LoadingPage">
+  <div className="LoadingPage OneUp">
     <p>Gathering the party....</p>
   </div>

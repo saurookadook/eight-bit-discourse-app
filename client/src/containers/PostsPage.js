@@ -1,41 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+// Constants/Styles
 import * as actions from '../actions'
+
+// Static/Stateless
+import { LoadingPage } from '../components/LoadingPage';
+
+// Content/Forms
 import PostForm from './PostForm';
 import PostListItem from '../components/PostListItem';
-import { LoadingPage } from '../components/LoadingPage';
+
 
 class PostsPage extends Component {
 
   componentDidMount() {
-    this.props.fetchPosts();
+    if (!this.props.posts.all) {
+      this.props.fetchPosts();
+    }
   }
-
-  // updateListItem(post) {
-  //   debugger
-  //   this.props.updatePost(post);
-  // }
 
   render() {
     let hasData = (this.props.posts.loaded && !this.props.posts.loading)
-    const posts = this.props.posts.all;
+    const { posts, auth }  = this.props;
 
     return (
-      <div className="PostsPage">
+      <div className="PostsContainer">
         { hasData ? (
           <React.Fragment>
-            <PostForm user={this.props.auth.user} />
+            <PostForm 
+              user={auth.user} 
+            />
             <div className="PostsList text-left mt-3 ml-3">
-              <div>
-                {posts.map((post, i) => (
-                  <PostListItem
-                    key={i}
-                    post={post}
-                    // updatePost={this.updateListItem(post)} 
-                  />
-                ))}
-              </div>
+              {posts.all.map((post, i) => (
+                <PostListItem
+                  key={i}
+                  post={post}
+                  user={auth.user}
+                />
+              ))}
             </div>
           </React.Fragment>
         ) : (
@@ -47,15 +51,11 @@ class PostsPage extends Component {
 }
 
 const mapStateToProps = state => {
-  // debugger
   return {
     ...state
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  // debugger
-  return bindActionCreators(actions, dispatch);
-};
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsPage);

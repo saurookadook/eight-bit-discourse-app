@@ -5,7 +5,7 @@ import * as types from './actionTypes.js';
 const authRequest = () => {
   return {
     type: types.AUTHENTICATION_REQUEST
-  }
+  };
 }
 
 const authSuccess = (user, token) => {
@@ -13,14 +13,14 @@ const authSuccess = (user, token) => {
     type: types.AUTHENTICATION_SUCCESS,
     user: user,
     token: token
-  }
+  };
 }
 
 const authFailure = errors => {
   return {
     type: types.AUTHENTICATION_FAILURE,
     errors: errors
-  }
+  };
 }
 
 export const logout = () => {
@@ -53,7 +53,7 @@ export const signup = user => {
       })
       .catch(errors => {
         dispatch(authFailure(errors))
-      })
+      });
   };
 }
 
@@ -67,39 +67,28 @@ export const authenticate = authCredentials => {
         "Content-Type": "application/json",
       }),
       body: JSON.stringify({auth: authCredentials}),
-    })
+    });
 
     return fetch(request)
       .then(resp => resp.json())
       .then(response => {
-          // const token = response.jwt;
           localStorage.setItem('token', response.jwt);
-          return getUser(authCredentials)
+          return getUser(authCredentials);
       })
       .then(user => {
-          dispatch(authSuccess(user, localStorage.token))
+          localStorage.setItem('user', JSON.stringify(user));
+          dispatch(authSuccess(user, localStorage.token));
       })
       .catch(errors => {
-          dispatch(authFailure(errors))
-          localStorage.clear()
+          dispatch(authFailure(errors));
+          localStorage.clear();
       })
   }
 }
 
-    // return fetch(`${API_URL}/user_token`, {
-    //   method: 'POST',
-    //   // mode: 'no-cors',
-    //   // credentials: 'include',
-    //   headers: {
-    //     // 'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({auth: authCredentials}),
-    //   // credentials: 'same-origin'
-    // })
-
 export const getUser = userCredentials => {
   const request = new Request(`${API_URL}/find_user`, {
+    // TODO: seems odd...?
     method: "POST",
     headers: new Headers({
       "Accept": "application/json",
@@ -107,25 +96,12 @@ export const getUser = userCredentials => {
       "Authorization": `Bearer ${localStorage.token}`,
     }),
     body: JSON.stringify({user: userCredentials}),
-  })
+  });
   
   return fetch(request)
     .then(response => response.json())
     .then(userJson => userJson)
     .catch(errors => {
-      // dispatch(authFailure(errors))
-      return authFailure(errors)
-    })
+      return authFailure(errors);
+    });
 };
-
-  // return fetch(`${API_URL}/find_user`, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     "Authorization": `Bearer ${localStorage.token}`
-  //   },
-  //   body: JSON.stringify({
-  //     user: userCredentials
-  //   }),
-  //   credentials: 'same-origin'
-  // })

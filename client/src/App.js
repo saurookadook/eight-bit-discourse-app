@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from './actions';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// Constants/Styles
+import * as actions from './actions';
+import * as routes from './constants/routes';
+import './styles/css/index.css';
 
 // Navigation
 import NavBar from './components/NavBar';
 
 // Static
+import HtmlHead from './components/shared/HtmlHead';
 import { PageLayout } from './components/PageLayout'
 import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
@@ -15,25 +20,20 @@ import { Footer } from './components/Footer';
 // Content
 import PostsPage from './containers/PostsPage';
 import PostPage from './containers/PostPage';
-import AccountPage from './components/AccountPage';
+import AccountPage from './containers/AccountPage';
 // import UserPostsPage from './containers/UserPostsPage';
 
 // User Auth
 import LogInForm from './containers/auth/LogIn';
 import SignUpForm from './containers/auth/SignUp';
 
-import * as routes from './constants/routes';
-import './styles/css/App.css';
-// import { bindActionCreators } from '../../../../../Library/Caches/typescript/3.1/node_modules/redux';
-
-// pass signOut function as props?
-
 class App extends Component {
   render() {
-    const { isAuthenticated, user } = this.props
+    const { isAuthenticated, user } = this.props.auth;
+    const { logout  } = this.props;
     
     const publicViews = (
-      <div className="container">
+      <div className="ViewContainer">
         <Route exact path={routes.HOME} component={Welcome} />
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />
@@ -43,7 +43,7 @@ class App extends Component {
     )
 
     const protectedViews = (
-      <div className="container">
+      <div className="ViewContainer">
         <Route exact path={routes.HOME} component={Welcome} />
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />
@@ -56,9 +56,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <HtmlHead />
           <NavBar 
             isAuthenticated={isAuthenticated} 
-            logout={actions.logout} 
+            logout={logout} 
           />
           <PageLayout />
           { isAuthenticated && user ? 
@@ -72,11 +73,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return { 
-    ...state,
-    isAuthenticated: state.auth.isAuthenticated,
-    user: state.auth.user
-   }
+  return { ...state }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);

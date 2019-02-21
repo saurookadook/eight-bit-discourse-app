@@ -3,7 +3,7 @@ import * as types from '../actions/actionTypes';
 const initialState = {
   loading: false,
   loaded: false,
-  post: {}
+  post: null
 }
 
 const postReducer = (state = initialState, action) => {
@@ -27,6 +27,7 @@ const postReducer = (state = initialState, action) => {
         loaded: true,
         post: action.post
       }
+    // TODO once component is created
     // case types.FETCH_USER_POST:
     //   return { ...state, post: action.post }
     

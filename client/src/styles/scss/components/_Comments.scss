@@ -1,0 +1,18 @@
+/* PostDisplay */
+.Comments {
+  @include col();
+  align-items: center;
+  justify-content: center;
+}
+
+.CommentsContainer {
+  @include col();
+  align-items: center;
+  justify-content: center;
+}
+
+.CommentsHeader {
+  padding: $ems--xs $ems--s!important;
+  text-align: center;
+  width: 60%!important;
+}
