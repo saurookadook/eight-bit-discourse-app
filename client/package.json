@@ -2,7 +2,11 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001"
+      }
+    },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "bootstrap": "^4.1.3",
