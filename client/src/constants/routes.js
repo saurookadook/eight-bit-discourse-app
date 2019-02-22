@@ -1,5 +1,6 @@
 // Public routes
 export const HOME = '/';
+export const ABOUT = '/about';
 export const SIGN_UP = '/signup';
 export const LOG_IN = '/login';
 
