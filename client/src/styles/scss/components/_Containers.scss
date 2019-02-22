@@ -6,6 +6,11 @@
   min-width: 50%;
 }
 
+.AboutContainer {
+  @include col();
+  align-items: center;
+}
+
 .PostsContainer {
   min-width: 50%;
 }
