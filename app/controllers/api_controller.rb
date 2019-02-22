@@ -4,6 +4,10 @@ class ApiController < ActionController::API
 
   include Knock::Authenticable
 
+  # def fallback_index_html
+  #   render file: 'public/index.html'
+  # end
+    
   protected
 
   def set_user!
