@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // Constants/Styles
 import * as routes from '../constants/routes';
 
-// TODO: remove Bootstrap, makes bushes into actual links
+// TODO: remove Bootstrap
 export const Footer = () =>
   <div className="fixed-bottom pt-3 clearfix">
     <div className="container">
