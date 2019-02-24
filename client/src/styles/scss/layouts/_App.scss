@@ -1,17 +1,23 @@
-body {
-  background: linear-gradient(to bottom right, $c-blue--light, $c-gray);
-  font-family: sans-serif;
-  margin: 0;
-  min-height: 1000px;
-  padding: 0;
-}
-
 .App {
   @include col();
   align-items: center;
   background: $bg-transparent;
   text-align: center;
 } 
+
+/* Messages/Notices */
+.ErrorMsg {
+  background: red;
+  color: $c-white;
+
+  a {
+    color: $c-white;
+    
+    &:hover {
+      color: $c-black;
+    }
+  }
+}
 
 /* PageHeader */
 .PageHeader {

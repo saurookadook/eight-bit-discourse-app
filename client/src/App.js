@@ -14,8 +14,10 @@ import NavBar from './components/NavBar';
 // Static
 import HtmlHead from './components/shared/HtmlHead';
 import { PageLayout } from './components/PageLayout'
-import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
+import { Welcome } from './components/Welcome';
+import About from './components/About';
+
 
 // Content
 import PostsPage from './containers/PostsPage';
@@ -33,24 +35,27 @@ class App extends Component {
     const { logout  } = this.props;
     
     const publicViews = (
-      <div className="ViewContainer">
+      <React.Fragment>
         <Route exact path={routes.HOME} component={Welcome} />
+        <Route exact path={routes.ABOUT} component={About} />
         <Route exact path={routes.POSTS} component={PostsPage} />
         <Route exact path={routes.POST} component={PostPage} />
+      </React.Fragment>
+    )
+
+    const unprotectedViews = (
+      <React.Fragment>
         <Route exact path={routes.LOG_IN} component={LogInForm} />
         <Route exact path={routes.SIGN_UP} component={SignUpForm} />
-      </div>
+      </React.Fragment>
     )
 
     const protectedViews = (
-      <div className="ViewContainer">
-        <Route exact path={routes.HOME} component={Welcome} />
-        <Route exact path={routes.POSTS} component={PostsPage} />
-        <Route exact path={routes.POST} component={PostPage} />
+      <React.Fragment>
         {/* <Route exact path={routes.USERS} component={UsersList} /> */}
         <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} /> 
         {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */} 
-      </div>
+      </React.Fragment>
     )
 
     return (
@@ -62,9 +67,12 @@ class App extends Component {
             logout={logout} 
           />
           <PageLayout />
-          { isAuthenticated && user ? 
-            protectedViews 
-            : publicViews }
+          <div className="ViewContainer">
+            { isAuthenticated && user ? 
+              protectedViews 
+              : unprotectedViews }
+            { publicViews }
+          </div>
           <Footer />
         </div>
       </Router>
