@@ -6982,6 +6982,15 @@ footer {
   background: transparent;
   text-align: center; }
 
+/* Messages/Notices */
+.ErrorMsg {
+  background: red;
+  color: #ffffff; }
+  .ErrorMsg a {
+    color: #ffffff; }
+    .ErrorMsg a:hover {
+      color: #000000; }
+
 /* PageHeader */
 .PageHeader {
   background: #ffc107;
