@@ -34,12 +34,11 @@ class SignUpForm extends Component {
 
     this.props.signup(this.state)
       .then(resp => {
-        debugger
-        if (resp) {
+        if (!resp) {
           history.push(routes.HOME);
           window.alert("#achievement_unlocked");
         } else {
-          window.alert("Sorry, there was an issue logging you in. Please try again.");
+          window.alert(`Sorry, there was an issue logging you in. Please try again after fixing the following: - ${resp}`);
         }
       })
   }

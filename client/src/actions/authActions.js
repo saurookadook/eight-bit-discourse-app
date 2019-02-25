@@ -16,12 +16,12 @@ const authSuccess = (user, token) => {
   };
 }
 
-const authFailure = errors => {
-  return {
-    type: types.AUTHENTICATION_FAILURE,
-    errors: errors
-  };
-}
+// const authFailure = errors => {
+//   return {
+//     type: types.AUTHENTICATION_FAILURE,
+//     errors: errors
+//   };
+// }
 
 export const logout = () => {
   return dispatch => {
@@ -51,13 +51,11 @@ export const signup = user => {
         ),
     })
       .then(resp => {
-        debugger
-        if (resp.status > 200) {
+        if (!resp.ok) {
           throw resp.json();
         }
         return resp.json();
       })
-      // TODO: change to `.then(jresp => dispatch(authenticate({jresp})))`?
       .then(jresp => {
         dispatch(authenticate({
           username: user.username,
@@ -66,16 +64,13 @@ export const signup = user => {
         );
       })
       .catch(errors => {
-        debugger
         console.log(errors);
         return errors;
-        // dispatch(authFailure(errors))
       });
   };
 }
 
 export const authenticate = authCredentials => {
-  // debugger
   return dispatch => {
     dispatch(authRequest())
     const request = new Request(`${API_URL}/user_token`, {
@@ -89,7 +84,6 @@ export const authenticate = authCredentials => {
 
     return fetch(request)
       .then(resp => {
-        // debugger
         // TODO: better way?
         if (!resp.ok) {
           throw resp.status;
@@ -105,7 +99,6 @@ export const authenticate = authCredentials => {
           dispatch(authSuccess(user, localStorage.token));
       })
       .catch(errors => {
-          // dispatch(authFailure(errors));
           localStorage.clear();
           return errors;
       })
@@ -114,7 +107,6 @@ export const authenticate = authCredentials => {
 
 export const getUser = userCredentials => {
   const request = new Request(`${API_URL}/find_user`, {
-    // TODO: seems odd...?
     method: "POST",
     headers: new Headers({
       "Accept": "application/json",
@@ -128,6 +120,8 @@ export const getUser = userCredentials => {
     .then(response => response.json())
     .then(userJson => userJson)
     .catch(errors => {
-      return authFailure(errors);
+      console.log(errors);
+      return errors;
+      // return authFailure(errors);
     });
 };
