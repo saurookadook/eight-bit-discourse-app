@@ -26,6 +26,7 @@ const authSuccess = (user, token) => {
 export const logout = () => {
   return dispatch => {
     localStorage.clear();
+    window.alert("You've been successfully logged out.")
     return dispatch({
       type: types.LOGOUT
     });
