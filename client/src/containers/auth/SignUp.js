@@ -6,19 +6,15 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
-// TODO: unnecessary?
-const INITIAL_STATE = {
-    username: '',
-    email: '',
-    password: '',
-    errors: []
-}
-
 class SignUpForm extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { ...INITIAL_STATE }
+    this.state = { 
+      username: '',
+      email: '',
+      password: ''
+    }
   }
 
   byPropKey = (name, value) => {
@@ -37,11 +33,14 @@ class SignUpForm extends Component {
     const { history } = this.props
 
     this.props.signup(this.state)
-      .then(() => {
-        history.push(routes.HOME)
-      })
-      .catch(errors => {
-        this.setState({ errors: errors })
+      .then(resp => {
+        debugger
+        if (resp) {
+          history.push(routes.HOME);
+          window.alert("#achievement_unlocked");
+        } else {
+          window.alert("Sorry, there was an issue logging you in. Please try again.");
+        }
       })
   }
 

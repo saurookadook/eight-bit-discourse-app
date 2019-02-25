@@ -40,24 +40,42 @@ export const signup = user => {
         "Accept": "application/json",
         "Content-Type":"application/json"
       },
-      body: JSON.stringify({user: user}),
+      body: JSON.stringify(
+          { 
+            user: {
+              username: user.username,
+              email: user.email,
+              password: user.password
+            }
+          }
+        ),
     })
-      .then(response => response.json())
+      .then(resp => {
+        debugger
+        if (resp.status > 200) {
+          throw resp.json();
+        }
+        return resp.json();
+      })
       // TODO: change to `.then(jresp => dispatch(authenticate({jresp})))`?
       .then(jresp => {
         dispatch(authenticate({
-          name: user.username,
+          username: user.username,
           email: user.email,
           password: user.password})
         );
       })
       .catch(errors => {
-        dispatch(authFailure(errors))
+        debugger
+        console.log(errors);
+        return errors;
+        // dispatch(authFailure(errors))
       });
   };
 }
 
 export const authenticate = authCredentials => {
+  // debugger
   return dispatch => {
     dispatch(authRequest())
     const request = new Request(`${API_URL}/user_token`, {
@@ -66,13 +84,20 @@ export const authenticate = authCredentials => {
         "Accept": "application/json",
         "Content-Type": "application/json",
       }),
-      body: JSON.stringify({auth: authCredentials}),
+      body: JSON.stringify({ auth: authCredentials }),
     });
 
     return fetch(request)
-      .then(resp => resp.json())
-      .then(response => {
-          localStorage.setItem('token', response.jwt);
+      .then(resp => {
+        // debugger
+        // TODO: better way?
+        if (!resp.ok) {
+          throw resp.status;
+        }
+        return resp.json();
+      })
+      .then(jresp => {
+          localStorage.setItem('token', jresp.jwt);
           return getUser(authCredentials);
       })
       .then(user => {
@@ -80,8 +105,9 @@ export const authenticate = authCredentials => {
           dispatch(authSuccess(user, localStorage.token));
       })
       .catch(errors => {
-          dispatch(authFailure(errors));
+          // dispatch(authFailure(errors));
           localStorage.clear();
+          return errors;
       })
   }
 }
