@@ -7,19 +7,15 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
-// TODO: unnecessary?
-const INITIAL_STATE = {
-    username: '',
-    email: '',
-    password: '',
-    errors: []
-}
-
 class SignUpForm extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { ...INITIAL_STATE }
+    this.state = { 
+      username: '',
+      email: '',
+      password: ''
+    }
   }
 
   byPropKey = (name, value) => {
@@ -38,11 +34,13 @@ class SignUpForm extends Component {
     const { history } = this.props
 
     this.props.signup(this.state)
-      .then(() => {
-        history.push(routes.HOME)
-      })
-      .catch(errors => {
-        this.setState({ errors: errors })
+      .then(resp => {
+        if (!resp) {
+          history.push(routes.HOME);
+          window.alert("#achievement_unlocked");
+        } else {
+          window.alert(`Sorry, there was an issue logging you in. Please try again after fixing the following: - ${resp}`);
+        }
       })
   }
 
@@ -51,9 +49,6 @@ class SignUpForm extends Component {
       <div className="container">
         <div className="row justify-content-center">
           <div className="OneUp FormUp col-6 p-4 my-4">
-            <h2 className="ErrorMsg">
-              Please Note: this is currently broken. You can see any open issues or pull requests that address it <a href="https://github.com/saurookadook/eight-bit-discourse-app">here.</a>
-            </h2>
             <h3>Join the conversation!</h3>
             <form id="post-form" onSubmit={this.onSignUp.bind(this)}>
               <p>

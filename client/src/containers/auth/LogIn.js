@@ -11,7 +11,7 @@ class LogInForm extends Component {
 
     this.state = { 
       email: '',
-      password: '' 
+      password: ''
     }
 
     this.byPropKey = this.byPropKey.bind(this);
@@ -35,15 +35,14 @@ class LogInForm extends Component {
     const { history } = this.props
 
     this.props.authenticate(this.state)
-      .then(() => {
-        history.push(routes.HOME)
-        window.alert("#achievement_unlocked")
+      .then(resp => {
+        if (!resp) {
+          history.push(routes.HOME)
+          window.alert("#achievement_unlocked")
+        } else {
+          window.alert('Sorry, your email and/or password is incorrect. Please try again.')
+        }
       })
-      .catch(errors => {
-        this.setState({ errors: errors })
-        window.alert("Sorry, there was an issue logging you in. Please try again.")
-      })
-      
   }
 
   render() {
