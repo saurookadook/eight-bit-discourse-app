@@ -1,16 +1,20 @@
 /* Forms */
-.FormLabel {
-  margin-right: $ems--xs;
-}
-
 .FormUp {
   margin: ($rems--2s + $rems--xs);
   padding: ($rems--2s + $rems--xs);
   text-align: center;
 }
 
+.FormUpHeader {
+  margin-bottom: $ems--xs;
+}
+
 .CommentUp {
   max-width: 60%;
   padding: $rems--2s;
   padding-top: $rems--s;
+}
+
+.InputLabel {
+  margin-right: $ems--xs;
 }

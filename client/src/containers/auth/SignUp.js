@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -46,50 +46,52 @@ class SignUpForm extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="OneUp FormUp col-6 p-4 my-4">
-            <h3>Join the conversation!</h3>
-            <form id="post-form" onSubmit={this.onSignUp.bind(this)}>
-              <p>
-                Username: 
-                <input 
-                    className="mr-2" 
-                    ref="username" 
-                    type="text" 
-                    name="username" 
-                    placeholder="Username" 
-                    value={this.state.username} 
-                    onChange={this.onChangeHandler}
-                />
-              </p>
-              <p>
-                Email:
-                <input 
-                  className="ml-2" 
-                  ref="email" 
-                  type="text" 
-                  name="email" 
-                  placeholder="Email" 
-                  value={this.state.email} 
-                  onChange={this.onChangeHandler} 
-                />
-              </p>
-              <p>
-                Password:
-                <input 
-                  ref="password" 
-                  type="password" 
-                  name="password" 
-                  placeholder="Password" 
-                  value={this.state.password}
-                  onChange={this.onChangeHandler} 
-                />
-              </p>
-              <button type="submit">Sign Up</button>
-            </form>
-          </div>
-        </div>
+      <div className="OneUp FormUp">
+        <h3 className="FormUpHeader">Join the conversation!</h3>
+        <form id="post-form" onSubmit={this.onSignUp.bind(this)}>
+          <p>
+            <span className="InputLabel">
+              Username: 
+            </span>
+            <input 
+                className="" 
+                ref="username" 
+                type="text" 
+                name="username" 
+                placeholder="Username" 
+                value={this.state.username} 
+                onChange={this.onChangeHandler}
+            />
+          </p>
+          <p>
+            <span className="InputLabel">
+              Email:
+            </span>
+            <input 
+              className="" 
+              ref="email" 
+              type="text" 
+              name="email" 
+              placeholder="Email" 
+              value={this.state.email} 
+              onChange={this.onChangeHandler} 
+            />
+          </p>
+          <p>
+            <span className="InputLabel">
+              Password:
+            </span>
+            <input 
+              ref="password" 
+              type="password" 
+              name="password" 
+              placeholder="Password" 
+              value={this.state.password}
+              onChange={this.onChangeHandler} 
+            />
+          </p>
+          <button type="submit">Sign Up</button>
+        </form>
       </div>
     )
   }

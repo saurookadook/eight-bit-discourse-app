@@ -6942,18 +6942,21 @@ footer {
   background: #C6F552; }
 
 /* Forms */
-.FormLabel {
-  margin-right: 0.5em; }
-
 .FormUp {
   margin: 2.5em;
   padding: 2.5em;
   text-align: center; }
 
+.FormUpHeader {
+  margin-bottom: 0.5em; }
+
 .CommentUp {
   max-width: 60%;
   padding: 2em;
   padding-top: 1em; }
+
+.InputLabel {
+  margin-right: 0.5em; }
 
 .LoadingPage {
   margin-top: 5em;
