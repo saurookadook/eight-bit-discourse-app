@@ -113,7 +113,7 @@ class PostForm extends Component {
             </button>
           </form>
         </React.Fragment>
-        ) : ('Log in, dummy!') }
+        ) : (<h4>Log in, dummy!</h4>) }
       </div>
     )
   }
