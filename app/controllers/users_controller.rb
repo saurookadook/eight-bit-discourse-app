@@ -1,6 +1,6 @@
 class UsersController < ApiController
   # TODO: fix for update
-  before_action :authenticate_user, except: [:update]
+  before_action :authenticate_user, only: [:update]
   before_action :set_user!, only: [:show, :edit, :update, :delete]
 
   def index

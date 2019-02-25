@@ -74,10 +74,6 @@ class EditInfoForm extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return { ...state };
-// }
-
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
 
 export default connect(null, mapDispatchToProps)(EditInfoForm);

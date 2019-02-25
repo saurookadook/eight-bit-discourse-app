@@ -21,11 +21,6 @@ class PostsPage extends Component {
     }
   }
 
-  // updateListItem(post) {
-  //   debugger
-  //   this.props.updatePost(post);
-  // }
-
   render() {
     let hasData = (this.props.posts.loaded && !this.props.posts.loading)
     const { posts, auth }  = this.props;
@@ -38,16 +33,13 @@ class PostsPage extends Component {
               user={auth.user} 
             />
             <div className="PostsList text-left mt-3 ml-3">
-              <div>
-                {posts.all.map((post, i) => (
-                  <PostListItem
-                    key={i}
-                    post={post}
-                    user={auth.user}
-                    // updatePost={this.updateListItem(post)} 
-                  />
-                ))}
-              </div>
+              {posts.all.map((post, i) => (
+                <PostListItem
+                  key={i}
+                  post={post}
+                  user={auth.user}
+                />
+              ))}
             </div>
           </React.Fragment>
         ) : (

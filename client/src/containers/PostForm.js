@@ -123,10 +123,6 @@ class PostForm extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return { ...state };
-// }
-
 const mapDispatchToProps = dispatch => bindActionCreators({ submitPost }, dispatch);
 
 export default connect(null, mapDispatchToProps)(PostForm);

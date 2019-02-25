@@ -12,6 +12,12 @@
   padding: $ems--s $ems--m;
 }
 
+.CloudAboutHeader {
+  margin-top: $rems--s!important; 
+  padding: $ems--s!important;
+  width: 60%;
+}
+
 // .PostCloudBubble {
 //   @include col();
 //   justify-content: flex-start;

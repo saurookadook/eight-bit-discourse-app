@@ -16,16 +16,17 @@ const authSuccess = (user, token) => {
   };
 }
 
-const authFailure = errors => {
-  return {
-    type: types.AUTHENTICATION_FAILURE,
-    errors: errors
-  };
-}
+// const authFailure = errors => {
+//   return {
+//     type: types.AUTHENTICATION_FAILURE,
+//     errors: errors
+//   };
+// }
 
 export const logout = () => {
   return dispatch => {
     localStorage.clear();
+    window.alert("You've been successfully logged out.")
     return dispatch({
       type: types.LOGOUT
     });
@@ -40,19 +41,32 @@ export const signup = user => {
         "Accept": "application/json",
         "Content-Type":"application/json"
       },
-      body: JSON.stringify({user: user}),
+      body: JSON.stringify(
+          { 
+            user: {
+              username: user.username,
+              email: user.email,
+              password: user.password
+            }
+          }
+        ),
     })
-      .then(response => response.json())
-      // TODO: change to `.then(jresp => dispatch(authenticate({jresp})))`?
+      .then(resp => {
+        if (!resp.ok) {
+          throw resp.json();
+        }
+        return resp.json();
+      })
       .then(jresp => {
         dispatch(authenticate({
-          name: user.username,
+          username: user.username,
           email: user.email,
           password: user.password})
         );
       })
       .catch(errors => {
-        dispatch(authFailure(errors))
+        console.log(errors);
+        return errors;
       });
   };
 }
@@ -66,14 +80,19 @@ export const authenticate = authCredentials => {
         "Accept": "application/json",
         "Content-Type": "application/json",
       }),
-      body: JSON.stringify({auth: authCredentials}),
+      body: JSON.stringify({ auth: authCredentials }),
     });
 
     return fetch(request)
-      .then(resp => resp.json())
-      .then(response => {
-          // const token = response.jwt;
-          localStorage.setItem('token', response.jwt);
+      .then(resp => {
+        // TODO: better way?
+        if (!resp.ok) {
+          throw resp.status;
+        }
+        return resp.json();
+      })
+      .then(jresp => {
+          localStorage.setItem('token', jresp.jwt);
           return getUser(authCredentials);
       })
       .then(user => {
@@ -81,18 +100,15 @@ export const authenticate = authCredentials => {
           dispatch(authSuccess(user, localStorage.token));
       })
       .catch(errors => {
-          dispatch(authFailure(errors));
           localStorage.clear();
+          return errors;
       })
   }
 }
 
 export const getUser = userCredentials => {
   const request = new Request(`${API_URL}/find_user`, {
-    // TODO: seems odd...?
     method: "POST",
-    // mode: 'no-cors',
-    // credentials: 'include',
     headers: new Headers({
       "Accept": "application/json",
       "Content-Type": "application/json",
@@ -105,6 +121,8 @@ export const getUser = userCredentials => {
     .then(response => response.json())
     .then(userJson => userJson)
     .catch(errors => {
-      return authFailure(errors);
+      console.log(errors);
+      return errors;
+      // return authFailure(errors);
     });
 };

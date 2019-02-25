@@ -1,37 +1,32 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Constants/Styles
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
-
-import '../../styles/css/index.css';
-
-const INITIAL_STATE = {
-    username: '',
-    email: '',
-    password: '',
-    errors: []
-}
 
 class SignUpForm extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { ...INITIAL_STATE }
+    this.state = { 
+      username: '',
+      email: '',
+      password: ''
+    }
   }
 
-  // byPropKey = (name, value) => () => ({
-  //   [name]: value
-  // })
-
-  onChangeHandler = event => {
-    // TODO: refactor using byPropKey?
-    const { name, value } = event.target
-    // this.setState(byPropKey(name, value));
+  byPropKey = (name, value) => {
     this.setState({
       [name]: value
     })
+  }
+
+  onChangeHandler = event => {
+    const { name, value } = event.target
+    this.byPropKey(name, value);
   }
 
   onSignUp = event => {
@@ -39,11 +34,13 @@ class SignUpForm extends Component {
     const { history } = this.props
 
     this.props.signup(this.state)
-      .then(() => {
-        history.push(routes.HOME)
-      })
-      .catch(errors => {
-        this.setState({ errors: errors })
+      .then(resp => {
+        if (!resp) {
+          history.push(routes.HOME);
+          window.alert("#achievement_unlocked");
+        } else {
+          window.alert(`Sorry, there was an issue logging you in. Please try again after fixing the following: - ${resp}`);
+        }
       })
   }
 
