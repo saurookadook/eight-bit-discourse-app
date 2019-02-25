@@ -49,9 +49,6 @@ class SignUpForm extends Component {
       <div className="container">
         <div className="row justify-content-center">
           <div className="OneUp FormUp col-6 p-4 my-4">
-            <h2 className="ErrorMsg">
-              Please Note: this is currently broken. You can see any open issues or pull requests that address it <a href="https://github.com/saurookadook/eight-bit-discourse-app">here.</a>
-            </h2>
             <h3>Join the conversation!</h3>
             <form id="post-form" onSubmit={this.onSignUp.bind(this)}>
               <p>
