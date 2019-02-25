@@ -5,6 +5,20 @@
   text-align: center;
 } 
 
+/* Messages/Notices */
+.ErrorMsg {
+  background: red;
+  color: $c-white;
+
+  a {
+    color: $c-white;
+    
+    &:hover {
+      color: $c-black;
+    }
+  }
+}
+
 /* PageHeader */
 .PageHeader {
   background: $c-yellow--header;
