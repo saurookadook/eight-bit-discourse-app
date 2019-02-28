@@ -17,12 +17,10 @@ class CommentsController < ApiController
   end
 
   def create
-    binding.pry
     @post = Post.find(params[:post_id])
 
-    # @comment = @post.comments.build(comment_params)
-    @comment = @post.comments.build(user_id: @user.id, post_id: params[:comment][:postId], content: params[:comment][:content])
-    # binding.pry
+    @comment = @post.comments.build(comment_params)
+    
     if @comment.valid?
       @post.save
       render json: @post, include: ['author', 'comments', 'comments.user']
@@ -46,7 +44,7 @@ class CommentsController < ApiController
     # params.require(:comment).permit(:id, :content,
     #   user_attributes: [:id, :username]
     # )
-    params.require(:comment).permit(:user_id, :content, :postId)
+    params.require(:comment).permit(:user_id, :content, :post_id)
   end
 
 end

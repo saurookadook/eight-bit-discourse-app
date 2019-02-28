@@ -50,7 +50,7 @@ class PostForm extends Component {
     event.preventDefault();
 
     this.props.submitPost(this.state);
-    event.currentTarget.reset()
+    event.currentTarget.reset();
   }
 
   render() {

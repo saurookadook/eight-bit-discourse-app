@@ -4,7 +4,7 @@ import { API_URL } from '../constants/apiUrl';
 
 export function submitComment(formContent) {
   return (dispatch) => {
-    return fetch(`${API_URL}/posts/${formContent.postId}/comments`, {
+    return fetch(`${API_URL}/posts/${formContent.post_id}/comments`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ comment: formContent})})

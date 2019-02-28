@@ -11,7 +11,7 @@ class CommentForm extends Component {
 
     this.state = {
       user_id: props.user.id,
-      postId: this.props.postId,
+      post_id: this.props.postId,
       content: ''
     }
 
@@ -35,7 +35,8 @@ class CommentForm extends Component {
     event.preventDefault()
     
     this.props.submitComment(this.state);
-    event.currentTarget.reset();
+    this.refs.contentInput.value = ''
+    this.state.content = ''
   }
 
   render() {
