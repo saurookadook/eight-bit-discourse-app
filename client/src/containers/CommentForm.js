@@ -10,7 +10,8 @@ class CommentForm extends Component {
     super(props)
 
     this.state = {
-      user: props.user,
+      user_id: props.user.id,
+      post_id: this.props.postId,
       content: ''
     }
 
@@ -32,14 +33,10 @@ class CommentForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-
-    let formContent = {
-      ...this.state,
-      postId: this.props.postId
-    }
     
-    this.props.submitComment(formContent);
-    event.currentTarget.reset();
+    this.props.submitComment(this.state);
+    this.refs.contentInput.value = ''
+    this.state.content = ''
   }
 
   render() {
@@ -50,12 +47,6 @@ class CommentForm extends Component {
           className="CommentForm"
           onSubmit={this.handleOnSubmit}
         >
-          <input
-            ref="postId"
-            type="hidden"
-            name="post"
-            value={this.props.postId}
-          />
           <input
             ref="contentInput"
             className="mx-2"
