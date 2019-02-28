@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Static/Stateless
+import SubmitButton from '../components/buttons/SubmitButton';
+
 // Constants/Styles
 import { submitPost } from '../actions/postActions.js';
 
@@ -110,9 +113,9 @@ class PostForm extends Component {
                     onChange={this.onChangeHandler}
                   />
                 </p>
-                <button type="submit">
-                  Add a post
-                </button>
+                <SubmitButton
+                  text="Add a post"
+                />
               </form>
             </React.Fragment>
             ) : ('Log in, dummy!') }
