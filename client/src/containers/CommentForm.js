@@ -35,11 +35,17 @@ class CommentForm extends Component {
   }
 
   handleOnSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
     
-    this.props.submitComment(this.state);
-    this.refs.contentInput.value = ''
-    this.setState({ content: '' });
+    this.props.submitComment(this.state)
+      .then(resp => {
+        if (!resp) {
+          this.refs.contentInput.value = '';
+          this.setState({ content: '' });    
+        } else {
+          window.alert(`${resp}`);
+        }
+      });
   }
 
   render() {

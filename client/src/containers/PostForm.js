@@ -52,8 +52,14 @@ class PostForm extends Component {
   onSubmitHandler = event => {
     event.preventDefault();
 
-    this.props.submitPost(this.state);
-    event.currentTarget.reset();
+    this.props.submitPost(this.state)
+      .then(resp => {
+        if (!resp) {
+          event.currentTarget.reset();
+        } else {
+          window.alert(`${resp}`);
+        }
+      });
   }
 
   render() {
