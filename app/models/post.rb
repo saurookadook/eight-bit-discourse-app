@@ -8,6 +8,9 @@ class Post < ApplicationRecord
   # validates_associated :author
   # validates_associated :comments
 
+  validates :title, :game, :discussion, :rating, presence: true
   # accepts_nested_attributes_for :comments
+
+  # TODO: game model?
 end
   
