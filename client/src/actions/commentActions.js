@@ -9,6 +9,6 @@ export function submitComment(formContent) {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ comment: formContent})})
       .then(response => response.json())
-      .then(post => {dispatch({ type: types.UPDATE_POST, post })});
+      .then(post => {dispatch({ type: types.SET_POST, post })});
   }
 }

@@ -8,7 +8,10 @@ class PostListItem extends Component {
 
     return (
       <div className="CloudBubble">
-        <Link className="text-dark" to={`/posts/${post.id}`}>
+        <Link
+          className="text-dark"
+          to={`/posts/${post.id}`}
+        >
           <h3>{post.title}</h3>
         </Link>
         <div>

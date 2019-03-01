@@ -29,3 +29,6 @@
 
 # Production
 /public
+
+# Ignore CSS maps
+/client/src/styles/css/*

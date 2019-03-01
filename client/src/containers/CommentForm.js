@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Static/Stateless
+import SubmitButton from '../components/buttons/SubmitButton';
+
 // Constants/Styles
 import * as actions from '../actions';
 
@@ -32,11 +35,17 @@ class CommentForm extends Component {
   }
 
   handleOnSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
     
-    this.props.submitComment(this.state);
-    this.refs.contentInput.value = ''
-    this.state.content = ''
+    this.props.submitComment(this.state)
+      .then(resp => {
+        if (!resp) {
+          this.refs.contentInput.value = '';
+          this.setState({ content: '' });    
+        } else {
+          window.alert(`${resp}`);
+        }
+      });
   }
 
   render() {
@@ -56,9 +65,9 @@ class CommentForm extends Component {
             value={this.state.content}
             onChange={this.handleOnChange}
           />
-          <button type="submit" >
-            Add a comment
-          </button>
+          <SubmitButton
+            text="Add a comment"
+          />
         </form>
       </div>
     )

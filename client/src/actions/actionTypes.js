@@ -4,17 +4,12 @@ export const AUTHENTICATION_SUCCESS = "AUTHENTICATION_SUCCESS";
 export const AUTHENTICATION_FAILURE = "AUTHENTICATION_FAILURE";
 export const LOGOUT = "LOGOUT";
 
+
 // POSTS
 export const SET_POST = "SET_POST";
 export const SET_POSTS = "SET_POSTS";
-export const FETCH_POST = "FETCH_POST";
-export const FETCH_POSTS = "FETCH_POSTS";
-export const SUBMITTING_POST = "SUBMITTING_POST";
-export const UPDATING_POST = "UPDATING_POST";
 export const LOADING_POST = "LOADING_POST";
 export const LOADING_POSTS = "LOADING_POSTS";
-export const UPDATE_POST = "UPDATE_POST";
-export const UPDATE_POSTS = "UPDATE_POSTS";
 
 
 // COMMENTS
