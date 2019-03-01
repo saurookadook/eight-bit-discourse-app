@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Static/Stateless
+import SubmitButton from '../components/buttons/SubmitButton';
+
 // Constants/Styles
 import { submitPost } from '../actions/postActions.js';
 
@@ -49,8 +52,14 @@ class PostForm extends Component {
   onSubmitHandler = event => {
     event.preventDefault();
 
-    this.props.submitPost(this.state);
-    event.currentTarget.reset()
+    this.props.submitPost(this.state)
+      .then(resp => {
+        if (!resp) {
+          event.currentTarget.reset();
+        } else {
+          window.alert(`${resp}`);
+        }
+      });
   }
 
   render() {
@@ -108,9 +117,9 @@ class PostForm extends Component {
                 onChange={this.onChangeHandler}
               />
             </p>
-            <button type="submit">
-              Add a post
-            </button>
+            <SubmitButton
+              text="Add a post"
+            />
           </form>
         </React.Fragment>
         ) : (<h4>Log in, dummy!</h4>) }

@@ -2,20 +2,13 @@ import fetch from 'isomorphic-fetch';
 import * as types from './actionTypes';
 import { API_URL } from '../constants/apiUrl';
 
-// const setPosts = (posts) => ({
-//   type: types.SET_POSTS,
-//   payload: {
-//     posts
-//   }
-// })
-
 export const fetchPosts = () => {
   return (dispatch) => {
     dispatch({ type: types.LOADING_POSTS });
 
     return fetch(`${API_URL}/posts`)
       .then(response => response.json())
-      .then(posts => dispatch({ type: types.FETCH_POSTS, posts })
+      .then(posts => dispatch({ type: types.SET_POSTS, posts })
       );
   }
 }
@@ -35,14 +28,14 @@ export const fetchPost = (postId) => {
       return fetch(`${API_URL}/posts/${postId}`)
         .then(response => response.json())
         .then(post => {dispatch({ 
-          type: types.FETCH_POST, 
+          type: types.SET_POST, 
           post })});
     }
   }
 
 export const submitPost = (formContent) => {
   return (dispatch) => {
-    dispatch({ type: types.SUBMITTING_POST })
+    dispatch({ type: types.LOADING_POST })
     return fetch(`${API_URL}/posts`, {
       method: 'POST',
       headers: {
@@ -52,7 +45,7 @@ export const submitPost = (formContent) => {
     })
       .then(response => response.json())
       .then(posts => dispatch({ 
-        type: types.UPDATE_POSTS, 
+        type: types.SET_POSTS, 
         posts }));
   }
 }
@@ -60,7 +53,7 @@ export const submitPost = (formContent) => {
 export const updatePost = (post) => {
   const userId = post.user_id;
   return (dispatch) => {
-    dispatch({type: types.UPDATING_POST})
+    dispatch({type: types.LOADING_POST})
     return fetch(`${API_URL}/users/${userId}/posts/${post.id}`, {
       method: 'PATCH',
       header: {
@@ -71,7 +64,7 @@ export const updatePost = (post) => {
     })
       .then(response => response.json())
       .then(post => dispatch({
-        type: types.UPDATE_POST,
+        type: types.SET_POST,
         post
       }))
   }
