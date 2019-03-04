@@ -2,7 +2,7 @@ import React from 'react';
 
 import DeleteButton from './buttons/DeleteButton';
 
-const Comment = ({ index, comment }) =>
+const Comment = ({ index, comment, onClick }) =>
   <div
     className="commentDiv" 
     key={index}
@@ -10,9 +10,9 @@ const Comment = ({ index, comment }) =>
     <p>
       <strong>{comment.user.username}</strong>: {comment.content}
     </p>
-    {/* <DeleteButton
-      delete={() => deleteCommment()}
-    /> */}
+    <DeleteButton
+      onClick={() => onClick()}
+    />
   </div>
 
 export default Comment;

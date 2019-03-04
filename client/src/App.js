@@ -68,8 +68,8 @@ class App extends Component {
           />
           <PageLayout />
           <div className="ViewContainer">
-            { isAuthenticated ? 
-              protectedViews 
+            { isAuthenticated ?
+              protectedViews
               : unprotectedViews }
             { publicViews }
           </div>

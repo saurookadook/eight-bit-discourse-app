@@ -15,6 +15,14 @@ export function submitComment(formContent) {
 
 export function deleteComment(data) {
   return (dispatch) => {
-    return fetch(`${API_URL}/posts/${data.post_id}/comments/${data.comment_id}`)
+    return fetch(`${API_URL}/posts/${data.post_id}/comments/${data.comment_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ comment: data })
+    })
+    .then(response => response.json())
+    .then(post => {dispatch({ type: types.SET_POST, post})});
   }
 }
