@@ -6870,10 +6870,16 @@ a {
 
 .BtnBasic {
   background: transparent;
-  border: 0; }
+  border: 1px solid gray;
+  border-radius: 20px; }
 
 .BtnText {
   margin-left: 0.5em; }
+
+.DeleteBtn {
+  margin-top: 0.5em !important;
+  margin-bottom: 1em;
+  margin-left: 1em; }
 
 /* PostDisplay */
 .CommentsContainer {
@@ -6886,6 +6892,12 @@ a {
   min-width: 35% !important;
   padding: 0.5em 1em !important;
   text-align: center; }
+
+/* Individual Comment */
+.Comment {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline; }
 
 .ViewContainer {
   display: flex;

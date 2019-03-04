@@ -10,3 +10,9 @@
   padding: $ems--xs $ems--s!important;
   text-align: center;
 }
+
+/* Individual Comment */
+.Comment {
+  @include row();
+  align-items: baseline;
+}

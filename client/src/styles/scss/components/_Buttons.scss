@@ -1,6 +1,7 @@
 .BtnBasic {
   background: $bg-transparent;
-  border: 0;
+  border: 1px solid $c-gray;
+  border-radius: 20px;
 }
 
 .BtnText {
@@ -10,3 +11,9 @@
 // .EditBtn {
 //   padding: $rems--xs;
 // }
+
+.DeleteBtn {
+  margin-top: $ems--xs!important;
+  margin-bottom: $ems--s;
+  margin-left: $ems--s;
+}
