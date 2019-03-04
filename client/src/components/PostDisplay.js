@@ -3,25 +3,22 @@ import React from 'react';
 // Content
 import Post from './Post';
 import Comment from './Comment';
-// import CommentsList from './CommentsList';
 import CommentForm from '../containers/CommentForm';
 
 const PostDisplay = ({ auth, post }) => {
   return (
     <div className="PostDislay">
       <Post post={post} />
-      <div className="Comments">
         <div className="CommentsContainer">
           <h4 className="CloudBubble CommentsHeader">
             <b>Comments:</b>
           </h4>
           <div className="CloudBubble">
-            {post.comments.map((comment) => {
+            {post.comments.map((comment, index) => {
               return (
                 <Comment
-                  key={comment.id}
-                  user={comment.user}
-                  content={comment.content}
+                  index={index}
+                  comment={comment}
                 />
               )
             })}
@@ -34,7 +31,6 @@ const PostDisplay = ({ auth, post }) => {
           )}
         </div>
       </div>
-    </div>
   )
 }
 

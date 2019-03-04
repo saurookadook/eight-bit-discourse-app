@@ -2,9 +2,14 @@ import React from 'react';
 
 import DeleteButton from './buttons/DeleteButton';
 
-const Comment = ({ key, user, content }) =>
-  <div className="commentDiv" key={key}>
-    <p><strong>{user.username}</strong>: {content}</p>
+const Comment = ({ index, comment }) =>
+  <div
+    className="commentDiv" 
+    key={index}
+  >
+    <p>
+      <strong>{comment.user.username}</strong>: {comment.content}
+    </p>
     {/* <DeleteButton
       delete={() => deleteCommment()}
     /> */}
