@@ -2,6 +2,7 @@ import React from 'react';
 
 // Content
 import Post from './Post';
+import Comment from './Comment';
 import CommentsList from './CommentsList';
 import CommentForm from '../containers/CommentForm';
 
@@ -10,9 +11,13 @@ const PostDisplay = ({ auth, post }) => {
     <div className="PostDislay">
       <Post post={post} />
       <div className="Comments">
-        <CommentsList
-          comments={post.comments}
-        />
+        {post.comments.map((comment) => {
+          <Comment
+            key={comment.id}
+            user={comment.user.username}
+            content={comment.content}
+          />
+        })}
         { auth.user && (
           <CommentForm
             user={auth.user}

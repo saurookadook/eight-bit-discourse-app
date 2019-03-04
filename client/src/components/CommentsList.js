@@ -1,12 +1,16 @@
 import React from 'react';
 
-const CommentsList = ({ comments }) => {
+import Comment from './Comment';
+
+const CommentsList = ({ comments, deleteComment }) => {
     if (comments) {
       const formattedComments = comments.map((comment, index) => {
         return (
-          <div className="commentDiv" key={index}>
-            <p><strong>{comment.user.username}</strong>: {comment.content}</p>
-          </div>
+          <Comment 
+            key={index}
+            user={comment.user}
+            content={comment.content}
+          />
         )
       })
 
