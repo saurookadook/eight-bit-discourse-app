@@ -10,6 +10,17 @@ import Comment from './Comment';
 import CommentForm from '../containers/CommentForm';
 
 class PostDisplay extends Component {
+  removeComment = (data) => {
+    const commentData = {
+      id: data.comment.id,
+      content: data.comment.content,
+      post_id: data.comment.post_id,
+      user_id: data.auth.user.id,
+    }
+    // debugger
+    this.props.deleteComment(commentData);
+  }
+
   render() {
     const { auth, post } = this.props;
 
@@ -26,8 +37,8 @@ class PostDisplay extends Component {
                 <Comment
                   key={index}
                   comment={comment}
-                  currentUser={auth.user}
-                  onClick={actions.deleteComment(comment)}
+                  auth={auth}
+                  onDelete={this.removeComment}
                 />
               )
             })}

@@ -36,15 +36,17 @@ class CommentsController < ApiController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    @post = Post.find(params[:post_id])
+    render json: @post, include: ['author', 'comments', 'comments.user']
   end
 
   private
 
   def comment_params
-    # params.require(:comment).permit(:id, :content,
-    #   user_attributes: [:id, :username]
-    # )
-    params.require(:comment).permit(:user_id, :content, :post_id)
+    params.require(:comment).permit(:content, :post_id, :user_id,)
   end
 
 end
