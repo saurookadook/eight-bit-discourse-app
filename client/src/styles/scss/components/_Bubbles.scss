@@ -8,7 +8,11 @@
 }
 
 .CloudBubble {
+  @include col();
+  align-items: baseline;
+  justify-content: center;
   margin-top: $rems--2s;
+  min-height: 120px;
   padding: $ems--s $ems--m;
 }
 
@@ -30,4 +34,8 @@
   margin-bottom: $ems--2s;
   max-width: 60%;
   min-width: 40%;
+}
+
+.BubbleLink {
+  color: $c-black--charcoal;
 }

@@ -6851,7 +6851,12 @@ a {
   margin-bottom: 1em; }
 
 .CloudBubble {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
   margin-top: 2em;
+  min-height: 120px;
   padding: 1em 5em; }
 
 .CloudAboutHeader {
@@ -6868,6 +6873,9 @@ a {
   max-width: 60%;
   min-width: 40%; }
 
+.BubbleLink {
+  color: #34282C; }
+
 .BtnBasic {
   background: transparent;
   border: 1px solid gray;
@@ -6878,7 +6886,7 @@ a {
 
 .DeleteBtn {
   margin-top: 0.5em !important;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   margin-left: 1em; }
 
 /* PostDisplay */
@@ -6889,6 +6897,9 @@ a {
   justify-content: center; }
 
 .CommentsHeader {
+  align-items: center !important;
+  margin-top: 0.5em !important;
+  min-height: 60px !important;
   min-width: 35% !important;
   padding: 0.5em 1em !important;
   text-align: center; }

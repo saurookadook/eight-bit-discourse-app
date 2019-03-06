@@ -8,6 +8,7 @@ class ApiController < ActionController::API
   protected
 
   def set_user!
+    # TODO: this could be much cleaner
     if params[:post]
       user_id = params[:post][:user_id] || params[:post][:user][:id]
       @user = User.find_by(id: user_id)

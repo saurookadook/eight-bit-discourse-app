@@ -11,23 +11,24 @@ class PostListItem extends Component {
     return (
       <div className="CloudBubble">
         <Link
-          className="text-dark"
+          className="BubbleLink"
           to={`/posts/${post.id}`}
         >
           <h3>{post.title}</h3>
         </Link>
         <div>
-          <p>
-            <strong>Author:</strong> {post.user.username}
-            <span className="Separator">||</span>
-            <strong>Game of discussion:</strong> {post.game}
-            { post.user.username === user.username && (
+          <strong>Author:</strong> {post.user.username}
+          <span className="Separator">||</span>
+          <strong>Game of discussion:</strong> {post.game}
+          { post.user.username === user.username && (
+            <React.Fragment>
+              <span className="Separator">||</span>
               <DeleteButton
                 text="Delete"
                 onClick={() => onDelete({ post, user })}
               />
-            )}
-          </p>
+            </React.Fragment>
+          )}
         </div>
       </div>
     )
