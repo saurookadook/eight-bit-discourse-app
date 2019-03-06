@@ -12,3 +12,18 @@ export function submitComment(formContent) {
       .then(post => {dispatch({ type: types.SET_POST, post })});
   }
 }
+
+export function deleteComment(comment) {
+  // debugger
+  return (dispatch) => {
+    return fetch(`${API_URL}/posts/${comment.post_id}/comments/${comment.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ comment })
+    })
+    .then(response => response.json())
+    .then(post => {dispatch({ type: types.SET_POST, post})});
+  }
+}

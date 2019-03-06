@@ -6,6 +6,6 @@ class Comment < ApplicationRecord
 
   # validates_associated :user
   validates :content, presence: true
-  # accept_nested_attributes_for :user
+  accepts_nested_attributes_for :user
   end
   

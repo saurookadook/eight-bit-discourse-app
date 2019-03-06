@@ -13,9 +13,9 @@ class CommentForm extends Component {
     super(props)
 
     this.state = {
+      content: '',
+      post_id: props.postId,
       user_id: props.user.id,
-      post_id: this.props.postId,
-      content: ''
     }
 
     this.byPropKey = this.byPropKey.bind(this);
