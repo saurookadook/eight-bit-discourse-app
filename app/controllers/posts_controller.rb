@@ -9,7 +9,7 @@ class PostsController < ApiController
   def show
     @post = Post.find(params[:id])
 
-    render json: @post, include: ['user', 'comments']
+    render json: @post, include: ['user', 'comments', 'comments.user']
   end
 
   def create
