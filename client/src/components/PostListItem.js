@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import DeleteButton from './buttons/DeleteButton';
+
 class PostListItem extends Component {
 
   render() {
-    const { post} = this.props;
+    const { post, user, onDelete } = this.props;
 
     return (
       <div className="CloudBubble">
@@ -16,9 +18,15 @@ class PostListItem extends Component {
         </Link>
         <div>
           <p>
-            <strong>Author:</strong> {post.author.username}
+            <strong>Author:</strong> {post.user.username}
             <span className="Separator">||</span>
-            <strong>Game of discussion:</strong> {post.game} 
+            <strong>Game of discussion:</strong> {post.game}
+            { post.user.username === user.username && (
+              <DeleteButton
+                text="Delete"
+                onClick={() => onDelete({ post, user })}
+              />
+            )}
           </p>
         </div>
       </div>

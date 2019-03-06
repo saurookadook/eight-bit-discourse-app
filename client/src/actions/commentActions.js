@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch';
 import * as types from './actionTypes';
 import { API_URL } from '../constants/apiUrl';
 
-export function submitComment(formContent) {
+export const submitComment = formContent => {
   return (dispatch) => {
     return fetch(`${API_URL}/posts/${formContent.post_id}/comments`, {
       method: 'POST',
@@ -13,8 +13,7 @@ export function submitComment(formContent) {
   }
 }
 
-export function deleteComment(comment) {
-  // debugger
+export const deleteComment = comment => {
   return (dispatch) => {
     return fetch(`${API_URL}/posts/${comment.post_id}/comments/${comment.id}`, {
       method: 'DELETE',
