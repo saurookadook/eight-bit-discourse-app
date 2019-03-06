@@ -14,6 +14,8 @@ class CommentsController < ApiController
     @comment = @post.comments.find(params[:comment_id])
 
     render json: @comment, include: ['user']
+    # TODO: refactor?
+    # render json: @post, include: ['user', 'comments', 'comments.user']
   end
 
   def create
@@ -23,7 +25,7 @@ class CommentsController < ApiController
     
     if @comment.valid?
       @post.save
-      render json: @post, include: ['author', 'comments', 'comments.user']
+      render json: @post, include: ['user', 'comments', 'comments.user']
     else
       render json: { message: "There was an issue submitting your comment, please try again."}
     end
@@ -36,15 +38,17 @@ class CommentsController < ApiController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    @post = Post.find(params[:post_id])
+    render json: @post, include: ['user', 'comments', 'comments.user']
   end
 
   private
 
   def comment_params
-    # params.require(:comment).permit(:id, :content,
-    #   user_attributes: [:id, :username]
-    # )
-    params.require(:comment).permit(:user_id, :content, :post_id)
+    params.require(:comment).permit(:content, :post_id, :user_id,)
   end
 
 end

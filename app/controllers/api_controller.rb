@@ -9,7 +9,8 @@ class ApiController < ActionController::API
 
   def set_user!
     if params[:post]
-      @user = User.find_by(id: params[:post][:author][:id])
+      user_id = params[:post][:user_id] || params[:post][:user][:id]
+      @user = User.find_by(id: user_id)
     elsif params[:comment]
       @user = User.find_by(id: params[:comment][:user_id])
     else
