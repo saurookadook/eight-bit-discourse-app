@@ -17,7 +17,12 @@ class PostDisplay extends Component {
       post_id: data.comment.post_id,
       user_id: data.auth.user.id,
     }
-    // debugger
+    // TODO: refactor above?
+    // const commentData = {
+    //   ...data.comment,
+    //   user_id: data.auth.user_id
+    // }
+
     this.props.deleteComment(commentData);
   }
 

@@ -12,7 +12,7 @@ class PostForm extends Component {
   constructor(props) {
     super(props)
 
-    const authorInfo = () => {
+    const userInfo = () => {
       if (props.user) {
         return {
           id: props.user.id,
@@ -28,7 +28,7 @@ class PostForm extends Component {
     this.state = {
       title: '',
       game: '',
-      author: authorInfo(),
+      user: userInfo(),
       discussion: '',
       rating: ''
     }

@@ -9,7 +9,7 @@ class PostsController < ApiController
   def show
     @post = Post.find(params[:id])
 
-    render json: @post, include: ['author', 'comments', 'comments.user']
+    render json: @post, include: ['user', 'comments', 'comments.user']
   end
 
   def create
@@ -17,29 +17,29 @@ class PostsController < ApiController
 
     if @post.valid?
       @post.save
-      self.class.index
-      # @posts = Post.order(created_at: :desc)
-      # render json: @posts
+      self.index
       # find way to do this with just rendering @post
-      # render json: @posts, include: ['author']
+      # render json: @posts
     else
       render json: { message: "There was an issue submitting your post, please try again."}
     end
   end
 
   def update
-    binding.pry
+    # binding.pry
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    self.index
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :game, :discussion, :rating, :user_id,
-      author_attributes: [:id, :username, :email, :password_digest]
-      )
+    params.require(:post).permit(:title, :game, :discussion, :rating, :user_id, :vote_count)
   end
 
 end

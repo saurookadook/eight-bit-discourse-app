@@ -14,11 +14,18 @@ import PostListItem from '../components/PostListItem';
 
 
 class PostsPage extends Component {
-
   componentDidMount() {
     if (!this.props.posts.all) {
       this.props.fetchPosts();
     }
+  }
+
+  removePost = (data) => {
+    const postData = {
+      ...data.post
+    }
+    
+    this.props.deletePost(postData);
   }
 
   render() {
@@ -38,6 +45,7 @@ class PostsPage extends Component {
                   key={i}
                   post={post}
                   user={auth.user}
+                  onDelete={this.removePost}
                 />
               ))}
             </div>

@@ -8,28 +8,24 @@ export const fetchPosts = () => {
 
     return fetch(`${API_URL}/posts`)
       .then(response => response.json())
-      .then(posts => dispatch({ type: types.SET_POSTS, posts })
-      );
+      .then(posts => { dispatch({
+          type: types.SET_POSTS,
+          posts
+        })
+      });
   }
 }
 
-export const fetchPost = (postId) => {
-  // TODO once nested functionality is setup
-  // if (userId != null || undefined) {
-  //   return (dispatch) => {
-  //     dispatch({ type: 'LOADING_USER_POST' });
-  //     return fetch(`http://localhost:3001/users/${userId}/posts/${postId}`)
-  //       .then(response => reponse.json())
-  //       .then(post => dispatch({ type: 'FETCH_USER_POST', post: post }));
-  //   }
-  // } else {
+export const fetchPost = postId => {
     return (dispatch) => {
       dispatch({ type: types.LOADING_POST });
       return fetch(`${API_URL}/posts/${postId}`)
         .then(response => response.json())
-        .then(post => {dispatch({ 
-          type: types.SET_POST, 
-          post })});
+        .then(post => { dispatch({ 
+            type: types.SET_POST,
+            post
+          })
+        });
     }
   }
 
@@ -67,5 +63,19 @@ export const updatePost = (post) => {
         type: types.SET_POST,
         post
       }))
+  }
+}
+
+export const deletePost = post => {
+  return (dispatch) => {
+    return fetch(`${API_URL}/posts/${post.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ post })
+    })
+    .then(response => response.json())
+    .then(posts => {dispatch({ type: types.SET_POSTS, posts})});
   }
 }
