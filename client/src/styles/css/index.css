@@ -6823,7 +6823,9 @@ body {
   padding: 0; }
 
 a {
-  color: #000000; }
+  color: #34282C !important; }
+  a:hover {
+    transform: scale(1.1) !important; }
 
 .OneUp {
   background: #E47134;
@@ -6873,13 +6875,12 @@ a {
   max-width: 60%;
   min-width: 40%; }
 
-.BubbleLink {
-  color: #34282C; }
-
 .BtnBasic {
   background: transparent;
   border: 1px solid gray;
   border-radius: 20px; }
+  .BtnBasic:hover {
+    transform: scale(1.1) !important; }
 
 .BtnText {
   margin-left: 0.5em; }
