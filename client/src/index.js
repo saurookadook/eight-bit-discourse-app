@@ -12,10 +12,10 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // TODO: globally set CSRF token from csrf_meta_tag?
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById("root") // eslint-disable-line no-undef
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root") // eslint-disable-line no-undef
 );
 
 // If you want your app to work offline and load faster, you can change

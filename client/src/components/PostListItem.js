@@ -7,6 +7,7 @@ class PostListItem extends Component {
 
   render() {
     const { post, user, onDelete } = this.props;
+    // debugger
 
     return (
       <div className="CloudBubble">
@@ -20,7 +21,7 @@ class PostListItem extends Component {
           <strong>Author:</strong> {post.user.username}
           <span className="Separator">||</span>
           <strong>Game of discussion:</strong> {post.game}
-          { post.user.username === user.username && (
+          { user ? post.user.username === user.username && (
             <React.Fragment>
               <span className="Separator">||</span>
               <DeleteButton
@@ -28,7 +29,7 @@ class PostListItem extends Component {
                 onClick={() => onDelete({ post, user })}
               />
             </React.Fragment>
-          )}
+          ) : ('halp')}
         </div>
       </div>
     )
