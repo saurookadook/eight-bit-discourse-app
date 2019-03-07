@@ -64,10 +64,14 @@ class EditInfoForm extends Component {
             placeholder={this.state.email}
             onChange={this.handleOnChange}
           />
-          <SubmitButton />
-          <CancelButton
-            onClick={this.props.onClick}
-          />
+          <div className="ButtonsContainer">
+            <SubmitButton
+              text="Update"
+            />
+            <CancelButton
+              onClick={this.props.onClick}
+            />
+          </div>
         </form>
       </React.Fragment>
     )

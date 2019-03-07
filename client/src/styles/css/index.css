@@ -6886,8 +6886,6 @@ a {
   margin-left: 0.5em; }
 
 .DeleteBtn {
-  margin-top: 0.5em !important;
-  margin-bottom: 0.5em;
   margin-left: 1em; }
 
 /* PostDisplay */
@@ -6934,6 +6932,12 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center; }
+
+.ButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 0.5em; }
 
 /* Footer */
 footer {
