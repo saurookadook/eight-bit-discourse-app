@@ -5,11 +5,3 @@ body {
   min-height: 1000px;
   padding: 0;
 }
-
-a {
-  color: $c-black--charcoal!important;
-  
-  &:hover {
-    transform: scale(1.1)!important;
-  }
-}

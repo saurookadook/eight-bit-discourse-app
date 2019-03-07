@@ -6822,11 +6822,6 @@ body {
   min-height: 1000px;
   padding: 0; }
 
-a {
-  color: #34282C !important; }
-  a:hover {
-    transform: scale(1.1) !important; }
-
 .OneUp {
   background: #E47134;
   border-top: 10px solid #C43126;
@@ -6874,6 +6869,11 @@ a {
   margin-bottom: 2em;
   max-width: 60%;
   min-width: 40%; }
+
+.BubbleLink {
+  color: #34282C !important; }
+  .BubbleLink:hover {
+    transform: scale(1.05) !important; }
 
 .BtnBasic {
   background: transparent;

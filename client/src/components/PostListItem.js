@@ -29,7 +29,7 @@ class PostListItem extends Component {
                 onClick={() => onDelete({ post, user })}
               />
             </React.Fragment>
-          ) : ('halp')}
+          ) : ('')}
         </div>
       </div>
     )

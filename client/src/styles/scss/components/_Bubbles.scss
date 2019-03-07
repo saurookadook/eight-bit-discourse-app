@@ -36,6 +36,10 @@
   min-width: 40%;
 }
 
-// .BubbleLink {
-//   color: $c-black--charcoal;
-// }
+.BubbleLink {
+  color: $c-black--charcoal!important;
+  
+  &:hover {
+    transform: scale(1.05)!important;
+  }
+}
