@@ -6,8 +6,10 @@ class Post < ApplicationRecord
 
   accepts_nested_attributes_for :user
   accepts_nested_attributes_for :comments
-  # validates_associated :comments
 
-  
+  validates :title, :game, :discussion, :rating, presence: true
+  validates :rating, numericality: { greater_than: 0, less_than: 11 }
+
+  # TODO: game model?
 end
   

@@ -6,6 +6,9 @@
 }
 
 .CommentsHeader {
+  align-items: center!important;
+  margin-top: $ems--xs!important;
+  min-height: 60px!important;
   min-width: 35%!important;
   padding: $ems--xs $ems--s!important;
   text-align: center;
