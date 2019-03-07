@@ -8,19 +8,13 @@ const initialState = {
 
 const postReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.SUBMITTING_POST:
-      return {
-        ...state,
-        loading: true,
-        loaded: false
-      }
     case types.LOADING_POST:
       return {
         ...state,
         loading: true,
         loaded: false
       }
-    case types.FETCH_POST:
+    case types.SET_POST:
       return {
         ...state,
         loading: false,
@@ -30,14 +24,6 @@ const postReducer = (state = initialState, action) => {
     // TODO once component is created
     // case types.FETCH_USER_POST:
     //   return { ...state, post: action.post }
-    
-    case types.UPDATE_POST:
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        post: action.post
-      }
     default:
       return state;
   }

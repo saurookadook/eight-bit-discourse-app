@@ -6851,7 +6851,12 @@ a {
   margin-bottom: 1em; }
 
 .CloudBubble {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
   margin-top: 2em;
+  min-height: 120px;
   padding: 1em 5em; }
 
 .CloudAboutHeader {
@@ -6868,20 +6873,23 @@ a {
   max-width: 60%;
   min-width: 40%; }
 
+.BubbleLink {
+  color: #34282C; }
+
 .BtnBasic {
   background: transparent;
-  border: 0; }
+  border: 1px solid gray;
+  border-radius: 20px; }
 
 .BtnText {
   margin-left: 0.5em; }
 
-/* PostDisplay */
-.Comments {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
+.DeleteBtn {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em;
+  margin-left: 1em; }
 
+/* PostDisplay */
 .CommentsContainer {
   display: flex;
   flex-direction: column;
@@ -6889,9 +6897,18 @@ a {
   justify-content: center; }
 
 .CommentsHeader {
+  align-items: center !important;
+  margin-top: 0.5em !important;
+  min-height: 60px !important;
+  min-width: 35% !important;
   padding: 0.5em 1em !important;
-  text-align: center;
-  width: 60% !important; }
+  text-align: center; }
+
+/* Individual Comment */
+.Comment {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline; }
 
 .ViewContainer {
   display: flex;
@@ -6907,6 +6924,9 @@ a {
   align-items: center; }
 
 .PostsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-width: 50%; }
 
 .UserGamesContainer {
@@ -6942,17 +6962,21 @@ footer {
   background: #C6F552; }
 
 /* Forms */
-.FormLabel {
-  margin-right: 0.5em; }
-
 .FormUp {
   margin: 2.5em;
   padding: 2.5em;
   text-align: center; }
 
+.FormUpHeader {
+  margin-bottom: 0.5em; }
+
 .CommentUp {
-  padding: 2em !important;
-  max-width: 60%; }
+  max-width: 60%;
+  padding: 2em;
+  padding-top: 1em; }
+
+.InputLabel {
+  margin-right: 0.5em; }
 
 .LoadingPage {
   margin-top: 5em;
@@ -7022,7 +7046,7 @@ footer {
 
 /* PostsList */
 .PostsList, .FormUp {
-  margin-bottom: 150px; }
+  margin-bottom: 1em; }
 
 .Separator {
   margin: 0 0.5em; }

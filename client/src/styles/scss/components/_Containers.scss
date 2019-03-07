@@ -12,6 +12,8 @@
 }
 
 .PostsContainer {
+  @include col();
+  align-items: center;
   min-width: 50%;
 }
 

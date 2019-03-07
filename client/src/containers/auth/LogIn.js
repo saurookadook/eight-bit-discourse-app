@@ -48,13 +48,13 @@ class LogInForm extends Component {
   render() {
     return (
       <div className="OneUp FormUp">
-        <h3>Continue the discourse...</h3>
+        <h3 className="FormUpHeader">Continue the discourse...</h3>
         <form
           id="post-form"
           onSubmit={this.onLogIn}
         >
           <p>
-            <span className="FormLabel">
+            <span className="InputLabel">
               Email:
             </span>
             <input
@@ -67,7 +67,7 @@ class LogInForm extends Component {
             />
           </p>
           <p>
-            <span className="FormLabel">
+            <span className="InputLabel">
               Password:
             </span>
             <input 

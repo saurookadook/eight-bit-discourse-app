@@ -1,10 +1,4 @@
 /* PostDisplay */
-.Comments {
-  @include col();
-  align-items: center;
-  justify-content: center;
-}
-
 .CommentsContainer {
   @include col();
   align-items: center;
@@ -12,7 +6,16 @@
 }
 
 .CommentsHeader {
+  align-items: center!important;
+  margin-top: $ems--xs!important;
+  min-height: 60px!important;
+  min-width: 35%!important;
   padding: $ems--xs $ems--s!important;
   text-align: center;
-  width: 60%!important;
+}
+
+/* Individual Comment */
+.Comment {
+  @include row();
+  align-items: baseline;
 }

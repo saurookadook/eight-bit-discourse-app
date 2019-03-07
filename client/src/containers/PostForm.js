@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Static/Stateless
+import SubmitButton from '../components/buttons/SubmitButton';
+
 // Constants/Styles
 import { submitPost } from '../actions/postActions.js';
 
@@ -9,7 +12,7 @@ class PostForm extends Component {
   constructor(props) {
     super(props)
 
-    const authorInfo = () => {
+    const userInfo = () => {
       if (props.user) {
         return {
           id: props.user.id,
@@ -25,7 +28,7 @@ class PostForm extends Component {
     this.state = {
       title: '',
       game: '',
-      author: authorInfo(),
+      user: userInfo(),
       discussion: '',
       rating: ''
     }
@@ -49,75 +52,77 @@ class PostForm extends Component {
   onSubmitHandler = event => {
     event.preventDefault();
 
-    this.props.submitPost(this.state);
-    event.currentTarget.reset()
+    this.props.submitPost(this.state)
+      .then(resp => {
+        if (!resp) {
+          event.currentTarget.reset();
+        } else {
+          window.alert(`${resp}`);
+        }
+      });
   }
 
   render() {
     let userLoggedIn = this.props.user ? this.props.user : false;
-
+    
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="OneUp FormUp p-4 my-4">
-          { userLoggedIn ? (
-            <React.Fragment>
-              <h3>Anything to discuss with the hive mind?</h3>
-              <form
-                id="post-form"
-                onSubmit={this.onSubmitHandler}
-              >
-                <p>
-                  <input
-                    className="mr-2"
-                    ref="titleInput"
-                    type="text"
-                    name="title"
-                    placeholder="Title/Topic"
-                    value={this.state.title}
-                    onChange={this.onChangeHandler}
-                  />
-                  <input
-                    className="ml-2"
-                    ref="gameInput"
-                    type="text"
-                    name="game"
-                    placeholder="Game"
-                    value={this.state.game}
-                    onChange={this.onChangeHandler}
-                  />
-                </p>
-                <p>
-                  <textarea
-                    ref="discussionInput"
-                    name="discussion"
-                    className="textarea"
-                    placeholder="Your thoughts...."
-                    value={this.state.discussion}
-                    onChange={this.onChangeHandler}
-                  />
-                </p>
-                <p>
-                  How would you rate this game?
-                </p>
-                <p>
-                  <input
-                    ref="ratingInput"
-                    type="number"
-                    name="rating"
-                    placeholder="Rating (1-10)"
-                    value={this.state.rating}
-                    onChange={this.onChangeHandler}
-                  />
-                </p>
-                <button type="submit">
-                  Add a post
-                </button>
-              </form>
-            </React.Fragment>
-            ) : ('Log in, dummy!') }
-          </div>
-        </div>
+      <div className="OneUp FormUp">
+      { userLoggedIn ? (
+        <React.Fragment>
+          <h3 className="FormUpHeader">Anything to discuss with the hive mind?</h3>
+          <form
+            id="post-form"
+            onSubmit={this.onSubmitHandler}
+          >
+            <p>
+              <input
+                className="mr-2"
+                ref="titleInput"
+                type="text"
+                name="title"
+                placeholder="Title/Topic"
+                value={this.state.title}
+                onChange={this.onChangeHandler}
+              />
+              <input
+                className="ml-2"
+                ref="gameInput"
+                type="text"
+                name="game"
+                placeholder="Game"
+                value={this.state.game}
+                onChange={this.onChangeHandler}
+              />
+            </p>
+            <p>
+              <textarea
+                ref="discussionInput"
+                name="discussion"
+                className="textarea"
+                placeholder="Your thoughts...."
+                value={this.state.discussion}
+                onChange={this.onChangeHandler}
+              />
+            </p>
+            <p>
+              How would you rate this game?
+            </p>
+            <p>
+              <input
+                ref="ratingInput"
+                type="number"
+                name="rating"
+                placeholder="Rating (1-10)"
+                value={this.state.rating}
+                onChange={this.onChangeHandler}
+              />
+            </p>
+            <SubmitButton
+              text="Add a post"
+            />
+          </form>
+        </React.Fragment>
+        ) : (<h4>Log in, dummy!</h4>) }
       </div>
     )
   }

@@ -32,7 +32,7 @@ import SignUpForm from './containers/auth/SignUp';
 class App extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
-    const { logout  } = this.props;
+    const { logout } = this.props;
     
     const publicViews = (
       <React.Fragment>
@@ -68,8 +68,8 @@ class App extends Component {
           />
           <PageLayout />
           <div className="ViewContainer">
-            { isAuthenticated && user ? 
-              protectedViews 
+            { isAuthenticated ?
+              protectedViews
               : unprotectedViews }
             { publicViews }
           </div>

@@ -13,14 +13,7 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       }
-    case types.FETCH_POSTS:
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        all: action.posts
-      }
-    case types.UPDATE_POSTS:
+    case types.SET_POSTS:
       return {
         ...state,
         loading: false,
