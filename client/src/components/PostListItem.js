@@ -7,7 +7,6 @@ class PostListItem extends Component {
 
   render() {
     const { post, user, onDelete } = this.props;
-    // debugger
 
     return (
       <div className="CloudBubble">

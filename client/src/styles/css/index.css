@@ -6815,12 +6815,25 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+@font-face {
+  font-family: 'Press Start 2P';
+  src: local("Press Start 2P"), URL("../../fonts/PressStart2P.ttf") format("truetype");
+  font-style: 'cursive';
+  font-weight: 200; }
 body {
   background: linear-gradient(to bottom right, #6695F5, gray);
   font-family: sans-serif;
   margin: 0;
   min-height: 1000px;
   padding: 0; }
+
+* {
+  font-family: 'Press Start 2P', 'cursive';
+  font-size: 100%;
+  font-style: normal; }
+
+h3 {
+  font-size: 1em; }
 
 .OneUp {
   background: #E47134;
@@ -6885,9 +6898,6 @@ body {
 .BtnText {
   margin-left: 0.5em; }
 
-.DeleteBtn {
-  margin-left: 1em; }
-
 /* PostDisplay */
 .CommentsContainer {
   display: flex;
@@ -6908,6 +6918,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: baseline; }
+  .Comment .BtnBasic {
+    margin-left: 1em; }
 
 .ViewContainer {
   display: flex;
@@ -6989,7 +7001,9 @@ footer {
   text-align: center; }
 
 .NavBar {
-  background: #000000; }
+  background: #000000;
+  font-size: 75%;
+  min-height: 3em; }
 
 .Home {
   margin-right: 1em; }
@@ -7025,7 +7039,7 @@ footer {
   background: #ffc107;
   display: grid;
   grid-template-columns: 70% 30%;
-  margin-top: 40px;
+  margin-top: 2em;
   min-height: 250px;
   width: 100vw; }
 
@@ -7037,6 +7051,9 @@ footer {
   justify-content: center;
   padding-left: 5em;
   text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
+
+.AppName {
+  font-size: 2em !important; }
 
 .PageHeaderImage {
   height: 100%; }

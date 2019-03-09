@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 
 // -- Styles --
-import "./styles/css/index.css";
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import "./styles/css/index.css";
 
 // TODO: globally set CSRF token from csrf_meta_tag?
 

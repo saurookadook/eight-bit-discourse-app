@@ -18,4 +18,8 @@
 .Comment {
   @include row();
   align-items: baseline;
+
+  .BtnBasic {
+    margin-left: $ems--s;
+  }
 }
