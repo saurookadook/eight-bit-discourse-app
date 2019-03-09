@@ -18,9 +18,9 @@ class PostListItem extends Component {
         </Link>
         <div>
           <p>
-            <strong>Author:</strong> {post.user.username}
+            <strong>Author:</strong> { post.user.username }
             <span className="Separator">||</span>
-            <strong>Game of discussion:</strong> {post.game}
+            <strong>Game of discussion:</strong> { post.game }
             { user ? post.user.username === user.username && (
               <React.Fragment>
                 <span className="Separator">||</span>

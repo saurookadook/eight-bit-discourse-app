@@ -8,6 +8,7 @@ import store from './store.js';
 // -- Styles --
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import "./styles/css/index.css";
+import './styles/scss/index.scss';
 
 // TODO: globally set CSRF token from csrf_meta_tag?
 

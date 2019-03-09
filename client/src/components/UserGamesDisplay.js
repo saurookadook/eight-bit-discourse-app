@@ -15,7 +15,7 @@ const UserGamesDisplay = ({ posts }) => {
               className="PostLink"
               to={`/posts/${post.id}`}
             >
-              {post.title}
+              { post.title }
             </Link>
           </div>
         )
