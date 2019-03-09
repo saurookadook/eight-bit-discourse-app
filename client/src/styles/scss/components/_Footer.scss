@@ -14,7 +14,7 @@ footer {
   border-top: 1px solid $c-black;
   border-right: 1px solid $c-black;
   border-left: 1px solid $c-black;
-  font-size: 1em;
+  font-size: ($rems--xs * 1.5);
   text-align: center;
 
   .FooterLink {

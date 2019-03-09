@@ -7,9 +7,10 @@ const DeleteButton = ({ onClick, text }) => {
       onClick={() => onClick()}
       type="delete"
     >
-      <i className="fas fa-times" >
+      <p>
+        <i className="fas fa-times" />
         <span className="BtnText">{ text }</span>
-      </i>
+      </p>
     </button>
   )
 }

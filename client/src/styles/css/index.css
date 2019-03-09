@@ -6832,8 +6832,9 @@ body {
   font-size: 100%;
   font-style: normal; }
 
-h3 {
-  font-size: 1em; }
+p {
+  font-size: 0.5em;
+  margin-bottom: 0; }
 
 .OneUp {
   background: #E47134;
@@ -6891,11 +6892,17 @@ h3 {
 .BtnBasic {
   background: transparent;
   border: 1px solid gray;
-  border-radius: 20px; }
+  border-radius: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 35px; }
   .BtnBasic:hover {
     transform: scale(1.1) !important; }
 
 .BtnText {
+  font-size: 0.5em;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: 0.5em; }
 
 /* PostDisplay */
@@ -6917,9 +6924,13 @@ h3 {
 .Comment {
   display: flex;
   flex-direction: row;
-  align-items: baseline; }
+  align-items: baseline;
+  min-height: 35px; }
   .Comment .BtnBasic {
     margin-left: 1em; }
+  .Comment p {
+    margin-top: auto;
+    margin-bottom: auto; }
 
 .ViewContainer {
   display: flex;
@@ -6964,7 +6975,7 @@ footer {
   border-top: 1px solid #000000;
   border-right: 1px solid #000000;
   border-left: 1px solid #000000;
-  font-size: 1em;
+  font-size: 0.75em;
   text-align: center; }
   .FooterBushes .FooterLink {
     color: #000000;

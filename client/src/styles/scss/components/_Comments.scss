@@ -18,8 +18,15 @@
 .Comment {
   @include row();
   align-items: baseline;
+  // margin-bottom: $rems--xs!important;
+  min-height: 35px;
 
   .BtnBasic {
     margin-left: $ems--s;
+  }
+
+  p {
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }

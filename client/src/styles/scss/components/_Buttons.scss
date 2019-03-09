@@ -2,6 +2,9 @@
   background: $bg-transparent;
   border: 1px solid $c-gray;
   border-radius: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 35px;
 
   &:hover {
     transform: scale(1.1)!important;
@@ -9,6 +12,9 @@
 }
 
 .BtnText {
+  font-size: $rems--xs;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: $rems--xs;
 }
 

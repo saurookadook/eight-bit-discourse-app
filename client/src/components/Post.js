@@ -4,7 +4,7 @@ const Post = ({ post }) => {
   return (
     <div className="CloudBubble PostCloud">
       <div className="PostInfo">
-        <h2 className="title">{post.title}</h2>
+        <h5 className="title">{post.title}</h5>
         <p className="game"><b>Game:</b> {post.game}</p>
         <p className="author"><b>By:</b> {post.user.username}</p>
         <p className="rating"><b>Rating:</b> {post.rating} stars</p>

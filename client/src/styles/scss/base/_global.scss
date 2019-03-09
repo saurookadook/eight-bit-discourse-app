@@ -12,6 +12,11 @@ body {
   font-style: normal;
 }
 
-h3 {
-  font-size: $rems--s;
+// h3 {
+//   font-size: $rems--s;
+// }
+
+p {
+  font-size: $rems--xs;
+  margin-bottom: 0;
 }

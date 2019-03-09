@@ -69,7 +69,7 @@ class PostForm extends Component {
       <div className="OneUp FormUp">
       { userLoggedIn ? (
         <React.Fragment>
-          <h3 className="FormUpHeader">Anything to discuss with the hive mind?</h3>
+          <h6 className="FormUpHeader">Anything to discuss with the hive mind?</h6>
           <form
             id="post-form"
             onSubmit={this.onSubmitHandler}
