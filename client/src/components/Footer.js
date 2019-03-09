@@ -22,7 +22,7 @@ export const Footer = () =>
         </Link>
       </div>
     </div>
-    <footer className="FooterBase pt-3 pb-2">
+    <footer className="FooterBase">
       <p>LOLZ COPYRIGHT STUFF</p>
     </footer>
   </div>

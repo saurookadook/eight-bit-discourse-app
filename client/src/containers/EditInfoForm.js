@@ -48,22 +48,26 @@ class EditInfoForm extends Component {
           className="EditInfoForm"
           onSubmit={this.updateUser}
         >
-          <input 
-            ref="usernameInput"
-            type="text"
-            name="username"
-            defaultValue={this.state.username}
-            placeholder={this.state.username}
-            onChange={this.handleOnChange}
-          />
-          <input
-            ref="emailInput"
-            type="text"
-            name="email"
-            defaultValue={this.state.email}
-            placeholder={this.state.email}
-            onChange={this.handleOnChange}
-          />
+          <p>
+            <input 
+              ref="usernameInput"
+              type="text"
+              name="username"
+              defaultValue={this.state.username}
+              placeholder={this.state.username}
+              onChange={this.handleOnChange}
+            />
+          </p>
+          <p>
+            <input
+              ref="emailInput"
+              type="text"
+              name="email"
+              defaultValue={this.state.email}
+              placeholder={this.state.email}
+              onChange={this.handleOnChange}
+            />
+          </p>
           <div className="ButtonsContainer">
             <SubmitButton
               text="Update"

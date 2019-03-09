@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const UserGamesDisplay = ({ posts }) => {
   return (
     <div className="UserGamesContainer ">
-      <h3>Your Posts:</h3>
+      <h6>Your Posts:</h6>
       { posts.map((post, i) => {
         return (
           <div

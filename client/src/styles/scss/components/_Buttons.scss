@@ -5,10 +5,17 @@
   margin-top: auto;
   margin-bottom: auto;
   max-height: 35px;
+  min-height: 20px;
+  padding: $ems--xs;
 
   &:hover {
     transform: scale(1.1)!important;
   }
+}
+
+i {
+  margin: auto;
+  padding-left: $ems--xs;
 }
 
 .BtnText {
@@ -16,11 +23,12 @@
   margin-top: auto;
   margin-bottom: auto;
   margin-left: $rems--xs;
+  padding-right: $ems--xs;
 }
 
-// .EditBtn {
-//   padding: $rems--xs;
-// }
+.EditBtn {
+  margin-top: $ems--xs!important;
+}
 
 // .DeleteBtn {
 //   margin-left: $ems--xs;

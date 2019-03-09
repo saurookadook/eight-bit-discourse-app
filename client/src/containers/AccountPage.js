@@ -30,24 +30,24 @@ class AccountPage extends Component {
       <React.Fragment>
         <div className="UserCloudBubble">
           <div className="DetailsContainer">
-            <h3>Account Details</h3>
-          { isEditable ? (
-            <EditInfoForm
-              user={user}
-              onClick={this.toggleEdit}
-            />
-          ) : (
-            <React.Fragment>
-              <p><strong>Username: </strong>{ user.username }</p>
-              <p><strong>Email: </strong>{ user.email }</p>
-              { user && (
-                <EditButton 
-                  isEditable={isEditable}
-                  onClick={this.toggleEdit}
-                />
-              )}
-            </React.Fragment>
-          )}
+            <h5>Account Details</h5>
+            { isEditable ? (
+              <EditInfoForm
+                user={user}
+                onClick={this.toggleEdit}
+              />
+            ) : (
+              <React.Fragment>
+                <p><strong>Username: </strong>{ user.username }</p>
+                <p><strong>Email: </strong>{ user.email }</p>
+                { user && (
+                  <EditButton 
+                    isEditable={isEditable}
+                    onClick={this.toggleEdit}
+                  />
+                )}
+              </React.Fragment>
+            )}
           </div>
         </div>
 

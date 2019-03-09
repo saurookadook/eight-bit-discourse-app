@@ -8,8 +8,9 @@ const DeleteButton = ({ onClick, text }) => {
       type="delete"
     >
       <p>
-        <i className="fas fa-times" />
-        <span className="BtnText">{ text }</span>
+        <i className="fas fa-times">
+          <span className="BtnText">{ text }</span>
+        </i>
       </p>
     </button>
   )

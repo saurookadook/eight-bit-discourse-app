@@ -9,6 +9,10 @@
   margin-bottom: $ems--xs;
 }
 
+#PostFormUp p {
+  margin: $rems--xs 0;
+}
+
 .CommentUp {
   max-width: 60%;
   padding: $rems--2s;

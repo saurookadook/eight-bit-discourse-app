@@ -6836,6 +6836,9 @@ p {
   font-size: 0.5em;
   margin-bottom: 0; }
 
+.fas {
+  font-size: 150% !important; }
+
 .OneUp {
   background: #E47134;
   border-top: 10px solid #C43126;
@@ -6895,15 +6898,25 @@ p {
   border-radius: 20px;
   margin-top: auto;
   margin-bottom: auto;
-  max-height: 35px; }
+  max-height: 35px;
+  min-height: 20px;
+  padding: 0.5em; }
   .BtnBasic:hover {
     transform: scale(1.1) !important; }
+
+i {
+  margin: auto;
+  padding-left: 0.5em; }
 
 .BtnText {
   font-size: 0.5em;
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 0.5em; }
+  margin-left: 0.5em;
+  padding-right: 0.5em; }
+
+.EditBtn {
+  margin-top: 0.5em !important; }
 
 /* PostDisplay */
 .CommentsContainer {
@@ -6970,6 +6983,9 @@ footer {
   footer * {
     text-align: center; }
 
+.FooterBase {
+  padding: 1em 0; }
+
 .FooterBushes {
   border-radius: 15px 15px 0 0;
   border-top: 1px solid #000000;
@@ -6997,6 +7013,9 @@ footer {
 
 .FormUpHeader {
   margin-bottom: 0.5em; }
+
+#PostFormUp p {
+  margin: 0.5em 0; }
 
 .CommentUp {
   max-width: 60%;

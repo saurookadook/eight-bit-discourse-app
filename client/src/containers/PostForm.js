@@ -71,7 +71,7 @@ class PostForm extends Component {
         <React.Fragment>
           <h6 className="FormUpHeader">Anything to discuss with the hive mind?</h6>
           <form
-            id="post-form"
+            id="PostFormUp"
             onSubmit={this.onSubmitHandler}
           >
             <p>
