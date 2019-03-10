@@ -51,23 +51,25 @@ class CommentForm extends Component {
   render() {
     return (
       <div className="OneUp FormUp CommentUp">
-        <h3>Add a comment:</h3>
+        <h6>Add a comment:</h6>
         <form
           className="CommentForm"
           onSubmit={this.handleOnSubmit}
         >
-          <input
-            ref="contentInput"
-            className="mx-2"
-            type="text"
-            name="content"
-            placeholder="Content"
-            value={this.state.content}
-            onChange={this.handleOnChange}
-          />
-          <SubmitButton
-            text="Add a comment"
-          />
+          <p>
+            <input
+              ref="contentInput"
+              className="mx-2"
+              type="text"
+              name="content"
+              placeholder="Content"
+              value={this.state.content}
+              onChange={this.handleOnChange}
+            />
+            <SubmitButton
+              text="Add a comment"
+            />
+          </p>
         </form>
       </div>
     )

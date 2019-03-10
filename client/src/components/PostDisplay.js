@@ -33,9 +33,9 @@ class PostDisplay extends Component {
       <div className="PostDislay">
         <Post post={post} />
         <div className="CommentsContainer">
-          <h4 className="CloudBubble CommentsHeader">
+          <h6 className="CloudBubble CommentsHeader">
             <b>Comments:</b>
-          </h4>
+          </h6>
           <div className="CloudBubble">
             {post.comments.map((comment, index) => {
               return (

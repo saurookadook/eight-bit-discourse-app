@@ -24,7 +24,7 @@
   background: $c-yellow--header;
   display: grid;
   grid-template-columns: 70% 30%;
-  margin-top: 40px;
+  margin-top: $rems--2s;
   min-height: $px--m;
   width: 100vw;
 }
@@ -40,6 +40,10 @@
     1px -1px 0 $c-black,
     -1px 1px 0 $c-black,
     1px 1px 0 $c-black;
+}
+
+.AppName {
+  font-size: $rems--2s!important;
 }
 
 .PageHeaderImage {
@@ -70,5 +74,6 @@
 }
 
 .Separator {
+  font-size: ($rems--s * 1.5);
   margin: 0 $ems--xs;
 }

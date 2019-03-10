@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import SubmitButton from '../../components/buttons/SubmitButton';
+
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
 
@@ -48,9 +50,9 @@ class LogInForm extends Component {
   render() {
     return (
       <div className="OneUp FormUp">
-        <h3 className="FormUpHeader">Continue the discourse...</h3>
+        <h6 className="FormUpHeader">Continue the discourse...</h6>
         <form
-          id="post-form"
+          id="PostFormUp"
           onSubmit={this.onLogIn}
         >
           <p>
@@ -79,9 +81,9 @@ class LogInForm extends Component {
               onChange={this.onChangeHandler}
             />
           </p>
-          <button type="submit">
-            Log In
-          </button>
+          <SubmitButton
+            text="Log In"
+          />
         </form>
       </div>
     )

@@ -21,3 +21,9 @@
   @include col();
   align-items: center;
 }
+
+.ButtonsContainer {
+  @include row();
+  justify-content: space-evenly;
+  margin-top: $ems--xs;
+}

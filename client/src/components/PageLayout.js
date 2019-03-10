@@ -8,7 +8,7 @@ export const PageLayout = () =>
     </div>
     <img
       className="PageHeaderImage"
-      src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      src="/images/mario-luigi-yoschi-figures-163036.jpeg"
       alt=""
     />
   </div>

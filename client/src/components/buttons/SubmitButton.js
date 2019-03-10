@@ -6,9 +6,11 @@ const SubmitButton = ({ text }) => {
       className="BtnBasic SubmitBtn"
       type="submit"
     >
-      <i className="fas fa-circle" >
-        <span className="BtnText">{ text }</span>
-      </i>
+      <p>
+        <i className="fas fa-circle" >
+          <span className="BtnText">{ text }</span>
+        </i>
+      </p>
     </button>
   )
 }
