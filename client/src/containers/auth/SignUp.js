@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import SubmitButton from '../../components/buttons/SubmitButton';
+
 // Constants/Styles
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
@@ -47,8 +49,8 @@ class SignUpForm extends Component {
   render() {
     return (
       <div className="OneUp FormUp">
-        <h3 className="FormUpHeader">Join the conversation!</h3>
-        <form id="post-form" onSubmit={this.onSignUp.bind(this)}>
+        <h6 className="FormUpHeader">Join the conversation!</h6>
+        <form id="PostFormUp" onSubmit={this.onSignUp.bind(this)}>
           <p>
             <span className="InputLabel">
               Username: 
@@ -90,7 +92,9 @@ class SignUpForm extends Component {
               onChange={this.onChangeHandler} 
             />
           </p>
-          <button type="submit">Sign Up</button>
+          <SubmitButton
+            text="Sign Up"
+          />
         </form>
       </div>
     )

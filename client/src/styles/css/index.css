@@ -6815,6 +6815,11 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+@font-face {
+  font-family: 'Press Start 2P';
+  src: local("Press Start 2P"), URL("../../fonts/PressStart2P.ttf") format("truetype");
+  font-style: 'cursive';
+  font-weight: 200; }
 body {
   background: linear-gradient(to bottom right, #6695F5, gray);
   font-family: sans-serif;
@@ -6822,8 +6827,17 @@ body {
   min-height: 1000px;
   padding: 0; }
 
-a {
-  color: #000000; }
+* {
+  font-family: 'Press Start 2P', 'cursive';
+  font-size: 100%;
+  font-style: normal; }
+
+p {
+  font-size: 0.5em;
+  margin-bottom: 0; }
+
+.fas {
+  font-size: 150% !important; }
 
 .OneUp {
   background: #E47134;
@@ -6874,20 +6888,38 @@ a {
   min-width: 40%; }
 
 .BubbleLink {
-  color: #34282C; }
+  color: #34282C !important; }
+  .BubbleLink:hover {
+    transform: scale(1.05) !important; }
 
 .BtnBasic {
   background: transparent;
   border: 1px solid gray;
-  border-radius: 20px; }
+  border-radius: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 35px;
+  min-height: 20px;
+  padding: 0.5em; }
+  .BtnBasic:hover {
+    transform: scale(1.1) !important; }
+
+i {
+  margin: auto;
+  padding-left: 0.5em; }
 
 .BtnText {
-  margin-left: 0.5em; }
+  font-size: 0.5em;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0.5em;
+  padding-right: 0.5em; }
 
-.DeleteBtn {
-  margin-top: 0.5em !important;
-  margin-bottom: 0.5em;
-  margin-left: 1em; }
+.SubmitBtn {
+  padding: 0 0.5em !important; }
+
+.EditBtn {
+  margin-top: 0.5em !important; }
 
 /* PostDisplay */
 .CommentsContainer {
@@ -6908,7 +6940,13 @@ a {
 .Comment {
   display: flex;
   flex-direction: row;
-  align-items: baseline; }
+  align-items: baseline;
+  min-height: 35px; }
+  .Comment .BtnBasic {
+    margin-left: 1em; }
+  .Comment p {
+    margin-top: auto;
+    margin-bottom: auto; }
 
 .ViewContainer {
   display: flex;
@@ -6934,6 +6972,12 @@ a {
   flex-direction: column;
   align-items: center; }
 
+.ButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 0.5em; }
+
 /* Footer */
 footer {
   background-color: #BA5425;
@@ -6942,12 +6986,15 @@ footer {
   footer * {
     text-align: center; }
 
+.FooterBase {
+  padding: 1em 0; }
+
 .FooterBushes {
   border-radius: 15px 15px 0 0;
   border-top: 1px solid #000000;
   border-right: 1px solid #000000;
   border-left: 1px solid #000000;
-  font-size: 1em;
+  font-size: 0.75em;
   text-align: center; }
   .FooterBushes .FooterLink {
     color: #000000;
@@ -6970,6 +7017,9 @@ footer {
 .FormUpHeader {
   margin-bottom: 0.5em; }
 
+#PostFormUp p {
+  margin: 0.5em 0; }
+
 .CommentUp {
   max-width: 60%;
   padding: 2em;
@@ -6984,7 +7034,9 @@ footer {
   text-align: center; }
 
 .NavBar {
-  background: #000000; }
+  background: #000000;
+  font-size: 75%;
+  min-height: 3em; }
 
 .Home {
   margin-right: 1em; }
@@ -7020,7 +7072,7 @@ footer {
   background: #ffc107;
   display: grid;
   grid-template-columns: 70% 30%;
-  margin-top: 40px;
+  margin-top: 2em;
   min-height: 250px;
   width: 100vw; }
 
@@ -7032,6 +7084,9 @@ footer {
   justify-content: center;
   padding-left: 5em;
   text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
+
+.AppName {
+  font-size: 2em !important; }
 
 .PageHeaderImage {
   height: 100%; }
@@ -7049,6 +7104,7 @@ footer {
   margin-bottom: 1em; }
 
 .Separator {
+  font-size: 1.5em;
   margin: 0 0.5em; }
 
 /*# sourceMappingURL=index.css.map */

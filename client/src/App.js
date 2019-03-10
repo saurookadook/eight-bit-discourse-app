@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // Constants/Styles
 import * as actions from './actions';
 import * as routes from './constants/routes';
-import './styles/css/index.css';
 
 // Navigation
 import NavBar from './components/NavBar';

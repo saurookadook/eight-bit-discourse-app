@@ -2,18 +2,38 @@
   background: $bg-transparent;
   border: 1px solid $c-gray;
   border-radius: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 35px;
+  min-height: 20px;
+  padding: $ems--xs;
+
+  &:hover {
+    transform: scale(1.1)!important;
+  }
+}
+
+i {
+  margin: auto;
+  padding-left: $ems--xs;
 }
 
 .BtnText {
+  font-size: $rems--xs;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: $rems--xs;
+  padding-right: $ems--xs;
 }
 
-// .EditBtn {
-//   padding: $rems--xs;
-// }
+.SubmitBtn {
+  padding: 0 $ems--xs!important;
+}
 
-.DeleteBtn {
+.EditBtn {
   margin-top: $ems--xs!important;
-  margin-bottom: $ems--xs;
-  margin-left: $ems--s;
 }
+
+// .DeleteBtn {
+//   margin-left: $ems--xs;
+// }
