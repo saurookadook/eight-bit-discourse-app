@@ -54,8 +54,20 @@ class PostForm extends Component {
 
     this.props.submitPost(this.state)
       .then(resp => {
-        if (!resp) {
-          event.currentTarget.reset();
+        if (!resp) { 
+          this.refs.titleInput.value = '';
+          this.refs.gameInput.value = '';
+          this.refs.discussionInput.value = '';
+          this.refs.ratingInput.value = '';
+
+          this.setState({
+            title: '',
+            game: '',
+            user: this.state.user,
+            discussion: '',
+            rating: ''
+          })
+          window.alert("New post successfully added!");
         } else {
           window.alert(`${resp}`);
         }

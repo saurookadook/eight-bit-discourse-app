@@ -41,9 +41,11 @@ export const submitPost = (formContent) => {
       body: JSON.stringify({post: formContent})
     })
       .then(response => response.json())
-      .then(posts => dispatch({ 
-        type: types.SET_POSTS, 
-        posts }));
+      .then(posts => { dispatch({ 
+          type: types.SET_POSTS, 
+          posts
+        })
+      });
   }
 }
 
