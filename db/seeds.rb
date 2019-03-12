@@ -19,6 +19,14 @@ post1.save
 post3 = user3.posts.build(title: "The Importance of Aloy", game: "Horizon: Zero Dawn", discussion: "Aloy is perhaps the greatest female protagonist I have ever experienced in an video game. Between her demeanor, personality, and overall design, there can be no denying that she's an incredibly well-developed character. Additionally, her creation seems to be an effort by the developers to inject the gaming community with feminism, something sorely lacking therein.", rating: "9", user_id: 3)
 post3.save
 
+post4 = user3.posts.build(
+  title: "A True Masterpiece",
+  game: "The Legend of Zelda: Breath of the Wild",
+  discussion: "Breath of the Wild is one of the greatest games I've ever played, for a myriad of reasons. Aside from the incredible gameplay and story, the soundtrack, both in its raw state and implementation during gameplay, is unlike anything I've ever experienced before.",
+  rating: 10,
+  user_id: 3
+)
+
 # post4 = user2.posts.build(title: "", game: "", discussion: "", rating: "", user_id: "")
 # post4.save
 

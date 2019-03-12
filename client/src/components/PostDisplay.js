@@ -37,7 +37,7 @@ class PostDisplay extends Component {
             <b>Comments:</b>
           </h6>
           <div className="CloudBubble">
-            {post.comments.map((comment, index) => {
+            { post.comments.length > 0 ? post.comments.map((comment, index) => {
               return (
                 <Comment
                   key={index}
@@ -46,7 +46,9 @@ class PostDisplay extends Component {
                   onDelete={this.removeComment}
                 />
               )
-            })}
+            }) : (
+              <p>No comments yet...</p>
+            )}
           </div>
           { auth.user && (
             <CommentForm
