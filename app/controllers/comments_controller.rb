@@ -1,4 +1,5 @@
 class CommentsController < ApiController
+  before_action :authenticate_user, only: [:create, :update, :destroy]
   before_action :set_user!, only: [:create, :update, :destroy]
   # might only need create, update, destroy...?
 
@@ -20,7 +21,6 @@ class CommentsController < ApiController
 
   def create
     @post = Post.find(params[:post_id])
-
     @comment = @post.comments.build(comment_params)
     
     if @comment.valid?
