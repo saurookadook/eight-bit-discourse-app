@@ -1,5 +1,7 @@
 .NavBar {
   background: $c-black;
+  font-size: 75%;
+  min-height: ($rems--s + $rems--2s);
 }
  
 .Home {
