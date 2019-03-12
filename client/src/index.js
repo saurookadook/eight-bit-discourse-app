@@ -5,10 +5,17 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store.js';
 
+import { authenticate } from '../src/actions/authActions';
+
 // -- Styles --
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import "./styles/css/index.css";
 import './styles/scss/index.scss';
+
+if (!localStorage.getItem('token') && localStorage.getItem('user')) {
+  authenticate(localStorage.user);
+  
+}
 
 // TODO: globally set CSRF token from csrf_meta_tag?
 
