@@ -10,7 +10,8 @@ export const updateUser = (user) => {
       method: 'PATCH',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.token}`
       },
       body: JSON.stringify({ user })
     })
