@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Constants
+import * as actions from '../actions';
+
 // Static/Stateless
 import SubmitButton from '../components/buttons/SubmitButton';
-
-// Constants/Styles
-import * as actions from '../actions';
 
 class CommentForm extends Component {
   constructor(props) {

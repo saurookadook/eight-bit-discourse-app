@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-// Constants/Styles
+// Constants
 import * as routes from '../constants/routes';
 
 // TODO: Keep these Bootstrap elements for now, but eventually remove

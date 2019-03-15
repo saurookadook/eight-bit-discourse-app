@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// Constants/Styles
+// Constants
 import * as actions from '../actions'
 
 // Static/Stateless
 import { LoadingPage } from '../components/LoadingPage';
 
-// Content/Forms
+// Content
 import PostForm from './PostForm';
 import PostListItem from '../components/PostListItem';
 

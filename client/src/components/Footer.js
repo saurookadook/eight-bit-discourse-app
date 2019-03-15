@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Constants/Styles
+// Constants
 import * as routes from '../constants/routes';
 
 // TODO: remove Bootstrap

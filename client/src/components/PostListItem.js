@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+// Static/Stateless
 import DeleteButton from './buttons/DeleteButton';
 
 class PostListItem extends Component {
