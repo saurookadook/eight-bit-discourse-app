@@ -21,7 +21,7 @@ export const fetchPost = postId => {
       dispatch({ type: types.LOADING_POST });
       return fetch(`${API_URL}/posts/${postId}`)
         .then(response => response.json())
-        .then(post => { dispatch({ 
+        .then(post => { dispatch({
             type: types.SET_POST,
             post
           })
@@ -41,8 +41,8 @@ export const submitPost = (formContent) => {
       body: JSON.stringify({post: formContent})
     })
       .then(response => response.json())
-      .then(posts => { dispatch({ 
-          type: types.SET_POSTS, 
+      .then(posts => { dispatch({
+          type: types.SET_POSTS,
           posts
         })
       });

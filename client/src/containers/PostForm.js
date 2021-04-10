@@ -22,7 +22,7 @@ class PostForm extends Component {
       } else {
         return null;
       }
-      
+
     }
 
     this.state = {
@@ -54,7 +54,7 @@ class PostForm extends Component {
 
     this.props.submitPost(this.state)
       .then(resp => {
-        if (!resp) { 
+        if (!resp) {
           this.refs.titleInput.value = '';
           this.refs.gameInput.value = '';
           this.refs.discussionInput.value = '';
@@ -75,8 +75,10 @@ class PostForm extends Component {
   }
 
   render() {
-    let userLoggedIn = this.props.user ? this.props.user : false;
-    
+    const userLoggedIn = !!this.props.user;
+    const { discussion, game, rating, title } = this.state;
+    const { onChangeHandler, onSubmitHandler } = this;
+
     return (
       <div className="OneUp FormUp">
       { userLoggedIn ? (
@@ -84,7 +86,7 @@ class PostForm extends Component {
           <h6 className="FormUpHeader">Anything to discuss with the hive mind?</h6>
           <form
             id="PostFormUp"
-            onSubmit={this.onSubmitHandler}
+            onSubmit={onSubmitHandler}
           >
             <p>
               <input
@@ -93,8 +95,8 @@ class PostForm extends Component {
                 type="text"
                 name="title"
                 placeholder="Title/Topic"
-                value={this.state.title}
-                onChange={this.onChangeHandler}
+                value={title}
+                onChange={onChangeHandler}
               />
               <input
                 className="ml-2"
@@ -102,8 +104,8 @@ class PostForm extends Component {
                 type="text"
                 name="game"
                 placeholder="Game"
-                value={this.state.game}
-                onChange={this.onChangeHandler}
+                value={game}
+                onChange={onChangeHandler}
               />
             </p>
             <p>
@@ -112,8 +114,8 @@ class PostForm extends Component {
                 name="discussion"
                 className="textarea"
                 placeholder="Your thoughts...."
-                value={this.state.discussion}
-                onChange={this.onChangeHandler}
+                value={discussion}
+                onChange={onChangeHandler}
               />
             </p>
             <p>
@@ -125,8 +127,8 @@ class PostForm extends Component {
                 type="number"
                 name="rating"
                 placeholder="Rating (1-10)"
-                value={this.state.rating}
-                onChange={this.onChangeHandler}
+                value={rating}
+                onChange={onChangeHandler}
               />
             </p>
             <SubmitButton

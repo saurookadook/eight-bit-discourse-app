@@ -49,7 +49,7 @@ class EditInfoForm extends Component {
           onSubmit={this.updateUser}
         >
           <p>
-            <input 
+            <input
               ref="usernameInput"
               type="text"
               name="username"
