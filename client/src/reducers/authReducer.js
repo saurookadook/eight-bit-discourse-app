@@ -6,7 +6,7 @@ const authLocal = () => {
 
 const userLocal = () => {
   if (localStorage.user) {
-    return JSON.parse(localStorage.user);  
+    return JSON.parse(localStorage.user);
   }
   return null;
 }

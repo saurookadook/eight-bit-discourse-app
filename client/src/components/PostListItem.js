@@ -21,7 +21,7 @@ class PostListItem extends Component {
             <strong>Author:</strong> { post.user.username }
             <span className="Separator">||</span>
             <strong>Game of discussion:</strong> { post.game }
-            { user ? post.user.username === user.username && (
+            { (user && post.user.username === user.username) &&
               <React.Fragment>
                 <span className="Separator">||</span>
                 <DeleteButton
@@ -29,7 +29,7 @@ class PostListItem extends Component {
                   onClick={() => onDelete({ post, user })}
                 />
               </React.Fragment>
-            ) : ('')}
+            }
           </p>
         </div>
       </div>
@@ -38,3 +38,13 @@ class PostListItem extends Component {
 }
 
 export default PostListItem;
+
+// { user ? post.user.username === user.username && (
+//   <React.Fragment>
+//     <span className="Separator">||</span>
+//     <DeleteButton
+//       text="Delete"
+//       onClick={() => onDelete({ post, user })}
+//     />
+//   </React.Fragment>
+// ) : ('')}
