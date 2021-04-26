@@ -22,7 +22,7 @@ class PostForm extends Component {
       } else {
         return null;
       }
-      
+
     }
 
     this.state = {
@@ -64,7 +64,7 @@ class PostForm extends Component {
 
   render() {
     let userLoggedIn = this.props.user ? this.props.user : false;
-    
+
     return (
       <div className="OneUp FormUp">
       { userLoggedIn ? (
