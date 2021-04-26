@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Static/Stateless
 import DeleteButton from './buttons/DeleteButton';
 
 const Comment = ({ auth, comment, onDelete }) =>
@@ -7,12 +8,12 @@ const Comment = ({ auth, comment, onDelete }) =>
     <p>
       <strong>{comment.user.username}</strong>: {comment.content}
     </p>
-    { auth.user.username === comment.user.username && (
+    { auth.user ? auth.user.username === comment.user.username && (
       <DeleteButton
         text="Remove"
         onClick={() => onDelete({ auth, comment })}
       />
-    )}
+    ) : ('')}
   </div>
 
 export default Comment;

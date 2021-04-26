@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// Constants/Styles
+// Constants
 import * as actions from '../actions'
 
 // Static/Stateless
 import { LoadingPage } from '../components/LoadingPage';
 
-// Content/Forms
+// Content
 import PostForm from './PostForm';
 import PostListItem from '../components/PostListItem';
 
@@ -40,14 +40,15 @@ class PostsPage extends Component {
               user={auth.user}
             />
             <div className="PostsList text-left mt-3 ml-3">
-              {posts.all.map((post, i) => (
+              {(Array.isArray(posts.all) && posts.all.map((post, i) => (
                 <PostListItem
                   key={i}
                   post={post}
                   user={auth.user}
                   onDelete={this.removePost}
                 />
-              ))}
+              ))
+              || 'No posts :(')}
             </div>
           </React.Fragment>
         ) : (

@@ -3,20 +3,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// Constants/Styles
+// Constants
 import * as actions from './actions';
 import * as routes from './constants/routes';
 
 // Navigation
 import NavBar from './components/NavBar';
 
-// Static
+// Static/Stateless
 import HtmlHead from './components/shared/HtmlHead';
 import { PageLayout } from './components/PageLayout'
 import { Footer } from './components/Footer';
 import { Welcome } from './components/Welcome';
 import About from './components/About';
-
 
 // Content
 import PostsPage from './containers/PostsPage';

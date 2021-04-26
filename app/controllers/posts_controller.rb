@@ -1,4 +1,5 @@
 class PostsController < ApiController
+  before_action :authenticate_user, only: [:create, :update, :destroy]
   before_action :set_user!, only: [:create, :update, :destroy]
 
   def index

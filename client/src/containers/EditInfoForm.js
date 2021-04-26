@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// Constants/Styles
+// Constants
 import * as actions from '../actions';
 
 // Static/Stateless
@@ -49,7 +49,7 @@ class EditInfoForm extends Component {
           onSubmit={this.updateUser}
         >
           <p>
-            <input 
+            <input
               ref="usernameInput"
               type="text"
               name="username"

@@ -32,3 +32,9 @@
 
 # Ignore CSS maps
 /client/src/styles/css/*
+
+# Other
+node_modules
+node_modules/*
+/node_modules
+/node_modules/*

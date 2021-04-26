@@ -21,7 +21,7 @@ export const fetchPost = postId => {
       dispatch({ type: types.LOADING_POST });
       return fetch(`${API_URL}/posts/${postId}`)
         .then(response => response.json())
-        .then(post => { dispatch({ 
+        .then(post => { dispatch({
             type: types.SET_POST,
             post
           })
@@ -35,14 +35,17 @@ export const submitPost = (formContent) => {
     return fetch(`${API_URL}/posts`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.token}`
       },
       body: JSON.stringify({post: formContent})
     })
       .then(response => response.json())
-      .then(posts => dispatch({ 
-        type: types.SET_POSTS, 
-        posts }));
+      .then(posts => { dispatch({
+          type: types.SET_POSTS,
+          posts
+        })
+      });
   }
 }
 
@@ -54,7 +57,8 @@ export const updatePost = (post) => {
       method: 'PATCH',
       header: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.token}`
       },
       body: JSON.stringify({post})
     })
@@ -71,7 +75,8 @@ export const deletePost = post => {
     return fetch(`${API_URL}/posts/${post.id}`, {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.token}`
       },
       body: JSON.stringify({ post })
     })
