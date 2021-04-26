@@ -42,7 +42,7 @@ export const signup = user => {
         "Content-Type":"application/json"
       },
       body: JSON.stringify(
-          { 
+          {
             user: {
               username: user.username,
               email: user.email,
@@ -116,7 +116,7 @@ export const getUser = userCredentials => {
     }),
     body: JSON.stringify({user: userCredentials}),
   });
-  
+
   return fetch(request)
     .then(response => response.json())
     .then(userJson => userJson)

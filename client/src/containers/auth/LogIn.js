@@ -13,7 +13,7 @@ class LogInForm extends Component {
   constructor() {
     super()
 
-    this.state = { 
+    this.state = {
       email: '',
       password: ''
     }
@@ -74,7 +74,7 @@ class LogInForm extends Component {
             <span className="InputLabel">
               Password:
             </span>
-            <input 
+            <input
               ref="password"
               type="password"
               name="password"
