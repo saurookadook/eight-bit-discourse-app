@@ -24,7 +24,7 @@ class PostsPage extends Component {
     const postData = {
       ...data.post
     }
-    
+
     this.props.deletePost(postData);
   }
 
@@ -36,18 +36,19 @@ class PostsPage extends Component {
       <div className="PostsContainer">
         { hasData ? (
           <React.Fragment>
-            <PostForm 
-              user={auth.user} 
+            <PostForm
+              user={auth.user}
             />
             <div className="PostsList text-left mt-3 ml-3">
-              {posts.all.map((post, i) => (
+              {(Array.isArray(posts.all) && posts.all.map((post, i) => (
                 <PostListItem
                   key={i}
                   post={post}
                   user={auth.user}
                   onDelete={this.removePost}
                 />
-              ))}
+              ))
+              || 'No posts :(')}
             </div>
           </React.Fragment>
         ) : (
