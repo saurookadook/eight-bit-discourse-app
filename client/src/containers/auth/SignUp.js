@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import SubmitButton from '../../components/buttons/SubmitButton';
-
 // Constants/Styles
 import * as actions from '../../actions';
 import * as routes from '../../constants/routes';
+
+// Static/Stateless
+import SubmitButton from '../../components/buttons/SubmitButton';
 
 class SignUpForm extends Component {
   constructor(props) {

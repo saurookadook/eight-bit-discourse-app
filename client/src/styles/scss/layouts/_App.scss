@@ -3,7 +3,7 @@
   align-items: center;
   background: $bg-transparent;
   text-align: center;
-} 
+}
 
 /* Messages/Notices */
 .ErrorMsg {
@@ -12,7 +12,7 @@
 
   a {
     color: $c-white;
-    
+
     &:hover {
       color: $c-black;
     }
@@ -53,6 +53,7 @@
   // -o-background-size: cover;
   // background-size: cover;
   height: 100%;
+  max-height: 300px;
   // width: 260px;
 }
 

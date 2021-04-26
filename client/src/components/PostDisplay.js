@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Constants
 import * as actions from '../actions';
 
 // Content
@@ -37,7 +38,7 @@ class PostDisplay extends Component {
             <b>Comments:</b>
           </h6>
           <div className="CloudBubble">
-            {post.comments.map((comment, index) => {
+            { post.comments.length > 0 ? post.comments.map((comment, index) => {
               return (
                 <Comment
                   key={index}
@@ -46,7 +47,9 @@ class PostDisplay extends Component {
                   onDelete={this.removeComment}
                 />
               )
-            })}
+            }) : (
+              <p>No comments yet...</p>
+            )}
           </div>
           { auth.user && (
             <CommentForm

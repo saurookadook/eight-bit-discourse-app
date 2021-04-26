@@ -1,7 +1,7 @@
 class UsersController < ApiController
   # TODO: fix for update
   before_action :authenticate_user, only: [:update]
-  before_action :set_user!, only: [:show, :edit, :update, :delete]
+  before_action :set_user!, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -23,9 +23,6 @@ class UsersController < ApiController
     end
   end
 
-  def edit
-  end
-
   def update
     @user.update(user_params)
     if @user.valid?
@@ -37,7 +34,7 @@ class UsersController < ApiController
     end
   end
 
-  def delete
+  def destroy
   end
 
   def find

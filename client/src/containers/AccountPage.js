@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// Constants/Styles
+// Constants
 import * as actions from '../actions';
 
 // Static/Stateless
 import EditButton from '../components/buttons/EditButton';
 import UserGamesDisplay from '../components/UserGamesDisplay';
 
-// Content/Forms
+// Content
 import EditInfoForm from './EditInfoForm';
 
 class AccountPage extends Component {
