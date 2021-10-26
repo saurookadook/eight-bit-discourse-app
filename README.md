@@ -8,19 +8,63 @@ The purposed of this site (and my eventual hope for it) is to encourage the adop
 
 ## Ruby version
 
-The Ruby version used is 2.3.3p222.
+The Ruby version used is 2.6.3.
 
-## Configuration and Installation
+## Installation
+<!-- TODO: create a script for this? -->
+### Rails API
+Starting in the root directory of the repo, install the required Gems:
+```sh
+$ bundle install
+```
 
-To view on a local environment, enter the following commands into terminal to set up the Rails API:
+Create, migrate, and seed the local database:
+```sh
+$ rake db:create
+$ rake db:migrate
+$ rake db:seed
+```
 
-  1. `git clone git@github.com:saurookadook/eight-bit-discourse.git`
-  2. `cd eight-bit-discourse`
-  3. `bundle install`
-  4. `rake db:create`
-  5. `rake db:migrate`
-  6. `rake db:seed`
+### React Frontend
+To set up the React frontend, navigate to the frontend directory:
+```sh
+$ cd ./client
+```
 
-To set up the React frontend, open a new tab in terminal and `cd` to the `client` directory, and run `npm install`, `npm run sass:update`, and `npm run build`.
+Install the required Node packages:
+```sh
+$ npm install
+```
 
-When booting up the app, you will need to run `npm run sass:watch` in the `client` tab (in order for it to watch any potential changes made in the files located in `styles/scss`), and then run `rake start` in the original tab, which should be in the main directory.
+Update the CSS compiled from SASS:
+```sh
+$ npm run sass:update
+```
+
+Build the frontend bundle:
+```sh
+$ npm run build
+```
+
+## Development
+When booting up the app, you should have two terminal windows open.
+
+In the first, navigate to the `client` directory and initiate the job to watch changes to files in `styles/scss`:
+```sh
+$ cd ./client
+$ npm run sass:watch
+```
+
+Then in the other tab, start both the backend and frontend servers with:
+```sh
+$ rake start
+```
+
+### Highlights
+- Authenticate users client-side with JWT using the [knock](https://github.com/nsarno/knock) and [jwt](https://github.com/jwt/ruby-jwt) gems
+- Use [React](https://github.com/facebook/react) to handle changes to frontend via a virtual DOM
+- Use [Redux](https://github.com/reduxjs/redux) in order to track changes to state in store
+- Configure [Thunk middleware](https://github.com/reduxjs/redux-thunk) to fetch requests in action creators to resolve properly
+- Incorporates [Rails API backend](https://guides.rubyonrails.org/v5.2/api_app.html) to handle retrieving data from database
+- Design database schema and configure [ActiveRecord](https://guides.rubyonrails.org/v5.1/active_record_basics.html) associations
+- Configure [bcrypt gem](https://github.com/bcrypt-ruby/bcrypt-ruby) for securing passwords
