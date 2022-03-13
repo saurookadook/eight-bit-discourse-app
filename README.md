@@ -69,4 +69,3 @@ Then in the other tab, start both the backend and frontend servers with:
 ```sh
 $ rake start
 ```
-
