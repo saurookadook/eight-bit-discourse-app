@@ -6,15 +6,15 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 
 // -- Styles --
-import './styles/scss/index.scss';
+import './styles/css/index.css';
 
 // TODO: globally set CSRF token from csrf_meta_tag?
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root") // eslint-disable-line no-undef
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root") // eslint-disable-line no-undef
 );
 
 // If you want your app to work offline and load faster, you can change

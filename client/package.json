@@ -1,44 +1,44 @@
 {
-  "name": "client",
-  "version": "0.1.6",
-  "private": true,
-  "proxy": "http://localhost:3001",
-  "engines": {
-    "node": "15.x.x",
-    "npm": "7.x.x"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.15",
-    "bootstrap": "^4.6.0",
-    "es6-promise": "^4.2.5",
-    "isomorphic-fetch": "^2.2.1",
-    "node-sass": "^4.14.1",
-    "rails-ujs": "^5.2.2",
-    "react": "^16.6.3",
-    "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.6.3",
-    "react-helmet": "^5.2.0",
-    "react-redux": "^5.1.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "sass:watch": "node-sass --watch src/styles/scss --output src/styles/css",
-    "sass:build": "node-sass src/styles/scss --output src/styles/css",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "name": "client",
+    "version": "0.1.6",
+    "private": true,
+    "proxy": "http://localhost:3001",
+    "engines": {
+        "node": ">=15.14.0",
+        "npm": ">=7.7.6"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.15",
+        "bootstrap": "^4.6.0",
+        "es6-promise": "^4.2.5",
+        "isomorphic-fetch": "^2.2.1",
+        "rails-ujs": "^5.2.2",
+        "react": "^16.6.3",
+        "react-bootstrap": "^0.32.4",
+        "react-dom": "^16.6.3",
+        "react-helmet": "^5.2.0",
+        "react-redux": "^5.1.1",
+        "react-router-dom": "^4.3.1",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0",
+        "sass": "^1.49.9"
+    },
+    "resolutions": {
+        "fsevents": "^2.0.0"
+    },
+    "scripts": {
+        "preinstall": "npx force-resolutions",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "sass:watch": "sass --watch src/styles/scss:src/styles/css",
+        "sass:build": "sass src/styles/scss:src/styles/css",
+        "eject": "react-scripts eject"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
 }

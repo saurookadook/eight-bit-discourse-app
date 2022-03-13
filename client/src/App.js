@@ -28,58 +28,56 @@ import LogInForm from './containers/auth/LogIn';
 import SignUpForm from './containers/auth/SignUp';
 
 class App extends Component {
-  render() {
-    const { isAuthenticated, user } = this.props.auth;
-    const { logout } = this.props;
-    
-    const publicViews = (
-      <React.Fragment>
-        <Route exact path={routes.HOME} component={Welcome} />
-        <Route exact path={routes.ABOUT} component={About} />
-        <Route exact path={routes.POSTS} component={PostsPage} />
-        <Route exact path={routes.POST} component={PostPage} />
-      </React.Fragment>
-    )
+    render() {
+        const { isAuthenticated, user } = this.props.auth;
+        const { logout } = this.props;
 
-    const unprotectedViews = (
-      <React.Fragment>
-        <Route exact path={routes.LOG_IN} component={LogInForm} />
-        <Route exact path={routes.SIGN_UP} component={SignUpForm} />
-      </React.Fragment>
-    )
+        const publicViews = (
+            <React.Fragment>
+                <Route exact path={routes.HOME} component={Welcome} />
+                <Route exact path={routes.ABOUT} component={About} />
+                <Route exact path={routes.POSTS} component={PostsPage} />
+                <Route exact path={routes.POST} component={PostPage} />
+            </React.Fragment>
+        )
 
-    const protectedViews = (
-      <React.Fragment>
-        {/* <Route exact path={routes.USERS} component={UsersList} /> */}
-        <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} /> 
-        {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */} 
-      </React.Fragment>
-    )
+        const unprotectedViews = (
+            <React.Fragment>
+                <Route exact path={routes.LOG_IN} component={LogInForm} />
+                <Route exact path={routes.SIGN_UP} component={SignUpForm} />
+            </React.Fragment>
+        )
 
-    return (
-      <Router>
-        <div className="App">
-          <HtmlHead />
-          <NavBar 
-            isAuthenticated={isAuthenticated} 
-            logout={logout} 
-          />
-          <PageLayout />
-          <div className="ViewContainer">
-            { isAuthenticated ?
-              protectedViews
-              : unprotectedViews }
-            { publicViews }
-          </div>
-          <Footer />
-        </div>
-      </Router>
-    );
-  }
+        const protectedViews = (
+            <React.Fragment>
+                {/* <Route exact path={routes.USERS} component={UsersList} /> */}
+                <Route exact path={routes.ACCOUNT} component={() => <AccountPage user={user} />} />
+                {/* <Route exact path={routes.USERS_POSTS} component={UserPostsPage} /> */}
+            </React.Fragment>
+        )
+
+        return (
+            <Router>
+                <div className="App">
+                    <HtmlHead />
+                    <NavBar
+                        isAuthenticated={isAuthenticated}
+                        logout={logout}
+                    />
+                    <PageLayout />
+                    <div className="ViewContainer">
+                        { isAuthenticated ? protectedViews : unprotectedViews }
+                        { publicViews }
+                    </div>
+                    <Footer />
+                </div>
+            </Router>
+        );
+    }
 }
 
 const mapStateToProps = state => {
-  return { ...state }
+  return { ...state };
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
