@@ -3,7 +3,7 @@
     "version": "0.1.6",
     "engines": {
         "node": "15.14.0",
-        "npm": "7.7.6"
+        "npm": "7.x.x"
     },
     "scripts": {
         "build": "cd client && npm install && npm run build && cd ..",
