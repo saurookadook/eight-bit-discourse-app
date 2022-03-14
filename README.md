@@ -1,10 +1,9 @@
 # 8-bit Discourse
 
 ## Overview
-
 Greetings, traveler, and welcome to 8-bit Discourse, a web app project built with a React frontend and Rails API backend as the final part of the curriculum for the Flatiron School.
 
-### Features
+### Highlights
 - Authenticate users client-side with JWT using the [knock](https://github.com/nsarno/knock) and [jwt](https://github.com/jwt/ruby-jwt) gems
 - Use [React](https://github.com/facebook/react) to handle changes to frontend via a virtual DOM
 - Use [Redux](https://github.com/reduxjs/redux) in order to track changes to state in store
@@ -13,7 +12,7 @@ Greetings, traveler, and welcome to 8-bit Discourse, a web app project built wit
 - Design database schema and configure [ActiveRecord](https://guides.rubyonrails.org/v5.1/active_record_basics.html) associations
 - Configure [bcrypt gem](https://github.com/bcrypt-ruby/bcrypt-ruby) for securing passwords
 
-### Usage
+## Usage
 
 The purposed of this site (and my eventual hope for it) is to encourage the adoption of animals from shelters instead of purchasing pets from breeders. With the overwhelming number of animals awaiting adoption, many are euthanized (if they are not held in no-kill shelters), something that will only happen with more frequency unless people seeking pets opt to adopt from these shelters instead of seeking out breeders.
 

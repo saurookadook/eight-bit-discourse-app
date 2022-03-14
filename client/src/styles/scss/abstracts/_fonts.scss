@@ -6,8 +6,8 @@
 
 // TODO: load font from local file
 @font-face {
-  font-family: 'Press Start 2P';
-  src: local('Press Start 2P'), URL('../../fonts/PressStart2P.ttf') format('truetype');
-  font-style: 'cursive';
-  font-weight: 200;
+    font-family: 'Press Start 2P';
+    src: local('Press Start 2P'), URL('../fonts/PressStart2P.ttf') format('truetype');
+    font-style: 'cursive';
+    font-weight: 200;
 }

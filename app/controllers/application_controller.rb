@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  include Knock::Authenticable
+    include Knock::Authenticable
 
-  def fallback_index_html
-    render file: 'public/index.html'
-  end
+    def fallback_index_html
+        render file: 'public/index.html'
+    end
 end
