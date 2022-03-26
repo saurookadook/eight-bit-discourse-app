@@ -41,6 +41,9 @@ const config = {
       // Learn more about loaders from https://webpack.js.org/loaders/
     ],
   },
+  resolve: {
+      extensions: [".ts", ".js"]
+  }
 };
 
 module.exports = () => {
