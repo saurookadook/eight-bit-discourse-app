@@ -44,7 +44,7 @@
     "scripts": {
         "preinstall": "npx force-resolutions",
         "start": "react-scripts start",
-        "build": "webpack --mode=production --node-env=production",
+        "build": "npm run sass:build && npm run build:prod",
         "test": "react-scripts test --env=jsdom",
         "sass:watch": "sass --watch src/styles/scss:src/styles/css",
         "sass:build": "sass src/styles/scss:src/styles/css",
