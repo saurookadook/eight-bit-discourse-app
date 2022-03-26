@@ -1,11 +1,11 @@
 {
-    "name": "client",
-    "version": "0.1.6",
+    "name": "eight-bit-discourse-client",
+    "version": "1.0.0",
     "private": true,
     "proxy": "http://localhost:3001",
     "engines": {
-        "node": "15.14.0",
-        "npm": "7.7.6"
+        "node": "14.18.1",
+        "npm": "6.14.15"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.15",
@@ -21,8 +21,7 @@
         "react-router-dom": "^4.3.1",
         "react-scripts": "^5.0.0",
         "redux": "^4.0.1",
-        "redux-thunk": "^2.3.0",
-        "sass": "^1.49.9"
+        "redux-thunk": "^2.3.0"
     },
     "resolutions": {
         "fsevents": "^2.0.0"
@@ -30,16 +29,34 @@
     "scripts": {
         "preinstall": "npx force-resolutions",
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "webpack --mode=production --node-env=production",
         "test": "react-scripts test --env=jsdom",
         "sass:watch": "sass --watch src/styles/scss:src/styles/css",
         "sass:build": "sass src/styles/scss:src/styles/css",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "build:dev": "webpack --mode=development",
+        "build:prod": "webpack --mode=production --node-env=production",
+        "watch": "webpack --watch"
     },
     "browserslist": [
         ">0.2%",
         "not dead",
         "not ie <= 11",
         "not op_mini all"
-    ]
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.17.7",
+        "@babel/preset-env": "^7.16.11",
+        "@webpack-cli/generators": "^2.4.2",
+        "babel-loader": "^8.2.3",
+        "css-loader": "^6.7.1",
+        "mini-css-extract-plugin": "^2.6.0",
+        "prettier": "^2.5.1",
+        "sass": "^1.49.9",
+        "sass-loader": "^12.6.0",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.70.0",
+        "webpack-cli": "^4.9.2"
+    },
+    "description": "My webpack project"
 }
